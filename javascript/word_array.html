@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>끝말잇기</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <style>
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            height: 400px;
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            margin-top: 100px;
+            font-size: 35px;
+            padding: 50px;
+            font-weight: 700;
+            position: relative;
+        }
+        h1 span {
+            
+            position: absolute;
+            bottom: 0;
+            font-size: 45px;
+            color: brown;
+        }
+        #start {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        #firstWord {
+            font-size: 30px;
+            display: inline-block;
+            font-weight: 700;
+        }
+        #start i {
+            display: block;
+            font-size: 25px;
+            font-weight: 700;
+            margin: 20px 0 ;
+        }
+        #answerWord {
+            font-size: 30px;
+            text-align: right;
+            color: rgb(61, 14, 14);
+            border: 3px solid brown;
+            width: 200px;
+            height: 50px;
+        }
+        #btn {
+            border: 1px solid rgb(219, 182, 182);
+            background-color: rgb(219, 182, 182);
+            border-radius: 500px;
+            color: rgb(61, 14, 14);
+            padding: 10px 20px;    
+            margin: 10px 0 40px;        
+        }
+        #result {
+
+            font-size: 20px;
+            font-weight: 700;
+            color: #f00;
+        }
+        #writtenWord p {
+            padding: 10px 20px;
+            border: 1px solid #d9d9d9;
+            border-radius: 100px;
+            box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+            margin: 10px 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    	<h1>끝말잇기입니다<span>람쥐</span></h1>
+    	<div id="text">
+            <div id="start">
+            	    제시어
+                    <div id="firstWord">강희진</div> 
+                    <i class="xi-arrow-down"></i>
+                    <input type="text" id="answerWord"> 
+            </div>
+            <button id="btn">보내기</button>
+            <div id="result"></div>
+            <div id="writtenWord"></div>
+        </div>
+    </div>
+</body>
+<script>
+    // 변수
+    let firstWord = document.querySelector("#firstWord");
+    let answerWord = document.querySelector("#answerWord");
+    let btn = document.querySelector("#btn");
+    let result = document.querySelector("#result");
+    let allWords = [];
+    let writtenWord = document.querySelector("#writtenWord");
+
+    //변수에 함수를 할당
+    let checkWord = function() {
+        if(allWords.indexOf(answerWord.value) === -1) {
+            if(firstWord.textContent.charAt(firstWord.textContent.length-1) === answerWord.value.charAt(0)) {
+                result.innerHTML = "정답";
+                firstWord.textContent = answerWord.value;
+                // allWords = allWords + (" " + answerWord.value);
+                allWords.push(answerWord.value);
+                console.log(allWords);
+                answerWord.value = "";
+                writtenWord.innerHTML+=`<p>${allWords[allWords.length-1]}</p>`;  
+                                //``는 프로그램에서 읽을수 있는 문자로 변경   ${}중요한부분은 표시
+                // writtenWord.innerHTML+="<p>" + allWords[allWords.length-1] + "</p>";  
+                                // writtenWord.textContent = writtenWord.textContent + allWords[allWords.length];
+                
+            }
+            else {
+                result.innerHTML = "땡";
+                answerWord.value = "";
+            }
+        }
+        else {
+            alert("사용된 단어입니다.");
+            answerWord.value = "";
+        }
+        answerWord.focus();
+    }
+
+    // 버튼을 눌렀을때
+    btn.addEventListener("click",()=>checkWord());
+
+    // 엔터키 눌렀을때
+    answerWord.addEventListener("keyup",(e)=>{
+        if(e.keyCode === 13) {
+            checkWord();
+        }
+    })
+
+    // 같은 글자 안오게 하는 방법
+
+    //console.log(firstWord.textContent);    //  .textContent  변수에서 글자 빼오기
+    // console.log(firstWord.innerHTML);    //  .innerHTML  변수에서 글자 뺴오는데 태그까지 모두 뺴옴
+</script>
+</html>

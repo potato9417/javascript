@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>구구단</title>
+</head>
+<body>
+    <div>
+        <span id="num01"></span> X <span id="num02"></span>
+    </div>
+    <div>
+        <input type="text" id="answer"><button id="btn">확인</button>
+    </div>
+    <div id="txtResult"></div>
+    <script>
+        var num01 = document.querySelector("#num01");
+        var num02 = document.querySelector("#num02");
+        var num01Value = Math.ceil(Math.random()*9);
+        var num02Value = Math.ceil(Math.random()*9);
+        var answer = document.querySelector("#answer");
+        var btn = document.querySelector("#btn");
+        var result = document.querySelector("#txtResult");
+        num01.innerHTML = num01Value;
+        num02.innerHTML = num02Value;
+        function makeGugudan() {
+            if(num01Value*num02Value === Number(answer.value)) {
+                result.innerHTML = "정답";
+                num01Value = Math.ceil(Math.random()*9);
+                num02Value = Math.ceil(Math.random()*9);
+                num01.innerHTML = num01Value;
+                num02.innerHTML = num02Value;
+                // 자동으로 answer에 입력할수있게
+            }
+            else {
+                result.innerHTML = "땡";
+            }
+            answer.value = "";
+            answer.focus();
+        }
+        btn.addEventListener("click", function(){
+            makeGugudan();
+        });
+        answer.addEventListener("keyup",function(e){
+            if(e.keyCode === 13) {
+                makeGugudan();
+            }
+        });
+
+        // 밑에있는것을 리팩토링하면 위에처럼 나옴
+        // btn.addEventListener("click", function(){
+        //     if(num01Value*num02Value === Number(answer.value)) {
+        //         result.innerHTML = "정답";
+        //         num01Value = Math.ceil(Math.random()*9);
+        //         num02Value = Math.ceil(Math.random()*9);
+        //         num01.innerHTML = num01Value;
+        //         num02.innerHTML = num02Value;
+        //         answer.value = "";
+        //         answer.focus();
+        //         // 자동으로 answer에 입력할수있게
+        //     }
+        //     else {
+        //         result.innerHTML = "땡";
+        //         answer.value = "";
+        //         answer.focus();
+        //     }
+        // });
+        // answer.addEventListener("keyup",function(e){
+        //     if(e.keyCode === 13) {
+        //         if(num01Value*num02Value === Number(answer.value)) {
+        //             result.innerHTML = "정답";
+        //             num01Value = Math.ceil(Math.random()*9);
+        //             num02Value = Math.ceil(Math.random()*9);
+        //             num01.innerHTML = num01Value;
+        //             num02.innerHTML = num02Value;
+        //             // 자동으로 answer에 입력할수있게
+        //         }
+        //         else {
+        //             result.innerHTML = "땡";
+        //         }
+        //         answer.value = "";
+        //         answer.focus();
+        //     }
+        // });
+
+
+
+        
+        // round 반올림 ceil 올림 floor 내림 으로 소수점을 없애줘야함
+    </script>
+</body>
+</html>

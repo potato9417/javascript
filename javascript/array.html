@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // array(배열)
+        let a = [10,20,30,40];
+        let b = a;
+        a.push(50);
+        b.push(60);    // .push 밀어넣는다는뜻으로 배열을 추가
+        console.log(a, "===", b); // ->  (6) [10, 20, 30, 40, 50, 60] "===" (6) [10, 20, 30, 40, 50, 60]
+        
+
+        // 변수
+        let c = 10;
+        let d = c;
+        c = 30; 
+        console.log(c, "===", d);  // ->  30 "===" 10
+
+        // 변수-단독주택 배열-아파트
+
+        //배열
+        let arr = ["하나", "둘", "셋", "넷"]
+        // console.log(arr[0]); // ->   하나
+        // arr.push("다섯");    // .push 뒤로 밀어 넣을떄
+        // arr.pop();    // .pop 맨뒤에있는 것을 자를떄
+        // arr.unshift("영");    // .unshift 앞으로 밀어 넣을떄
+        // arr.shift();    // .shift 맨앞에있는 것을 자를떄
+        // arr.splice(1,1);    // .splice 1번쨰부터 번쨰까지 자를떄 특정배열에서 원하는만큼 잘라서 가져올수있따.
+        // arr.indexOf("");
+        let arr2 = arr.splice(1,2);    // .splice 특정배열에서 원하는만큼 잘라서 가져올수있따.
+        console.log(arr2);
+        console.log(arr, "===", arr.length);
+    </script>
+</body>
+</html>
