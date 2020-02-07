@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또</title>
+</head>
+<style>
+    #lottoBox {
+        text-align: center;
+    }
+    #txtLotto {
+        text-align: center;
+        font-size: 20px;
+    }
+    #txtLotto span {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        border: 5px solid #000;
+        border-radius: 100px;
+        margin: 0 10px;
+    }
+    #txtLotto span:nth-child(1) {
+        border-color: rgba(247, 66, 66, 0.7);
+    }
+    #txtLotto span:nth-child(2) {
+        border-color: rgba(255, 142, 49, 0.7);
+    }
+    #txtLotto span:nth-child(3) {
+        border-color: rgba(255, 223, 43, 0.7);
+    }
+    #txtLotto span:nth-child(4) {
+        border-color: rgba(136, 255, 38, 0.7);
+    }
+    #txtLotto span:nth-child(5) {
+        border-color: rgba(48, 44, 255, 0.7);
+    }
+    #txtLotto span:nth-child(6) {
+        border-color: rgba(222, 54, 255, 0.7);
+    }
+</style>
+<body>
+    <div class="lottoBox">
+        <h1>LOTTO 번호 추출기</h1>
+        <input type="number" name="" id="lottoNum">
+        <button id="btbLotto">입력</button>
+        <div id="txtLotto"></div>
+    </div>
+
+
+    <!-- <script>
+        // 배열안에 정의되어있는 객체
+        Array = {
+            length:function() {
+
+            },
+            sort:function() {
+
+            },          // 순서대로 정렬
+            push:function() {
+
+            },
+            pop:function() {
+                
+            },
+        }
+
+
+        let arr = [1,3,2,10,7,9,20,30];
+        let names = ["orange", "banana", "melon", "peach", "apple"];
+        console.log(arr.sort(function(a,b){ return a-b }));
+            // 숫자배열를 작은 수부터 정렬하려면 function(a,b){return a-b}를 꼭 입력해야함
+        console.log(arr.sort(function(a,b){ return b-a }));
+            // 숫자배열를 큰 수부터 정렬하려면 function(a,b){return b-a}를 꼭 입력해야함  
+        console.log(names.sort());
+            // 문자배열은 그냥 .sort()사용 가능
+
+    </script> -->
+    <script>
+        let txtLotto = document.querySelector("#txtLotto");
+        // 로또만들기
+        
+        let lotto = [];  // 배열을 만들고
+        for(let i=1; i<=45; i++) {   //내용이 많으면 따로 for반복문으로 만듬
+            // console.log(i);
+            lotto.push(i);    //push로 배열을 집어 넣는다.
+        };
+        console.log(lotto);
+        
+        // // 숫자를 랜덤으로 가져오는 방법 (랜덤숫자가 겹치게됨)
+        // // Math.random()은 0.0123121처럼 소수의 랜덤한 숫자가 나오기때문에 floor처럼 내림,올림,반올림을 사용해서 정수로 만들어줘야함
+        // console.log(lotto[Math.floor(Math.random()*45)]);
+        // console.log(lotto[Math.floor(Math.random()*45)]);
+        // console.log(lotto[Math.floor(Math.random()*45)]);
+        // console.log(lotto[Math.floor(Math.random()*45)]);
+        // console.log(lotto[Math.floor(Math.random()*45)]);
+        // console.log(lotto[Math.floor(Math.random()*45)]);
+
+        // // 가져온 숫자를 뺴서(잘라내는) 랜덤으로 가져오는방법 (랜덤숫자가 겹치지않게)
+        // console.log(lotto.splice(Math.floor(Math.random()*45),1));
+        // console.log(lotto.splice(Math.floor(Math.random()*44),1));
+        // console.log(lotto.splice(Math.floor(Math.random()*43),1));
+        // console.log(lotto.splice(Math.floor(Math.random()*42),1));
+        // console.log(lotto.splice(Math.floor(Math.random()*41),1));
+        // console.log(lotto.splice(Math.floor(Math.random()*40),1));
+        // console.log(lotto);
+
+
+        
+        // // 반복문으로 만들기
+        // for (i=0; i<6; i++) {
+        //     console.log(lotto.splice(Math.floor(Math.random()*lotto.length),1));
+        // };
+
+
+        // 로또 배열에서 랜덤하게 추출된 값을 새로운 배열에 넣고 순서대로(.sort) 정렬
+        console.log(lotto[5]);
+        let myLotto = [];
+        for (i=0; i<6; i++) {
+            let random = Math.floor(Math.random()*lotto.length);
+            myLotto.push(lotto[random]);
+            lotto.splice(random,1);
+
+            // myLotto.push(lotto[Math.floor(Math.random()*lotto.length)]);
+            // lotto.splice(Math.floor(Math.random()*lotto.length),1);
+            // 이방법으로 하면 각자의 랜덤숫자를 고르기때문에 중복될수 있어서 random으로 묶어서 동일한 랜덤 숫자로 만들어준다
+        };
+        console.log(myLotto);    // 랜덤숫자
+        console.log(myLotto.sort(function(a,b){return a-b}));   // 랜덤숫자중에서 순서대로 정렬
+        let myDiv = document.createElement("div");    // .createElement() 태그만들떄쓰는 
+        txtLotto.appendChild(myDiv);    // .appendChild()자식요소에 ()안의 요소를 넣겠다
+        for(let i=0; i<myLotto.length; i++) {
+            myDiv.innerHTML+= `<span>${myLotto[i]}</span>`;
+            // txtLotto.innerHTML+= `<span>${myLotto[i]}</span>`;
+            // txtLotto.innerHTML+="<span>"+myLotto[i]+"</span>";
+        }
+        
+
+    </script>
+</body>
+</html>

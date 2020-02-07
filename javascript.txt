@@ -297,7 +297,7 @@ arr.push("다섯");    // .push 뒤로 밀어 넣을떄
 arr.pop();    // .pop 맨뒤에있는 것을 자를떄
 arr.unshift("영");    // .unshift 앞으로 밀어 넣을떄
 arr.shift();    // .shift 맨앞에있는 것을 자를떄
-arr.splice(1,2);    // .splice 1번쨰부터 2번쨰까지 자를떄
+arr.splice(1,2);    // .splice 1번쨰위치에서부터 2개까지 자를떄
 let arr2 = arr.splice(1,1);    // .splice 특정배열에서 원하는만큼 잘라서 가져올수있따.
 console.log(arr2);
 console.log(arr, "===", arr.length);
@@ -336,6 +336,86 @@ arr.forEach(function(item) {     //  .forEach 배열에서 요청하는 key의 value를 뽑
 
 
 
+// 배열안에 정의되어있는 객체
+Array = {
+    length:function() {
+
+    },
+    sort:function() {
+
+    },          // 순서대로 정렬
+    push:function() {
+
+    },
+    pop:function() {
+        
+    },
+}
+
+
+let arr = [1,3,2,10,7,9,20,30];
+let names = ["orange", "banana", "melon", "peach", "apple"];
+console.log(arr.sort(function(a,b){ return a-b }));
+    // 숫자배열를 작은 수부터 정렬하려면 function(a,b){return a-b}를 꼭 입력해야함
+console.log(arr.sort(function(a,b){ return b-a }));
+    // 숫자배열를 큰 수부터 정렬하려면 function(a,b){return b-a}를 꼭 입력해야함  
+console.log(names.sort());
+    // 문자배열은 그냥 .sort()사용 가능
+
+
+ round 반올림 ceil 올림 floor 내림
+
+
+
+
+
+
+
+
+// 로또만들기
+
+let lotto = [];  // 배열을 만들고
+for(let i=1; i<=45; i++) {   //내용이 많으면 따로 for반복문으로 만듬
+    // console.log(i);
+    lotto.push(i);    //push로 배열을 집어 넣는다.
+};
+console.log(lotto);
+// 숫자를 랜덤으로 가져오는 방법 (랜덤숫자가 겹치게됨)
+console.log(lotto[Math.floor(Math.random()*45)]);
+console.log(lotto[Math.floor(Math.random()*45)]);
+console.log(lotto[Math.floor(Math.random()*45)]);
+console.log(lotto[Math.floor(Math.random()*45)]);
+console.log(lotto[Math.floor(Math.random()*45)]);
+console.log(lotto[Math.floor(Math.random()*45)]);
+
+// 가져온 숫자를 뺴서(잘라내는) 랜덤으로 가져오는방법 (랜덤숫자가 겹치지않게)
+console.log(lotto.splice(Math.floor(Math.random()*45),1));
+console.log(lotto.splice(Math.floor(Math.random()*44),1));
+console.log(lotto.splice(Math.floor(Math.random()*43),1));
+console.log(lotto.splice(Math.floor(Math.random()*42),1));
+console.log(lotto.splice(Math.floor(Math.random()*41),1));
+console.log(lotto.splice(Math.floor(Math.random()*40),1));
+console.log(lotto);
+
+// 반복문으로 만들기
+for (i=0; i<6; i++) {
+    console.log(lotto.splice(Math.floor(Math.random()*lotto.length),1));
+};
+
+// 로또 배열에서 랜덤하게 추출된 값을 새로운 배열에 넣고 순서대로(.sort) 정렬
+console.log(lotto[5]);
+let myLotto = [];
+for (i=0; i<6; i++) {
+    let random = Math.floor(Math.random()*lotto.length);
+    myLotto.push(lotto[random]);
+    lotto.splice(random,1);
+
+    // myLotto.push(lotto[Math.floor(Math.random()*lotto.length)]);
+    // lotto.splice(Math.floor(Math.random()*lotto.length),1);
+    // 이방법으로 하면 각자의 랜덤숫자를 고르기때문에 중복될수 있어서 random으로 묶어서 동일한 랜덤 숫자로 만들어준다
+};
+console.log(myLotto);    // 랜덤숫자
+console.log(myLotto.sort(function(a,b){return a-b}));   // 랜덤숫자중에서 순서대로 정렬
 
 
 
@@ -345,6 +425,89 @@ arr.forEach(function(item) {     //  .forEach 배열에서 요청하는 key의 value를 뽑
 
 
 
+// 가위바위보 만들기  
+let list = document.querySelectorAll("#computer li");
+// list = [li,li,li]; list는 li들의 배열
+
+
+// 랜덤으로 가위바위보가 나오게 하는 함수
+function makeComchoice() {
+    list[0].style.display = "none";
+    list[1].style.display = "none";
+    list[2].style.display = "none";
+    list[Math.floor(Math.random()*3)].style.display = "block";
+    // console.log(list);
+}
+makeComchoice();
+let clearID = setInterval(makeComchoice,100);    // setInterval(자동으로 실행시킬 함수,시간); 계쏙해서 실행시킬떄
+
+
+let humanList = document.querySelectorAll("#human li");
+humanList[0].addEventListener("click",function(){
+    clearInterval(clearID);    // clearInterval(); setInterval을 멈추는것
+});
+humanList[1].addEventListener("click",function(){
+    clearInterval(clearID);    // clearInterval(); setInterval을 멈추는것
+});
+humanList[2].addEventListener("click",function(){
+    clearInterval(clearID);    // clearInterval(); setInterval을 멈추는것
+});
 
 
 
+
+
+
+
+
+
+        // 가위바위보 만들기        
+        let list = document.querySelectorAll("#computer li");
+        let random = 0;
+        // list = [li,li,li]; list는 li들의 배열
+
+
+        // 랜덤으로 가위바위보가 나오게 하는 함수
+        function makeComchoice() {
+            random = Math.floor(Math.random()*list.length);
+            for(let i=0; i<list.length; i++) {
+                if(i===random) {
+                    list[i].style.display = "block"; 
+                }
+                else {
+                    list[i].style.display = "none"; 
+                }
+                // .style.margin=""; 자바 스크립트에서 css가능 
+                // .style["margin-top"]=""; $$ .style["marginTop"]="";   -가 있는경우일경우
+            }
+
+            // list[i].style.display = "none"; 
+            // list[Math.floor(Math.random()*3)].style.display = "block";
+
+            // console.log(list);
+        }
+        makeComchoice();
+        let clearID = setInterval(makeComchoice,10);    // setInterval(자동으로 실행시킬 함수,시간); 계쏙해서 실행시킬떄
+
+
+        let humanList = document.querySelectorAll("#human li");
+        for(let i=0;i<3;i++) {
+            humanList[i].addEventListener("click",function(){
+                clearInterval(clearID);    // clearInterval(); setInterval을 멈추는것
+                console.log(random,"===", i);
+                if(random===i) {
+                    console.log("비겼어요");
+                }
+                else if (random===0 && i===2 || random==1 && i===0 || random===2 && i===1) {
+                    console.log("이겼네요..");
+                }
+                else {
+                    console.log("졌어용ㅎ");
+                }
+            });
+        }
+
+
+
+
+&& 그리고 ||또는

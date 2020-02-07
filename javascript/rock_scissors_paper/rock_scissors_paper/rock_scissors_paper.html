@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scaleable=no">
+    <title>가위바위보</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/rsp.css">
+
+
+</head>
+<body>  
+    <div id="game">
+        <div id="imgBox">
+            <img src="images/space.png" alt="" class="img01">
+            <img src="images/orbit.png" alt="" class="img03">
+            <img src="images/asteroid.png" alt="" class="img04">
+            <img src="images/astronaut.png" alt="" class="img05">
+        </div>
+        <h1>가위바위보!</h1>
+        <ul id="computer">
+            <li>
+                <img src="images/rock.svg" alt="">
+            </li>
+            <li>
+                <img src="images/scissors.svg" alt="">
+            </li>
+            <li>
+                <img src="images/paper.svg" alt="">
+            </li>
+        </ul>
+        <ul id="human">
+            <li>
+                <img src="images/rock.svg" alt="">
+            </li>
+            <li>
+                <img src="images/scissors.svg" alt="">
+            </li>
+            <li>
+                <img src="images/paper.svg" alt="">
+            </li>
+        </ul>
+    </div>
+    <div id="result">
+        
+    </div>
+
+    <script>
+        // 가위바위보 만들기        
+        let list = document.querySelectorAll("#computer li");
+        let random = 0;
+        let result = [];
+        let resultTxt = document.querySelector("#result");
+        // list = [li,li,li]; list는 li들의 배열
+
+
+        // 랜덤으로 가위바위보가 나오게 하는 함수
+        function makeComchoice() {
+            random = Math.floor(Math.random()*list.length);
+            for(let i=0; i<list.length; i++) {
+                if(i===random) {
+                    list[i].style.display = "block"; 
+                }
+                else {
+                    list[i].style.display = "none"; 
+                }
+                // .style.margin=""; 자바 스크립트에서 css가능 
+                // .style["margin-top"]=""; $$ .style["marginTop"]="";   -가 있는경우일경우
+            }
+
+            // list[i].style.display = "none"; 
+            // list[Math.floor(Math.random()*3)].style.display = "block";
+
+            // console.log(list);
+        }
+        makeComchoice();
+        let clearID = setInterval(makeComchoice,10);         // setInterval(function(){}),시간); 계쏙해서 실행시킬떄
+
+
+        let humanList = document.querySelectorAll("#human li");
+        let isGame = true;          //
+        for(let i=0;i<humanList.length;i++) {
+            humanList[i].addEventListener("click",function(){
+                if(isGame===true){
+                    clearInterval(clearID);          // clearInterval(); setInterval을 멈추는것
+                    setTimeout(function(){
+                        isGame=true;
+                        clearID=setInterval(makeComchoice,10);
+                    },1000);         // setTimeout(function(){},시간); 함수를 주어진 시간 뒤에 재실행하는것
+                    console.log(random,"===", i);
+                    if(random===i) {
+                        result.push("통했음 찌찌뽕");
+                        resultTxt.innerHTML="<span class='draw'><img src='images/ufo.png' alt=''>통했음 찌찌뽕</span>";
+                        // console.log("비겼어요");
+                    }
+                    else if (random===0 && i===2 || random==1 && i===0 || random===2 && i===1) {
+                        result.push("아주 쉽죵?");
+                        resultTxt.innerHTML="<span class='win'><img src='images/ufo.png' alt=''>아주 쉽죵~</span>";
+                        // console.log("이겼네요..");
+                    }
+                    else {
+                        result.push("와.. 이걸지네..");
+                        resultTxt.innerHTML="<span class='lose'><img src='images/ufo.png' alt=''>와.. 이걸지네..</span>";
+                        // console.log("졌어용ㅎ");
+                    }
+                    isGame=false;
+                    console.log(result);
+
+                    
+
+                }            
+
+            });
+        }
+        
+
+
+    </script>
+</body>
+</html>

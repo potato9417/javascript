@@ -22,10 +22,35 @@
     let btn = document.querySelector("#btn");
     let result = document.querySelector("#result");
 
-
-
-
-
+    btn.addEventListener("click",function(){
+        if(firstWord.textContent.charAt(firstWord.textContent.length-1) === answer.value.charAt(0)) {
+            result.textContent="정답";
+            answer.value="";
+        }
+        else{
+            result.textContent="떙";
+            answer.value="";
+        }
+        answer.focus();
+    })
+    answer.addEventListener("keyup",function(e){
+        if(e.keyCode === 13) {
+            if(firstWord.textContent.charAt(firstWord.textContent.length-1) === answer.value.charAt(0)) {
+                result.textContent="정답";
+                answer.value="";
+            }
+            else{
+                result.textContent="떙";
+                answer.value="";
+            }
+            answer.focus();
+        }
+    })
     
+
+
+
+
+
 </script>
 </html>

@@ -1,0 +1,92 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    background-color: rgb(7, 0, 48);
+    color: #fff;
+    position: relative;
+}
+#game {
+    display: block;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+#imgBox img {
+    position: absolute;
+    width: 50px;
+}
+#imgBox .img01 {
+    top: 54%;
+    left: 10%;
+}
+#imgBox .img03 {
+    top: 16%;
+    left: 80%;
+}
+#imgBox .img04 {
+    top: 13%;
+    left: 3%;
+}
+#imgBox .img05 {
+    top: 66%;
+    left: 77%;
+}
+h1 {
+    display: block;
+    width: 100%;
+    font-size: 50px;
+    font-weight: 700;
+    margin: 40px 0;
+}
+#computer {
+    width: 200px;
+    height: 300px;
+    margin: auto;
+}
+#computer img {
+    width: 100%;
+}
+#computer li {
+    display: none;
+}
+#computer li:nth-child(1) {
+    display: block;
+}
+#human {
+    width: 100%;
+    margin-top: 0;
+    text-align: center;
+    
+}
+#human img {
+    width: 100%;
+}
+#human li {
+    margin: 10px;
+    width: 80px;
+    display: inline-block;
+}
+#result {
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+
+}
+#result span {
+    display: inline-block;
+    border: 1px solid #fff;
+    margin: 20px 3px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    position: relative;
+}
+#result span img {
+    display: block;
+    width: 50px;
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
