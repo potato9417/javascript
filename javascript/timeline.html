@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="js/gsap/gsap.min.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            color: #fff;
+            text-align: center;
+            line-height: 100px;
+        }
+        #box01 {
+            background-color: rgb(202,26,26);
+        }
+        #box02 {
+            background-color: rgb(70,211,10);
+        }
+        #box03 {
+            background-color: rgb(44,32,214);
+        }
+    </style>
+</head>
+<body>
+    <!-- https://greensock.com/position-parameter/  greensock 에서 timeline설명-->
+    <div class="box" id="box01">box01</div>
+    <div class="box" id="box02">box02</div>
+    <div class="box" id="box03">box03</div>
+    <script>
+        // gsap 기본사용법
+        gsap.to(".box",{
+            duration:2,
+            x:500,
+            rotation:180,
+            ease:"power2.out",
+            stagger: {
+                amount:1,
+            }       //개별적으로 움직이게 만들어주는 방법
+        });
+        // gsap.to("#box01",{
+        //     duration:2,x:500,rotation:180,ease:"power2.out"
+        // });
+        // gsap.to("#box02",{
+        //     duration:2,x:500,rotation:180,ease:"power2.out"
+        // });
+        // gsap.to("#box03",{
+        //     duration:2,x:500,rotation:180,ease:"power2.out"
+        // });
+
+
+        // 타임라인으로 개별적으로 모션을 만들어서 움직이게 만드는법
+        // 하나움직이고 다 끝나면 그다음게 움직임
+        let tl = gsap.timeline();
+        tl.to("box01",{
+            duration:2,x:500,rotation:180,ease:"power2.out"
+            })       // 2초동안 가는것
+            .to("box02",{
+            duration:2,x:500,rotation:180,ease:"power2.out"
+            },"+=1")      // "+=1" 1초기다렸다가 2초동안 가는것
+            .to("box03",{
+            duration:2,x:500,rotation:180,ease:"power2.out"
+            },"+=1");        // "+=1" 1초기다렸따가 2초동안 가는것 / "-=1" 1초전에 출발
+            // ""안에있는 숫자는 duration의 영향을 받는데 숫자만 있을경우 절대시간으로 처음부터 몇초후에 시작하는지 정함
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVENGERS</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        body {
+            background-color: #333;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            color:#fff;
+            margin:50px 0;
+            position: relative;
+            z-index: 999;
+        }
+        h1 img {
+            height: 100px;
+        }
+        #avengers li {
+            position: absolute;
+            transform: translate(-50%,-50%);
+            background-color: #fff;
+            padding:5px;
+            left:50%;
+            top:60%;
+            box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+        }
+        #avengers li img {
+            width:100%;
+        }
+    </style>
+    <script src="js/gsap/gsap.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            let depth = 0;  // 사진을 맨위에 올리기위한 변수
+            let bigItem = null;  // 새로운 사진을 클릭하면 원래대로 돌아가게 해주는 변수
+            // forEach(el,idx)는 자바스크립트  .each(idx,el)는 제이쿼리
+            $("#avengers li").each(function(idx,el){
+                // fromTo는 (el,{from},{to})의 효과를 준다 .to 어디로가라.form어디서부터와라
+                gsap.fromTo(el,
+                // from일 경우 기본상태
+                {
+                    x: 0,
+                    y: 0,
+                    scale: 0
+                },
+                // to일 경우 사진을 작게 해주고 위치를 랜덤으로 변경시켜주게 만드는것
+                {
+                    x: Math.random()*1200-600,
+                    y: Math.random()*600-300,
+                    scale: Math.random()*0.15+0.05,
+                    rotation: Math.random()*180-90,
+                    delay: idx*0.05,    // 각각 개별적으로 움직이게해줌
+                    ease: "power4.out"
+                });
+                $(el).on("click",function(){
+                    // $(this) : 클릭하고 있는 그것
+                    // 사진을 맨위에 올리기위해 변수를 하나 만들어서 zindex를 높혀준다
+                    depth++;        
+                    gsap.set($(this),{zIndex:depth});
+                    
+                    // 클릭을 할떄 사진이 커져야하니까 big이라는 클래스를 붙여주고 다시클릭할떈big을 없애준다
+                    if($(this).hasClass("big")) {
+                        $(this).removeClass("big");
+                        gsap.to($(this),{
+                            x: Math.random()*1200-600,
+                            y: Math.random()*600-300,
+                            scale: Math.random()*0.15+0.05,
+                            rotation: Math.random()*180-90,
+                            duration: 0.5,
+                            ease: "power3.out"
+                        });
+                    }
+                    else {
+                        $(this).addClass("big");
+                        gsap.to($(this),{
+                            x: 0,
+                            y: 0,
+                            scale: 0.75,
+                            duration: 0.5,
+                            ease: "power3.out",
+                            rotation: 0
+                        });
+                    }
+                    // 새로운 사진을 클릭하면 원래대로 돌아가게 하는법
+                    if(!$(this).is(bigItem)){
+                        if(bigItem!==null) {
+                            if(bigItem.hasClass("big")) {
+                                gsap.to(bigItem,{
+                                    x: Math.random()*1200-600,
+                                    y: Math.random()*600-300,
+                                    scale: Math.random()*0.15+0.05,
+                                    rotation: Math.random()*180-90,
+                                    duration: 0.5,
+                                    ease: "power3.out"
+                                });
+                                bigItem.removeClass("big");
+                            }
+                        }
+                    }
+                    
+                    bigItem = $(this);
+                    
+                })
+            });
+            // 스크립트상의 x,y는 현재자리기준으로 변경됨
+        });
+    </script>
+</head>
+<body>
+    <h1><img src="image/avengers/logo.png" alt=""></h1>
+    <ul id="avengers">
+        <li><img src="image/avengers/01.jpg" alt=""></li>
+        <li><img src="image/avengers/02.jpg" alt=""></li>
+        <li><img src="image/avengers/03.jpg" alt=""></li>
+        <li><img src="image/avengers/04.jpg" alt=""></li>
+        <li><img src="image/avengers/05.jpg" alt=""></li>
+        <li><img src="image/avengers/06.jpg" alt=""></li>
+        <li><img src="image/avengers/07.jpg" alt=""></li>
+        <li><img src="image/avengers/08.jpg" alt=""></li>
+        <li><img src="image/avengers/09.jpg" alt=""></li>
+        <li><img src="image/avengers/10.jpg" alt=""></li>
+        <li><img src="image/avengers/11.jpg" alt=""></li>
+        <li><img src="image/avengers/12.jpg" alt=""></li>
+        <li><img src="image/avengers/13.jpg" alt=""></li>
+        <li><img src="image/avengers/14.jpg" alt=""></li>
+        <li><img src="image/avengers/15.jpg" alt=""></li>
+        <li><img src="image/avengers/16.jpg" alt=""></li>
+        <li><img src="image/avengers/17.jpg" alt=""></li>
+        <li><img src="image/avengers/18.jpg" alt=""></li>
+        <li><img src="image/avengers/19.jpg" alt=""></li>
+        <li><img src="image/avengers/20.jpg" alt=""></li>
+        <li><img src="image/avengers/21.jpg" alt=""></li>
+        <li><img src="image/avengers/22.jpg" alt=""></li>
+        <li><img src="image/avengers/23.jpg" alt=""></li>
+        <li><img src="image/avengers/24.jpg" alt=""></li>
+        <li><img src="image/avengers/25.jpg" alt=""></li>
+        <li><img src="image/avengers/26.jpg" alt=""></li>
+        <li><img src="image/avengers/27.jpg" alt=""></li>
+        <li><img src="image/avengers/28.jpg" alt=""></li>
+        <li><img src="image/avengers/29.jpg" alt=""></li>
+        <li><img src="image/avengers/30.jpg" alt=""></li>
+    </ul>
+</body>
+</html>

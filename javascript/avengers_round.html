@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVENGERS</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        body {
+            background-color: #333;
+            overflow: hidden;
+            background-position: 50% 0;
+            background-repeat: no-repeat;
+            background-size: auto 100vh;
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            color:#fff;
+            margin:50px 0;
+            position: relative;
+            z-index: 999;
+        }
+        h1 img {
+            height: 100px;
+        }
+        #avengers {
+            position: absolute;
+            left: 0;
+            top: 60%;
+            transform: translate(-50%,-50%);
+        }
+        #avengers li {
+            position: absolute;
+            left: 50%;
+            top: 0%;
+            transform: translate(-50%,-50%);
+        }
+        #avengers li a {
+            display: block;
+            padding: 2px;
+            background-color: #fff;
+            box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+            width: 40px;
+            position: relative;
+            left: 300px;
+        }
+        #avengers li a img {
+            width: 100%;
+        }
+    </style>
+    <script src="js/gsap/gsap.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           let list = $("#avengers li");
+        //    gsap.set(list.eq(0),{rotation:0});
+        //    gsap.set(list.eq(1),{rotation:12});
+        //    gsap.set(list.eq(2),{rotation:24});
+            let total = list.length;
+            list.each(function(idx,el){
+                gsap.set(el,{rotation: 360/total*idx});
+                gsap.from(el,{
+                    opacity: 0,
+                    rotation: 360/total*(idx-1), // 시작지점의 위치라고 생각하면됨
+                    delay: 0.05*idx
+                })
+            });
+            // e는 매개변수 아무거나 사용가능함 마우스휠을 돌리거나 키보드를누를떄 매개변수 필수
+            let num = 0;
+            let r = 0;
+            $(window).on("mousewheel",function(e){
+                let wheel = e.originalEvent.deltaY;
+                // console.log(e.originalEvent.deltaY);
+                if(wheel>0) {
+                    num++;
+                    if(num>total) {
+                        num=0;
+                    }
+                    r+=360/total; // 같은것 r=r+360/total
+                } // 아래로
+                else {
+                    num--;
+                    if(num<0) {
+                        num=total-1;
+                    }
+                    r-=360/total; // 같은것 r=r-360/total
+                } // 위로
+
+                // gsap.to($("#avengers"),{
+                //     rotation: num*360/total,
+                //     ease: "power3.out"    
+                // });
+
+                num = num%total; // %는 나머지 구해주는 연산자
+                gsap.killTweensOf($("body")); 
+                gsap.killTweensOf($("#avengers"));
+
+                // 사진하나만 크게 해주는방법
+                gsap.to($("#avengers"),{  
+                        rotation: r,
+                        ease: "power3.out" ,
+                        onComplete: function(){    // .onComplete 애니메이션효과 끝났을떄  
+                            let imgSrc = list.eq(-num).find("img").attr("src"); // .attr속성값찾을떄
+                            gsap.set($("body"),{
+                                backgroundImage: `url(${imgSrc})`
+                            })
+                            gsap.fromTo($("body"),{
+                                backgroundPositionX: "-200%"
+                            },
+                            {
+                                backgroundPositionX: "50%",
+                                ease: "power4.out"
+                            })
+                        }   
+                         
+                }); // 돌아가게 만들어줌
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1><img src="image/avengers/logo.png" alt=""></h1>
+    <ul id="avengers">
+        <!-- li*30>a>img[src="image/avengers/$$.jpg"] 한번에 만드는법 -->
+        <li><a href=""><img src="image/avengers/01.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/02.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/03.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/04.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/05.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/06.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/07.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/08.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/09.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/10.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/11.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/12.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/13.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/14.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/15.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/16.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/17.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/18.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/19.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/20.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/21.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/22.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/23.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/24.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/25.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/26.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/27.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/28.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/29.jpg" alt=""></a></li>
+        <li><a href=""><img src="image/avengers/30.jpg" alt=""></a></li>
+    </ul>
+</body>
+</html>

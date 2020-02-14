@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-day</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <style>
+        #dday {
+            font-size: 18px;
+            display: inline-block;
+            height: 50px;
+            line-height: 50px;
+            background-color: #000;
+            color: #fff;
+            border-radius: 100px;
+            padding: 0 30px;
+        }
+        .unit {
+            font-size: 12px;
+            color: #999;
+        }
+        i {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <p id="dday">
+        <i class="xi-alarm-o"></i> <span class="txt">4일 12시간 30분 09초</span>
+    </p>
+    <script>
+        // // 디데이만들기
+        // let now = new Date();
+        // let dday = new Date(2020,1,13,23,59,59);         // 2020년 2월 13일 23시 59분 59초
+        // let remainedTime = dday.getTime() - now.getTime();       // .getTime() 지금까지 흐른시간(초단위)
+        // let rSec = Math.ceil(remainedTime/1000);
+        // let rMin = Math.ceil(remainedTime/1000/60);
+        // let rHour = Math.ceil(remainedTime/1000/60/60);
+        // let rDate = Math.ceil(remainedTime/1000/60/60/24);
+        // console.log("TCL:remainedTime", remainedTime);
+        // console.log("TCL:remainedTime", rDate, rHour, rMin, rSec);
+
+        // // 디데이처럼 단위별로 만들기
+        // let now = new Date();
+        // let dday = new Date(2020,1,13,23,59,59);         // 2020년 2월 13일 23시 59분 59초
+        // let remainedTime = dday.getTime() - now.getTime();       // .getTime() 지금까지 흐른시간(초단위)
+        // let rSec = Math.ceil(remainedTime/1000)%60;         // 나머지 구하는방법 %
+        // let rMin = Math.ceil(remainedTime/1000/60)%60;
+        // let rHour = Math.ceil(remainedTime/1000/60/60)%24;
+        // let rDate = Math.ceil(remainedTime/1000/60/60/24);
+        // console.log("TCL:remainedTime", remainedTime);
+        // console.log("TCL:remainedTime", rDate, rHour, rMin, rSec);
+
+
+        // // 디데이 함수만들어서 적용하기
+        // let endDay = new Date(2020,1,13,23,59,59);         // 2020년 2월 13일 23시 59분 59초
+        // let dday = document.querySelector("#dday .txt");
+        // let addZero = function(num) {
+        //     if(num<10) {
+        //         return "0"+num;
+        //     }
+        //     else {
+        //         return num;
+        //     }
+        // }
+
+        // let makeDday = function() {
+        //     let now = new Date();
+        //     let remainedTime = endDay.getTime() - now.getTime();       // .getTime() 지금까지 흐른시간(초단위)
+        //     let rSec = addZero(Math.ceil(remainedTime/1000)%60);         // 나머지 구하는방법 %
+        //     let rMin = addZero(Math.ceil(remainedTime/1000/60)%60);
+        //     let rHour =addZero(Math.ceil(remainedTime/1000/60/60)%24);
+        //     let rDate = Math.ceil(remainedTime/1000/60/60/24);
+
+        //     dday.innerHTML = `${rDate}<span class="unit">일</span>${rHour}<span class="unit">시간</span>${rMin}<span class="unit">분</span>${rSec}<span class="unit">초</span>`
+        // }
+        // makeDday()
+        // setInterval(makeDday,1000);
+        
+
+        
+        // 얼마나 살았는지 
+        let birthday = new Date(1994,0,16,0,0,0);
+        let dday = document.querySelector("#dday .txt");
+        let addZero = function(num) {
+            if(num<10) {
+                return "0"+num;
+            }
+            else {
+                return num;
+            }
+        }
+
+        let makeDday = function() {
+        let now = new Date();
+        let remainedTime = now.getTime() - birthday.getTime();       // .getTime() 지금까지 흐른시간(초단위)
+        let rSec = addZero(Math.ceil(remainedTime/1000)%60);         // 나머지 구하는방법 %
+        let rMin = addZero(Math.ceil(remainedTime/1000/60)%60);
+        let rHour =addZero(Math.ceil(remainedTime/1000/60/60)%24);
+        let rDate = Math.ceil(remainedTime/1000/60/60/24);
+
+        dday.innerHTML = `${rDate}<span class="unit">일</span>${rHour}<span class="unit">시간</span>${rMin}<span class="unit">분</span>${rSec}<span class="unit">초</span>`
+        }
+        makeDday()
+        setInterval(makeDday,1000);
+        
+
+
+
+
+    </script>
+</body>
+</html>

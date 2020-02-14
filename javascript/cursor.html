@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/gsap/gsap.min.js"></script>
+    <style>
+        body {
+            background-color: #333;
+        }
+        #cursor {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 100px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        #cursor02 {
+            position: fixed;
+            width: 35px;
+            height: 35px;
+            border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 100px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .up {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("image/nike01.jpg");
+            background-size: cover;
+            background-attachment: fixed;        /* 배경고정시킬떄 */
+            background-position: 50%;
+        }
+        .down {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("image/nike02.jpg");
+            background-size: cover;
+            background-attachment: fixed;       /* 배경고정시킬떄 */
+            background-position: 50%;
+            overflow: hidden;
+            clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+            /* 기울기만들기 clippy*/
+        }
+    </style>
+    <script>
+        // 마우스커서대신
+        // $(document).ready(function(){
+        //     let cursor = $("#cursor");
+        //     let cursor02 = $("#cursor02");
+        //     $(window).on("mousemove",function(e){
+        //         gsap.to(cursor,{
+        //             duration: 0.5,
+        //             left: e.pageX,
+        //             top: e.pageY,
+        //             ease: "power4.out"
+        //         })
+        //         gsap.to(cursor02,{
+        //             duration: 0.8,
+        //             left: e.pageX,
+        //             top: e.pageY,
+        //             ease: "power4.out"
+        //         })
+        //     })
+        // });
+
+
+        // 커서움직임에따라 사진이 따라서 변하게하는것
+        $(document).ready(function(){
+            let down = $(".down");
+            let w = $(document).width();    // 화면가로넓이
+            $(window).on("resize",function(){
+                w = $(document).wiedth();
+            })
+            $(window).on("mousemove",function(e){
+                let x1 = (e.pageX+100)/w*100+"%";
+                let x2 = (e.pageX-100)/w*100+"%";
+                gsap.to(down,{
+                    duration: 0.4,
+                    // width: (e.pageX/w)*100+"%",
+                    clipPath: `polygon(${x1} 0%, 100% 0%, 100% 100%, ${x2} 100%)`,
+                    ease: "power4.out"
+                })
+            })
+        });
+    </script>
+</head>
+<body>
+    <!-- <div id="cursor"></div>
+    <div id="cursor02"></div> -->
+    <div class="up">
+
+    </div>
+    <div class="down">
+
+    </div>
+</body>
+</html>

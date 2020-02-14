@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nike</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/gsap/gsap.min.js"></script>
+    <style>
+        body {
+            background-color: #f6f6f6;
+            overflow: hidden;
+            background-position: 50% 0;
+            background-repeat: no-repeat;
+            background-size: auto 100vh;
+        }
+        h1 {
+            text-align: center;
+            width: 100%;
+            margin-top: 70px;
+            position: relative;
+            z-index: 999;
+        }
+        h1 img {
+            height: 100px;
+        }
+        #nike {
+            position: absolute;
+            left: 50%;
+            top: 120%;
+            transform: translate(-50%,-50%);
+        }
+        #nike li {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        #nike li a {
+            display: block;
+            padding: 2px;
+            box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+            width: 40px;
+            position: relative;
+            left: 300px;
+        }
+        #nike li a img {
+            width: 100px;
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <img src="images/nike_logo.png" alt="">
+    </h1>
+    <ul id="nike">
+        <li><a href=""><img src="images/nike01.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike02.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike03.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike04.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike05.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike06.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike07.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike08.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike09.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike10.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike11.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike12.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike13.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike14.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike15.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike16.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike17.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike18.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike19.jpg" alt=""></a></li>
+        <li><a href=""><img src="images/nike20.jpg" alt=""></a></li>
+    </ul>
+    </div>
+
+    <script>
+        let list = $("#nike li");
+        let total = list.length;
+        list.each(function(idx,el){
+            gsap.set(el,{
+                rotation: 360/total*idx
+            });
+            gsap.from(el,{
+                opacity: 0,
+                rotation: 360/total*(idx-1), // 시작지점의 위치라고 생각하면됨
+                delay: 0.05*idx
+            })
+        })
+        let num = 0;
+        $(window).on("mousewheel",function(e){
+            // console.log(e);
+            // console.log(e.originalEvent.deltaY);
+            let wheel = e.originalEvent.deltaY;
+            if(wheel>0) {
+                num++;
+                gsap.to($("#nike"),{
+                    rotation: num*360/total,
+                    ease: "power3.out"
+                })
+            }
+            else {
+                num--;
+                gsap.to($("#nike"),{
+                    rotation: num*360/total,
+                    ease: "power3.out"
+                })
+            }
+            gsap.to($("#nike"),{
+            rotation: 360/total*num,
+            ease: "power3.out",
+            onComplete: function(){
+                let imgSrc = list.eq(num).find("img").attr("src");
+                gsap.set($("body"),{
+                    backgroundImage: `url(${imgSrc})`
+                })
+                gsap.fromTo($("body"),{
+                    backgroundPositionY: "200%"
+                },
+                {
+                    backgroundPositionY: "20%",
+                    ease: "power4.out"
+                })
+            }
+        })
+        })
+
+
+        
+        
+
+
+    </script>
+</body>
+</html>
