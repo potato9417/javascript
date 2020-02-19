@@ -1,5 +1,7 @@
 #mainVisual {
     position: relative;
+    width: 100vw;
+    overflow: hidden;
 }
 #mainVisual .mask {
     height: 100vh;
@@ -20,7 +22,7 @@
     position: absolute;
     text-align: center;
     left: 50%;
-    top: 50%;
+    top: 45%;
     transform: translate(-50%,-50%);
 }
 #mainVisual .txtBox .main {
@@ -47,30 +49,135 @@
     line-height: 1.6;
     font-weight: 700;
 }
-#mainVisual .btns {
-    position: absolute;
+#mainVisual .btns button {
+    padding: 10px;
+}
+#mainVisual .btns .pre {
     top: 50%;
     transform: translateY(-50%);
+    position: absolute;
+    left: 1%;
     z-index: 1;
-    padding: 10px;
-    background-color: #333;
+    background-color: rgba(0,0,0,0.2);
+    transition: 0.25s ease-in-out;
+    opacity: 0;
+}
+#mainVisual .btns .next {
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    right: 1%;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: 0.25s ease-in-out;
+    opacity: 0;
 }
 #mainVisual .btns i {
     color: #fff;
+    font-size: 30px;
 }
-#mainVisual .btns .pre {
-    left: 0;
+#mainVisual:hover .btns .pre {
+    left: 2%;
+    opacity: 1;
 }
-#mainVisual .btns .next {
-    right: 0;
+#mainVisual:hover .btns .next {
+    right: 2%;
+    opacity: 1;
 }
-#mainVisual .scroll {
+.scroll {
     position: absolute;
     bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
 }
-#mainVisual .scroll img {
+.scroll img {
     width: 100%;
 }
+
+/* quick start */
+#quick {
+    width: 100vw;
+    background: url("../images/bg/main_q.jpg") no-repeat;
+    background-size: cover;
+    text-align: center;
+    position: relative;
+}
+#quick .txtBox {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%,-50%);
+}
+#quick .txtBox .main {
+    font-size: 30px;
+    color: rgba(255,255,255,0.5);
+    position: relative;
+    margin-bottom: 70px;
+    font-weight: 500;
+}
+#quick .txtBox .main:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: rgba(255,255,255,0.5);
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#quick .txtBox .sub {
+    font-size: 40px;
+    color: #fff;
+    line-height: 1.6;
+    font-weight: 700;
+}
+#quick .scroll {
+    bottom: 15%;
+}
+#quick .bar {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100vw;
+    background-color: #1a2b55;
+}
+#quick .bar ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#quick .bar li {
+    display: inline-block;
+    position: relative;
+}
+#quick .bar li:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: rgba(255,255,255,0.5);
+    left: -14px;
+}
+#quick .bar li:nth-child(1):before {
+    display: none;
+}
+#quick .bar li > a {
+    color: #fff;
+    font-size: 18px;
+    padding: 20px 40px 20px 70px;
+    position: relative;
+}
+#quick .bar li > a img {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+

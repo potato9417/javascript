@@ -14,11 +14,10 @@ new Swiper("#mainVisual .mask",{
     autoplay: {
         delay: 3000,
     },
-    pagination: {
-        el: "#main .mask .pagination",
-        type: "bullets",
-        clickable: "true",
-    },
+    navigation: {
+        nextEl: "#mainVisual .mask .btns .next",
+        prevEl: "#mainVisual .mask .btns .pre",
+      },
 });
 
 $("#lang a").on("click",function(){
@@ -29,3 +28,5 @@ $("#lang a").on("click",function(){
 
 new fullpage("#main", {
 });
+
+

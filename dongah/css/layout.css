@@ -8,7 +8,7 @@ a {
     line-height: 1.6;
     font-size: 16px;
     color: inherit;
-    font-family: "Roboto", "Noto Sans KR", sans-serif;
+    font-family: arial, "Noto Sans KR", sans-serif;
     text-decoration: none;
 }
 #header {
@@ -17,6 +17,8 @@ a {
     position: fixed;
     z-index: 9999;
     text-align: center;
+    transition: 0.25s ease;
+    overflow: hidden;
 }
 #logo {
     position: absolute;
@@ -94,4 +96,25 @@ a {
 }
 #lang a.on {
     background-color: #1eb8f6;
+}
+#header .hide {
+    position: absolute;
+    top: -100%;
+    height: 101px;
+    width: 100vw;
+    background-color: rgba(26,43,85,0.8);
+    text-align: right;
+    transition: 0.5s ease;
+}
+#header .hide:hover {
+    background-color: #1a2b55;
+}
+#header .hide #gnb {
+    margin-right: 20%;
+}
+#header.tl .view {
+    display: none;
+}
+#header.tl .hide {
+    top: 0;
 }
