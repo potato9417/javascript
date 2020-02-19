@@ -1,0 +1,76 @@
+#mainVisual {
+    position: relative;
+}
+#mainVisual .mask {
+    height: 100vh;
+}
+#mainVisual ul .main01 {
+    background: url("../images/bg/main01.jpg") no-repeat;
+    background-size: cover;
+}
+#mainVisual ul .main02 {
+    background: url("../images/bg/main02.jpg") no-repeat;
+    background-size: cover;
+}
+#mainVisual ul .main03 {
+    background: url("../images/bg/main03.jpg") no-repeat;
+    background-size: cover;
+}
+#mainVisual .txtBox {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+#mainVisual .txtBox .main {
+    font-size: 30px;
+    color: rgba(255,255,255,0.5);
+    position: relative;
+    margin-bottom: 70px;
+    font-weight: 500;
+}
+#mainVisual .txtBox .main:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: rgba(255,255,255,0.5);
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#mainVisual .txtBox .sub {
+    font-size: 40px;
+    color: #fff;
+    line-height: 1.6;
+    font-weight: 700;
+}
+#mainVisual .btns {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    padding: 10px;
+    background-color: #333;
+}
+#mainVisual .btns i {
+    color: #fff;
+}
+#mainVisual .btns .pre {
+    left: 0;
+}
+#mainVisual .btns .next {
+    right: 0;
+}
+#mainVisual .scroll {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+#mainVisual .scroll img {
+    width: 100%;
+}
