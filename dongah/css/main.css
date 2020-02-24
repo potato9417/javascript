@@ -189,11 +189,7 @@
 }
 #util {
     width: 1200px;
-<<<<<<< HEAD
     height: 1300px;
-=======
-    max-height: 3000px;
->>>>>>> 34cb8e7e651c30c9eda6f691399d44af941595a9
     margin: auto;
 }
 #util .box h2 {
@@ -213,7 +209,6 @@
     font-size: 20px;
     color: #1eb8f6;
 }
-<<<<<<< HEAD
 #util .box .depth01 {
     width: 100%;
     height: 100%;
@@ -222,21 +217,10 @@
     margin: 100px 0 30px;
 }
 #util .box .depth01:after {
-=======
-#util .depth01 {
-    width: 100%;
-    height: 100%;
-}
-#util .depth01 h2 {
-    margin: 100px 0 30px;
-}
-#util .depth01:after {
->>>>>>> 34cb8e7e651c30c9eda6f691399d44af941595a9
     content: "";
     display: block;
     clear: both;
 }
-<<<<<<< HEAD
 #util .box .depth01 .imgBox {
     height: 300px;
     float: left;
@@ -245,36 +229,18 @@
     height: 100%;
 }
 #util .box .depth01 .txtBox {
-=======
-#util .depth01 .imgBox {
-    height: 300px;
-    float: left;
-}
-#util .depth01 .imgBox img {
-    height: 100%;
-}
-#util .depth01 .txtBox {
->>>>>>> 34cb8e7e651c30c9eda6f691399d44af941595a9
     float: right;
     width: 835px;
     font-size: 0;
 }
-<<<<<<< HEAD
 #util .box .depth01 .txtBox .txtBox01 {
-=======
-#util .depth01 .txtBox .txtBox01 {
->>>>>>> 34cb8e7e651c30c9eda6f691399d44af941595a9
     width: 100%;
     display: block;
     background-color: #fff;
     height: 170px;
     position: relative;
 }
-<<<<<<< HEAD
 #util .box .depth01 .txtBox .txtBox01 p {
-=======
-#util .depth01 .txtBox .txtBox01 p {
->>>>>>> 34cb8e7e651c30c9eda6f691399d44af941595a9
     text-align: center;
     color: #666;
     font-weight: 600;
@@ -283,16 +249,11 @@
     font-size: 16px;
     line-height: 2;
 }
-<<<<<<< HEAD
 #util .box .depth01 .txtBox .txtBox01 p strong {
-=======
-#util .depth01 .txtBox .txtBox01 p strong {
->>>>>>> 34cb8e7e651c30c9eda6f691399d44af941595a9
     color: #333;
     font-weight: 600;
     font-size: 26px;
 }
-<<<<<<< HEAD
 #util .box .depth01 .txtBox .txtBox01 p .color {
     color: #1eb8f6;
 }
@@ -308,34 +269,13 @@
     right: 10%;
 }
 #util .box .depth01 .txtBox .txtBox02 {
-=======
-#util .depth01 .txtBox .txtBox01 p .color {
-    color: #1eb8f6;
-}
-#util .depth01 .txtBox .txtBox01 img {
-    position: absolute;
-}
-#util .depth01 .txtBox .txtBox01 .left {
-    top: 30%;
-    left: 10%;
-}
-#util .depth01 .txtBox .txtBox01 .right {
-    top: 30%;
-    right: 10%;
-}
-#util .depth01 .txtBox .txtBox02 {
->>>>>>> 34cb8e7e651c30c9eda6f691399d44af941595a9
     display: inline-block;
     width: 417.5px;
     height: 130px;
     background-color: #d9d9d9;
     position: relative;
 }
-<<<<<<< HEAD
 #util .box .depth01 .txtBox .txtBox02 p {
-=======
-#util .depth01 .txtBox .txtBox02 p {
->>>>>>> 34cb8e7e651c30c9eda6f691399d44af941595a9
     text-align: center;
     font-size: 16px;
     position: absolute;
@@ -345,22 +285,14 @@
     display: block;
     width: 300px;
 }
-<<<<<<< HEAD
 #util .box .depth01 .txtBox .txtBox03 {
-=======
-#util .depth01 .txtBox .txtBox03 {
->>>>>>> 34cb8e7e651c30c9eda6f691399d44af941595a9
     display: inline-block;
     width: 417.5px;
     height: 130px;
     background-color: #1a2b55;
     position: relative;
 }
-<<<<<<< HEAD
 #util .box .depth01 .txtBox .txtBox03 p {
-=======
-#util .depth01 .txtBox .txtBox03 p {
->>>>>>> 34cb8e7e651c30c9eda6f691399d44af941595a9
     text-align: center;
     display: block;
     width: 300px;
@@ -371,7 +303,6 @@
     left: 50%;
     transform: translate(-50%,-50%);
 }
-<<<<<<< HEAD
 #util .box .contain:after {
     content: "";
     display: block;
@@ -386,21 +317,10 @@
     width: 100%;
 }
 #util .box .depth02 .tapMenu:after {
-=======
-#util .depth02 {
-    width: 760px;
-    margin-right: 50px;
-}
-#util .depth02 .tapMenu {
-    width: 100%;
-}
-#util .depth02 .tapMenu:after {
->>>>>>> 34cb8e7e651c30c9eda6f691399d44af941595a9
     content: "";
     display: block;
     clear: both;
 }
-<<<<<<< HEAD
 #util .box .depth02 .tapMenu li {
     text-align: center;
     height: 64px;
@@ -425,23 +345,11 @@
     display: none;
 }
 #util .box .depth02 .tapMenu li a {
-=======
-#util .depth02 .tapMenu li {
-    text-align: center;
-    height: 64px;
-    display: inline-block;
-    width: 20%;
-    float: left;
-    background-color: #f4f4f4;
-}
-#util .depth02 .tapMenu li a {
->>>>>>> 34cb8e7e651c30c9eda6f691399d44af941595a9
     display: inline-block;
     height: 64px;
     width: 100%;
     font-size: 14px;
     padding: 21px 0;
-<<<<<<< HEAD
     font-weight: 700;
     
 }
@@ -679,11 +587,6 @@
 
 
 /* http://manos.malihu.gr/ 스크롤 js */
-=======
-    
-}
-
->>>>>>> 34cb8e7e651c30c9eda6f691399d44af941595a9
 
 #util .depth02 .tapMenu.on li {
     background-color: #fff;
