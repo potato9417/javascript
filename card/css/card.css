@@ -1,0 +1,81 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+html {
+    font-size: 16px;
+}
+body {
+    font-family: "Roboto", "Noto Sans KR", sans-serif;
+    color: #333;
+    line-height: 1.5;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+#logo {
+    text-align: center;
+    font-size: 36px;
+    margin: 100px 0;
+}
+.container {
+    width: 600px;
+    margin: auto;
+}
+#btn {
+    width: 100px;
+    height: 20px;
+}
+#card li {
+    width: 24%;
+    margin: 0.5%;
+    border: 2px solid #d9d9d9;
+    position: relative;
+    height: 150px;
+    float: left;
+    transform: perspective(500px);
+    transform-style: preserve-3d;
+}
+#card li > div {
+    position: absolute;
+    backface-visibility: hidden;
+    height: 100px;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+#card li .front {
+    height: 100%;
+    background-image: url("../images/blueprint.gif");
+}
+#card li .back {
+    transform: rotateY(-180deg) perspective(500px);
+    height: 100%;
+}
+#card .cat .back {
+    background-color: rgb(255, 226, 226);
+}
+#card .chick .back {
+    background-color: rgb(226, 255, 241);
+}
+#card .dog .back {
+    background-color: rgb(253, 255, 226);
+}
+#card .duck .back {
+    background-color: rgb(244, 226, 255);
+}
+#card .monkey .back {
+    background-color: rgb(255, 226, 248);
+}
+#card .panda .back {
+    background-color: rgb(227, 255, 226);
+}
+#card .pig .back {
+    background-color: rgb(230, 226, 255);
+}
+#card .tiger .back {
+    background-color: rgb(226, 234, 255);
+}
+#card li img {
+    width: 100%;
+}
