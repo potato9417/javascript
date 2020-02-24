@@ -118,6 +118,7 @@ a {
 }
 #header .hide #gnb .depth01 > a {
     display: block;
+<<<<<<< HEAD
     padding: 25px 20px;
     font-size: 14px;
     font-weight: 700;
@@ -154,6 +155,12 @@ a {
 #header .hide #gnb .depth01:nth-child(5) .depth02 li {
     width: 130px;
 }
+=======
+    padding: 25px 30px;
+    font-size: 14px;
+    font-weight: 700;
+}
+>>>>>>> 34cb8e7e651c30c9eda6f691399d44af941595a9
 #header.tl .view {
     display: none;
 }

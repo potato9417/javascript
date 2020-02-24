@@ -49,6 +49,7 @@ new fullpage("#main", {
 // console.log(destination); 중에 index가 위치
 // let idx = destination.index; 를 변수로 새로 잡아서 함
 
+<<<<<<< HEAD
 let tapMenu = $("#util .depth02 .tapMenu li");
 let tapList = $("#util .depth02 .tapList li");
 
@@ -69,3 +70,6 @@ let tap = function(i){
 
 
 // eq값은 index로 찾고 index값은 eq로 찾는다
+=======
+
+>>>>>>> 34cb8e7e651c30c9eda6f691399d44af941595a9
