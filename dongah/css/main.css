@@ -189,7 +189,7 @@
 }
 #util {
     width: 1200px;
-    max-height: 3000px;
+    height: 1300px;
     margin: auto;
 }
 #util .box h2 {
@@ -209,38 +209,38 @@
     font-size: 20px;
     color: #1eb8f6;
 }
-#util .depth01 {
+#util .box .depth01 {
     width: 100%;
     height: 100%;
 }
-#util .depth01 h2 {
+#util .box .depth01 h2 {
     margin: 100px 0 30px;
 }
-#util .depth01:after {
+#util .box .depth01:after {
     content: "";
     display: block;
     clear: both;
 }
-#util .depth01 .imgBox {
+#util .box .depth01 .imgBox {
     height: 300px;
     float: left;
 }
-#util .depth01 .imgBox img {
+#util .box .depth01 .imgBox img {
     height: 100%;
 }
-#util .depth01 .txtBox {
+#util .box .depth01 .txtBox {
     float: right;
     width: 835px;
     font-size: 0;
 }
-#util .depth01 .txtBox .txtBox01 {
+#util .box .depth01 .txtBox .txtBox01 {
     width: 100%;
     display: block;
     background-color: #fff;
     height: 170px;
     position: relative;
 }
-#util .depth01 .txtBox .txtBox01 p {
+#util .box .depth01 .txtBox .txtBox01 p {
     text-align: center;
     color: #666;
     font-weight: 600;
@@ -249,33 +249,33 @@
     font-size: 16px;
     line-height: 2;
 }
-#util .depth01 .txtBox .txtBox01 p strong {
+#util .box .depth01 .txtBox .txtBox01 p strong {
     color: #333;
     font-weight: 600;
     font-size: 26px;
 }
-#util .depth01 .txtBox .txtBox01 p .color {
+#util .box .depth01 .txtBox .txtBox01 p .color {
     color: #1eb8f6;
 }
-#util .depth01 .txtBox .txtBox01 img {
+#util .box .depth01 .txtBox .txtBox01 img {
     position: absolute;
 }
-#util .depth01 .txtBox .txtBox01 .left {
+#util .box .depth01 .txtBox .txtBox01 .left {
     top: 30%;
     left: 10%;
 }
-#util .depth01 .txtBox .txtBox01 .right {
+#util .box .depth01 .txtBox .txtBox01 .right {
     top: 30%;
     right: 10%;
 }
-#util .depth01 .txtBox .txtBox02 {
+#util .box .depth01 .txtBox .txtBox02 {
     display: inline-block;
     width: 417.5px;
     height: 130px;
     background-color: #d9d9d9;
     position: relative;
 }
-#util .depth01 .txtBox .txtBox02 p {
+#util .box .depth01 .txtBox .txtBox02 p {
     text-align: center;
     font-size: 16px;
     position: absolute;
@@ -285,14 +285,14 @@
     display: block;
     width: 300px;
 }
-#util .depth01 .txtBox .txtBox03 {
+#util .box .depth01 .txtBox .txtBox03 {
     display: inline-block;
     width: 417.5px;
     height: 130px;
     background-color: #1a2b55;
     position: relative;
 }
-#util .depth01 .txtBox .txtBox03 p {
+#util .box .depth01 .txtBox .txtBox03 p {
     text-align: center;
     display: block;
     width: 300px;
@@ -303,35 +303,290 @@
     left: 50%;
     transform: translate(-50%,-50%);
 }
-#util .depth02 {
-    width: 760px;
-    margin-right: 50px;
-}
-#util .depth02 .tapMenu {
-    width: 100%;
-}
-#util .depth02 .tapMenu:after {
+#util .box .contain:after {
     content: "";
     display: block;
     clear: both;
 }
-#util .depth02 .tapMenu li {
+#util .box .depth02 {
+    width: 755px;
+    float: left;
+    margin-right: 30px;
+}
+#util .box .depth02 .tapMenu {
+    width: 100%;
+}
+#util .box .depth02 .tapMenu:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+#util .box .depth02 .tapMenu li {
     text-align: center;
     height: 64px;
     display: inline-block;
-    width: 20%;
+    padding: 0 32px;
     float: left;
     background-color: #f4f4f4;
+    position: relative;
 }
-#util .depth02 .tapMenu li a {
+/* #util .box .depth02 .tapMenu li:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background-color: #d9d9d9;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+} */
+#util .box .depth02 .tapMenu li:nth-child(5):before {
+    display: none;
+}
+#util .box .depth02 .tapMenu li a {
     display: inline-block;
     height: 64px;
     width: 100%;
     font-size: 14px;
     padding: 21px 0;
+    font-weight: 700;
     
 }
+#util .box .depth02 .tapList {
+    width: 100%;
+    height: 290px;
+    background-color: #fff;
+    position: relative;
+}
+#util .box .depth02 .tapList li {
+    position: absolute;
+    width: 100%;
+    display: none;
+    padding: 20px 10px;
+}
+#util .box .depth02 .tapList li img {
+    width: 50%;
+    display: inline-block;
+    padding: 0 20px;
+    float: left;
 
+}
+#util .box .depth02 .tapList li .txtBox {
+    width: 50%;
+    display: inline-block;
+    padding: 0 20px;
+    float: right;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 90px;
+}
+#util .box .depth02 .tapList li .txtBox h3 {
+    font-size: 18px;
+    color: #1a2b55;
+    position: relative;
+    margin: 20px 0 35px;
+}
+#util .box .depth02 .tapList li .txtBox h3:after {
+    content: "";
+    display: block;
+    position: absolute;
+}
+#util .box .depth02 .tapList li .txtBox span {
+    position: relative;
+    float: left;
+}
+#util .box .depth02 .tapList li .txtBox span:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 100px;
+    top: 50%;
+    left: -10px;
+    transform: translateY(-50%);
+    background-color: #333;
+}
+#util .box .depth02 .tapList li .txtBox span:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 30px;
+    top: 0;
+    right: -10px;
+    background-color: #d9d9d9;
+}
+#util .box .depth02 .tapList li .txtBox p {
+    color: #666;
+    float: left;
+    margin-left: 25px;
+}
+#util .box .more {
+    position: absolute;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.25s ease;
+    padding-left: 20px;
+    bottom: 20px;
+}
+#util .box .more:hover {
+    color: #1eb8f6;
+}
+#util .box .more i {
+    color: #1eb8f6;
+    font-weight: 700;
+    margin-left: 5px;
+}
+/* tapMenu.view */
+#util .box .depth02 .tapMenu li.view {
+    background-color: #fff;
+    border-top: 3px solid #1a2b55;
+}
+#util .box .depth02 .tapList li.view {
+    display: block;
+}
+#util .box .depth03 {
+    width: 400px;
+    float: left;
+    position: relative;
+}
+#util .box .depth03 .plus {
+    font-size: 25px;
+    position: absolute;
+    top: 25px;
+    right: 0;
+    font-weight: 700;
+    color: #000;
+}
+#util .box .depth03 .txtBox {
+    background-color: #fff;
+    border-top: 3px solid #1a2b55;
+    padding: 30px;
+}
+#util .box .depth03 .date {
+    color: #888;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+#util .box .depth03 .title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+#util .box .depth03 .txt {
+    font-weight: 700;
+    color: #666;
+    margin-bottom: 35px;
+    font-size: 15px;
+}
+#util .box .depth03 .more {
+    padding: 0;
+}
+#util .url {
+    margin-top: 50px;
+}
+#util .url ul:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+#util .url ul > li {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+}
+#util .url ul > li:nth-child(1) {
+    padding-right: 20px;
+}
+#util .url ul > li:nth-child(2) {
+    float: right;
+    padding-left: 20px;
+}
+#util .url ul > li:nth-child(3) {
+    float: right;
+    padding-left: 20px;
+    margin-top: -175px;
+}
+#util .url ul > li a {
+    width: 100%;
+}
+#util .url ul > li img {
+    width: 100%;
+}
+#util .url ul > li .txtBox {
+    position: absolute;
+    color: #fff;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    padding: 50px;
+}
+#util .url ul > li:nth-child(1) .txtBox {
+    top: 25%;
+}
+#util .url ul > li .main {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+#util .url ul > li .sub {
+    font-weight: 700;
+    color: #d9d9d9;
+}
+#util .url ul > li i {
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 100px;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    color: #fff;
+    transition: 0.25s ease;
+}
+#util .url ul > li:nth-child(3) .main {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+}
+#util .url ul > li:nth-child(3) .sub {
+    font-weight: 700;
+    color: #888
+}
+#util .url ul > li:nth-child(1) i {
+    top: 70%;
+    right: 85%;
+}
+#util .url ul > li:nth-child(3) i {
+    border: 2px solid #888;
+    border-radius: 100px;
+    color: #888;
+}
+#util .url ul > li:nth-child(1) a:hover i {
+    background-color: #1eb8f6;
+    border-color: #1eb8f6;
+    color: #fff;
+}
+#util .url ul > li:nth-child(2) a:hover i {
+    background-color: #fff;
+    border-color: #fff;
+    color: #1eb8f6;
+}
+#util .url ul > li:nth-child(3) a:hover i {
+    background-color: #1a2b55;
+    border-color: #1a2b55;
+    color: #fff;
+}
+
+
+
+
+
+
+/* http://manos.malihu.gr/ 스크롤 js */
 
 #util .depth02 .tapMenu.on li {
     background-color: #fff;

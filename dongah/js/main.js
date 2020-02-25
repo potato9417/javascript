@@ -17,7 +17,11 @@ new Swiper("#mainVisual .mask",{
     navigation: {
         nextEl: "#mainVisual .mask .btns .next",
         prevEl: "#mainVisual .mask .btns .pre",
-      },
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+    },
 });
 
 $("#lang a").on("click",function(){
@@ -45,4 +49,27 @@ new fullpage("#main", {
 // console.log(destination); 중에 index가 위치
 // let idx = destination.index; 를 변수로 새로 잡아서 함
 
+<<<<<<< HEAD
+let tapMenu = $("#util .depth02 .tapMenu li");
+let tapList = $("#util .depth02 .tapList li");
 
+tapMenu.on("click",function(){
+    let index = $(this).index();
+    // console.log(index);
+    i=index;
+    tap(i);
+    return false;
+})
+
+let tap = function(i){
+    tapMenu.eq(i).addClass("view");
+    tapMenu.eq(i).siblings().removeClass("view");
+    tapList.eq(i).addClass("view");
+    tapList.eq(i).siblings().removeClass("view");
+}
+
+
+// eq값은 index로 찾고 index값은 eq로 찾는다
+=======
+
+>>>>>>> 34cb8e7e651c30c9eda6f691399d44af941595a9
