@@ -2,37 +2,41 @@ let resultArray = [];
 let cardArray=[];
 $(document).ready(function(){
     $("#card li").on("click",function(){
+        $(this).addClass("turn");
         resultArray.push($(this).data("click"));
         cardArray.push($(this));
+        console.log(resultArray[0],"====",resultArray[1]);
         console.log(cardArray[0],"====",cardArray[1]);
-        if(!$(this).hasClass("turn")) {
+        if($(this).hasClass("turn")) {
             gsap.to($(this),{
                 duration: 1.2,
                 rotationY: 180,
                 perspective: 500,
                 ease: "back.inOut",
             })
-            $(this).addClass("turn");
-        }
-        if(resultArray.length===2) {
-            if(resultArray[0]===resultArray[1]) {
-                console.log(" y")
+            if(resultArray.length===2) {
+                if(resultArray[0]===resultArray[1]) {
+                    console.log("y");
+                }
+                else {
+                    console.log("x");
+                    if($(this).hasClass("turn")) {
+                        gsap.fromTo($(this),{
+                            retationY: 0,
+                            perspective: 500,
+                        },
+                        {
+                            duration: 1.2,
+                            rotationY: 180,
+                            perspective: 500,
+                            ease: "back.inOut",
+                        })
+                    }
+                }
+                $(this).removeClass("turn");
+                resultArray=[];
+                cardArray=[];
             }
-            else {
-                setTimeout(function (){
-                    gsap.to(cardArray[0],{
-                        rotationY:0,
-                    });
-                    gsap.to(cardArray[1],{
-                        rotationY:0,
-                    });
-                    console.log(" gasp  dhfb")
-                },200)
-                
-                console.log(" x")
-            }
-            resultArray=[];
-            cardArray=[];
         }
         // else {
         //     gsap.to($(this),{
@@ -43,6 +47,8 @@ $(document).ready(function(){
         //     })
         //     $(this).removeClass("turn");
         // }
+        console.log(resultArray.length);
+        
     })
 })
 let randomCard = function(){
