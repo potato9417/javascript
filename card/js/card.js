@@ -1,7 +1,58 @@
 let resultArray = [];
 let cardArray=[];
+let finishArray=[];
 $(document).ready(function(){
     $("#card li").on("click",function(){
+        if(!$(this).hasClass("turn")){
+            resultArray.push($(this).data("click"));
+            cardArray.push($(this));
+            gsap.to($(this),{
+                duration: 1.2,
+                rotationY: 180,
+                perspective: 500,
+                ease: "back.inOut",
+            });
+            if(resultArray.length===2) {
+                if(resultArray[0]===resultArray[1]) {
+                    finishArray.push(resultArray[0]);
+                    finishArray.push(resultArray[1]);
+                    resultArray=[];
+                    cardArray=[];
+                    // console.log(finishArray);
+                    // console.log(finishArray.length);
+                    if(finishArray.length===16) {
+                        
+                        console.log("성공");
+                    }
+                } 
+                else {
+                    console.log("n");
+                    // 클릭하자마자 바로 gsap이 진행되므로 setTimeout으로 시간차를 둬야함
+                    setTimeout(function(){
+                        gsap.to(cardArray[0],{
+                            duration: 1.2,
+                            rotationY: 0,
+                            perspective: 500,
+                            ease: "back.inOut",
+                        });
+                        gsap.to(cardArray[1],{
+                            duration: 1.2,
+                            rotationY: 0,
+                            perspective: 500,
+                            ease: "back.inOut",
+                        });
+                        cardArray[0].removeClass("turn");
+                        cardArray[1].removeClass("turn");
+                        resultArray=[];
+                        cardArray=[];
+                    },1000)
+                }
+            }
+            $(this).addClass("turn");
+        }
+        // console.log(resultArray);
+        // console.log(cardArray);
+        /*
         $(this).addClass("turn");
         resultArray.push($(this).data("click"));
         cardArray.push($(this));
@@ -22,22 +73,33 @@ $(document).ready(function(){
                     console.log("x");
                     if($(this).hasClass("turn")) {
                         gsap.fromTo($(this),{
-                            retationY: 0,
+                            duration: 3,
+                            rotationY: 180,
                             perspective: 500,
                         },
                         {
-                            duration: 1.2,
-                            rotationY: 180,
+                            duration: 3,
+                            rotationY: 0,
                             perspective: 500,
                             ease: "back.inOut",
                         })
                     }
+                    else if($(this).siblings().hasClass("turn")) {
+                        gsap.to($(this).siblings(),{
+                            duration: 3,
+                            rotationY: 0,
+                            perspective: 500,
+                            ease: "back.inOut",
+                        })
+                    }
+                    console.log($(cardArray[0]));
                 }
                 $(this).removeClass("turn");
                 resultArray=[];
                 cardArray=[];
             }
         }
+        */
         // else {
         //     gsap.to($(this),{
         //         duration: 1.2,
@@ -47,7 +109,7 @@ $(document).ready(function(){
         //     })
         //     $(this).removeClass("turn");
         // }
-        console.log(resultArray.length);
+        //console.log(resultArray.length);
         
     })
 })
@@ -79,7 +141,7 @@ $("#btn").on("click",function(){
         perspective: 500,
     },
     {
-        duration: 1,
+        duration: 3,
         rotationY: 0,
         perspective: 500,
         ease: "back.inOut"
