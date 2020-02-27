@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .bg {
+            height: 100vh;
+            background: #4099ff;
+            background-size: cover;
+            font-family: 'Titillium Web', serif;
+        }
+        h2 {
+            font-size: 64px;
+            position: absolute;
+            top:50%;
+            width:100%;
+            text-align: center;
+            font-weight: 200;
+            color:#fff;
+            text-transform: uppercase;
+
+            /* text-shadow: 1px 1px 0 rgba(0,0,0,0.1),
+                         2px 2px 0 rgba(0,0,0,0.1),
+                         3px 3px 0 rgba(0,0,0,0.1),
+                         4px 4px 0 rgba(0,0,0,0.1),
+                         5px 5px 0 rgba(0,0,0,0.1),
+                         6px 6px 0 rgba(0,0,0,0.1),
+                         7px 7px 0 rgba(0,0,0,0.1),
+                         8px 8px 0 rgba(0,0,0,0.1),
+                         9px 9px 0 rgba(0,0,0,0.1),
+                         10px 10px 0 rgba(0,0,0,0.1),
+                         11px 11px 0 rgba(0,0,0,0.1),
+                         12px 12px 0 rgba(0,0,0,0.1),
+                         13px 13px 0 rgba(0,0,0,0.1),
+                         14px 14px 0 rgba(0,0,0,0.1),
+                         15px 15px 0 rgba(0,0,0,0.1),
+                         16px 16px 0 rgba(0,0,0,0.1),
+                         17px 17px 0 rgba(0,0,0,0.1),
+                         18px 18px 0 rgba(0,0,0,0.1),
+                         19px 19px 0 rgba(0,0,0,0.1),
+                         20px 20px 0 rgba(0,0,0,0.1) */
+                         
+            
+        }
+        h2 strong {
+            font-weight: 900;
+            color:#f00;
+            display: inline-block;
+            position: relative;
+            z-index: 2;
+            
+        }
+        /* h2 strong:before {
+            content: '';
+            display: block;
+            width:100%;
+            height: 10px;
+            background-color: rgba(255,255,255,0.8);
+            border-radius: 100px;
+            bottom: 20px;
+            z-index: -1;
+            position: absolute;
+            bottom: 22px;
+        } */
+    </style>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/typed.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            let typed = new Typed("#changeTxt",{
+                strings:[
+                    "Front-end-developer",
+                    "Interactive media designer",
+                    "UI/UX Designer",
+                    "Professor"
+                ],
+                typeSpeed:50,
+                backSpeed:50,
+                backDelay: 2000,
+                loop:true,
+                showCursor: false,
+            });
+            // longshadow  사용방법
+            let shadow="";
+            let total = 50;
+            for(let i=0; i<total; i++) {
+                // console.log(i);
+                if(i<total-1) {
+                    shadow += `${i+1}px ${i+1}px 0 rgba(42,59,77,1),`;
+                }
+                else {
+                    shadow += `${i+1}px ${i+1}px 0 rgba(42,59,77,1)`;
+                }
+                console.log(shadow);
+                $("#selfIntroduce").css({textShadow:shadow});
+
+            }
+        })
+    </script>
+</head>
+<body>
+    <div class="bg">
+        <h2 id="selfIntroduce">I am a <strong id="changeTxt"></strong></h2>
+    </div>
+</body>
+</html>

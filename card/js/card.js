@@ -23,6 +23,7 @@ $(document).ready(function(){
                     if(finishArray.length===16) {
                         
                         console.log("성공");
+                        
                     }
                 } 
                 else {
@@ -147,5 +148,20 @@ $("#btn").on("click",function(){
         ease: "back.inOut"
     })
 
+})
+let btnTime = gsap.timeline();
+$("#btn .start").on("click",function(){
+    btnTime.to($(this),{
+        yPercent: -700,
+        opacity: 0,
+        duration: 1.5,
+        ease: "back.inOut"
+    })
+    .to($("#btn .bg"),{
+        y: "-100%",
+        opacity: 0,
+        duration: 1,
+        ease: "power4.out"
+    },0.5)
 })
 
