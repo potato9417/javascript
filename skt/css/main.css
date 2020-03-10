@@ -1,0 +1,11 @@
+.container {
+    width: 1160px;
+    margin: auto;
+}
+#mainVideo {
+    width: 100vw;
+}
+#mainVideo video {
+    margin-top: 120px;
+    width: 100%;
+}
