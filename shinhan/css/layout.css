@@ -1,0 +1,14 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+body {
+    color: #333;
+    background-color: #e2e4ea;
+}
+a {
+    line-height: 1.6;
+    font-size: 16px;
+    color: inherit;
+    font-family: "Open Sans", "Noto Sans KR", sans-serif;
+    text-decoration: none;
+}
