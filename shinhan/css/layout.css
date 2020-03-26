@@ -40,21 +40,49 @@ a {
   width: 100%;
   height: 90px;
   border-bottom: 1px solid #fff;
-  z-index: 999;
+  z-index: 99;
   overflow: hidden;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
 }
 
 #header.on {
   height: 490px;
+  background-color: #fff;
+  border: none;
 }
 
-#header.on #gnb .gnbList .depth01.down {
+#header.on #logo .black {
   display: block;
+}
+
+#header.on #logo .white {
+  display: none;
+}
+
+#header.on #gnb .depth01 {
+  color: #333;
+}
+
+#header.on #gnb .gnbList > li.on .depth01.down {
+  display: block;
+}
+
+#header.on .util button span {
+  background-color: #333;
 }
 
 #header #logo {
   position: absolute;
   left: 50px;
+}
+
+#header #logo .white {
+  display: block;
+}
+
+#header #logo .black {
+  display: none;
 }
 
 #header #logo a img {
@@ -81,6 +109,7 @@ a {
   font-weight: 600;
   display: block;
   padding: 30px 0;
+  position: relative;
 }
 
 #header #gnb .gnbList > li .depth01.down {
@@ -90,30 +119,68 @@ a {
   top: 120%;
   left: -40%;
   color: #02428f;
-  z-index: 1;
+  z-index: 2;
+}
+
+#header #gnb .gnbList > li .depth01:hover:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #02428f;
 }
 
 #header #gnb .gnbList > li > ul {
+  display: none;
   position: absolute;
   width: 100%;
   height: 400px;
   left: -55%;
   background-color: #e9e9e9;
-  padding: 40px 200px;
+  padding: 40px 0 40px 600px;
+  z-index: 1;
+}
+
+#header #gnb .gnbList > li > ul.on {
+  display: block;
 }
 
 #header #gnb .gnbList > li .depth02 {
-  float: right;
+  float: left;
   font-size: 1.6rem;
   color: #333;
   margin: 20px 50px;
   font-weight: 500;
 }
 
+#header #gnb .gnbList > li .depth02:hover > a {
+  position: relative;
+  border-bottom: 1px solid #02428f;
+}
+
+#header #gnb .gnbList > li .depth02:hover > a:before {
+  display: block;
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 5px;
+  background-color: #02428f;
+  border-radius: 100px;
+  top: -7px;
+  right: -14px;
+}
+
 #header #gnb .gnbList > li .depth02 .depth03 {
   color: #666;
   margin: 20px 0;
   font-weight: 300;
+}
+
+#header #gnb .gnbList > li .depth02 .depth03:hover > a {
+  border-bottom: 1px solid #02428f;
 }
 
 #header .util {
@@ -174,7 +241,7 @@ a {
   font-size: 2.4rem;
   color: #02428f;
   font-weight: 600;
-  padding: 80px 0 40px;
+  padding: 50px 0 30px;
   display: block;
 }
 
@@ -182,7 +249,7 @@ a {
   font-size: 1.6rem;
   color: #333;
   font-weight: 500;
-  margin: 30px 0;
+  margin: 10px 0 20px;
 }
 
 #header .util #utilGnb .gnbList .depth02 .depth03 {
@@ -191,6 +258,11 @@ a {
   font-weight: 300;
   margin: 15px 0 15px 12px;
   position: relative;
+}
+
+#header .util #utilGnb .gnbList .depth02 .depth03:hover a {
+  border-bottom: 1px solid #02428f;
+  color: #02428f;
 }
 
 #header .util #utilGnb .gnbList .depth02 .depth03:before {
