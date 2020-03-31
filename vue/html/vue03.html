@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE03</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../js/vue03.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <p>
+            <input type="checkbox" id="check01" v-model="checked">
+            <!-- checked 새로고침하자마자 체크표시 되어있음 -->
+            <label for="check01">{{checked}}</label>
+        </p>
+        <div>
+            <span>
+                <input type="checkbox" id="job01" value="웹디자이너" v-model="checkJobs">
+                <label for="job01">웹디자이너</label>
+            </span>
+            <span>
+                <input type="checkbox" id="job02" value="웹퍼블리셔" v-model="checkJobs">
+                <label for="job02">웹퍼블리셔</label>
+            </span>
+            <span>
+                <input type="checkbox" id="job03" value="웹기획" v-model="checkJobs">
+                <label for="job03">웹기획</label>
+            </span>
+        </div>
+        <div>
+            관심종목 : {{checkJobs}}
+        </div>
+        <div>
+            <span>
+                <input type="radio" id="one" value="남자" checked v-model="pick">
+                <label for="one">남자</label>
+            </span>
+            <span>
+                <input type="radio" id="two" value="여자" v-model="pick">
+                <label for="two">여자</label>
+            </span>
+        </div>
+        <p>나의 성별은? {{pick}}</p>
+        <!-- <div>
+            <select name="" id="" v-model="selected">
+                <option disabled value="">시/도</option>
+                <option>서울</option>
+                <option>경기도</option>
+                <option>강원도</option>
+                <option>충청도</option>
+                <option>경상도</option>
+                <option>전라도</option>
+            </select>
+            <p>내가 사는 고향은? {{selected}}</p>
+        </div> -->
+        <div>
+            <select name="" id="" v-model="selected">
+                <option v-for="city in cities" :value="city.value" :disabled="city.disabled">
+                    <!-- 
+                        속성을 연결할떄(속성값을 구할떄) v-bind: 와 : 이 같아 v-bind뺴고도 사용
+                        <option v-for="city in cities" v-bind:value="city.value">
+                    -->
+                    {{city.name}}
+                </option>
+                
+            </select>
+            <p>내가 사는 고향은? {{selected}}</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue02</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../js/vue02.js" defer></script>
+</head>
+<body>
+    <!-- v-model 양방향 -->
+    <div id="app">
+        <p id="question">{{first}} 곱하기 {{second}} 는?</p>
+        <input type="text" id="txtResult" v-model="value" ref="answer" @keyup.enter="checkResult">
+        <!-- 
+            ref="변수" (reference) 
+            this.$refs.answer.focus();
+        -->
+        <a href="" id="btnResult" @click.prevent="checkResult">CLICK</a>
+        <!-- 
+            v-on:을 @로 많이쓴다
+            <button id="btnResult" v-on:click="checkResult">CLICK</button> 
+            
+            .prevent 는 return false와 같은 역활
+        -->
+        <p id="dingdong">{{result}}</p>
+        <p>정답은? {{value}}</p>
+    </div>
+    <!-- 
+        #question의 3과 4 숫자는 랜덤으로 바껴야하고 
+        #btnReult를 눌렀을떄
+        #txtResult와 #question의 값에 따라
+        #dingdong의 값이 딩동댕 또는 떙을 출력한다
+    -->
+</body>
+</html>

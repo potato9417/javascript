@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE01</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../js/vue01.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <h1>
+            {{message}}
+        </h1>
+        <p v-if="seen">나는 vue에서 제어되는 if문 입니다.</p>
+        <ul>
+            <li v-for="fruit in fruits">
+                <p>
+                    <span>NAME : </span>{{fruit.name}}
+                </p>
+                <p>
+                    <span>PRICE : </span>{{fruit.price}}
+                </p>
+            </li>
+            <!-- v-for="(html에서 사용할단어) (in) (js에서 변수로 지정한단어)" -->
+        </ul>
+    </div>
+
+</body>
+</html>
