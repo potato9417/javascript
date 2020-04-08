@@ -1,0 +1,61 @@
+만들어야하는 파일/폴더
+	index.html
+	test.js
+	Test.js
+	webpack.config.js
+	(dist폴더>app.js파일)자동으로 생성됨
+
+설치해야하는 plugin
+	npm i vue
+	npm i webpack webpack-cli -D
+	npm i vue-template-compiler -D
+	npm i vue-loader -D
+	npm i vue-style-loader -D
+	npm i css-loader -D
+
+index.html의 script
+	<script src="output한 폴더/output한 파일" defer></script>
+
+test.js에서 외부파일불러오기 밑 vue사용
+	import Vue from "vue";
+	import Test from "./Test.vue";
+	new Vue(Test).$mount ("#app");
+
+webpack.config.js 기본틀
+	const path=require("path");  절대값사용을 위한 상수
+	const VueLoaderPlugin = require("vue-loader/lib/plugin");
+
+	module.exports={
+	     entry:{
+	          코딩을 하려는 위치(절대값사용)   path.join(__dirname,"test.js")
+	     },
+	     module:{
+	          rules:[
+	               {
+	                    test:사용하려는모듈이름(/\.vue/),
+	                    use:사용하려는 plugin("vue-loader")
+	               }
+	          ]
+	     },
+	     plugins:[
+	          다운받은 플러그인(const로 상수지정해서사용)
+	     ],
+	     output:{
+	          filename:"결과값이 나올 파일이름",
+	          path:결과값이 나올 폴더이름(절대값사용)
+	     },
+	}
+
+Test.vue 기본틀
+	<template>
+	</template>
+	<script>
+	     export default{
+	          date(){
+	               return{}
+	          },
+	          methods:{}
+	     }
+	</script>
+	<style>
+	</style>
