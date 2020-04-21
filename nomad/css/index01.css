@@ -1,0 +1,39 @@
+*,*:before,*:after {
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+}
+body {
+    font-family: "Roboto", "Noto Sans KR", serif;
+    color: #fff;
+    font-size: 1.6rem;
+    background-color: rgb(100, 100, 100);
+    text-align: center;
+}
+h1 {
+    font-size: 5rem;
+    padding: 50px 0 20px;
+    font-weight: 700;
+}
+.form {
+    display: none;
+}
+.input {
+    width: 200px;
+    height: 50px;
+    font-size: 2rem;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    text-align: left;
+    padding: 0 10px;
+}
+.greeting {
+    display: none;
+    font-size: 3rem;
+
+}
+.showing {
+    display: block;
+}

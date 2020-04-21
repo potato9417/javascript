@@ -1,9 +1,8 @@
 body {
     background-color: rgb(255, 219, 166);
 }
-h1 {
+body {
     color: #34495e;
-    transition: color 0.5s ease-in-out;
 }
 .form, .greeings {
     display: none;
