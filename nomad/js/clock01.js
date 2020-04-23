@@ -9,10 +9,10 @@ function today(){
     if(hours<10){
         hours = "0"+hours
     }
-    else if(minutes<10){
+    if(minutes<10){
         minutes = "0"+minutes
     }
-    else if(seconds<10){
+    if(seconds<10){
         seconds = "0"+seconds
     }
     

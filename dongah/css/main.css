@@ -325,7 +325,7 @@
     text-align: center;
     height: 64px;
     display: inline-block;
-    padding: 0 32px;
+    padding: 0 32.45px;
     float: left;
     background-color: #f4f4f4;
     position: relative;
@@ -344,13 +344,14 @@
 #util .box .depth02 .tapMenu li:nth-child(5):before {
     display: none;
 }
-#util .box .depth02 .tapMenu li a {
+#util .box .depth02 .tapMenu li p {
     display: inline-block;
     height: 64px;
     width: 100%;
     font-size: 14px;
-    padding: 21px 0;
+    padding: 23px 0;
     font-weight: 700;
+    cursor: pointer;
     
 }
 #util .box .depth02 .tapList {
