@@ -1,0 +1,266 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Roboto", "Noto Sans KR", serif;
+  color: #333;
+}
+
+a {
+  text-align: none;
+  color: inherit;
+}
+
+#logo {
+  font-size: 5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 140px 0 70px;
+}
+
+#seat {
+  width: 100%;
+  padding: 0;
+  text-align: center;
+  position: relative;
+}
+
+#seat .seatBox {
+  background-color: #e2e2e2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border: 1px solid #333;
+  padding: 40px;
+}
+
+#seat .seatBox .screen {
+  width: 100%;
+  padding: 10px 0;
+  background-color: #929292;
+  margin-bottom: 70px;
+}
+
+#seat .seatBox .screen p {
+  font-weight: 700;
+  color: #444;
+  font-size: 2.2rem;
+}
+
+#seat .seatBox .lineName {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#seat .seatBox .lineName li {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  background-color: #e9e9e9;
+  border-top: 3px solid #cacaca;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 5.8px;
+}
+
+#seat .seatBox .lines {
+  display: inline-block;
+}
+
+#seat .seatBox .lines ul {
+  text-align: left;
+}
+
+#seat .seatBox .lines ul li {
+  cursor: pointer;
+  font-weight: 500;
+  color: #fff;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 3px solid #333;
+  margin: 3px;
+  line-height: 25px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#seat .seatBox .lines ul li.click {
+  background-color: #e23f3f !important;
+  border: none;
+  position: relative;
+  line-height: 32px;
+}
+
+#seat .seatBox .lines ul li.click:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 100px;
+  background-color: #fff;
+  z-index: 1;
+}
+
+#seat .seatBox .lines .lineA li {
+  border-color: #ff9100;
+}
+
+#seat .seatBox .lines .lineA li:nth-child(10) {
+  margin-right: 83px;
+}
+
+#seat .seatBox .lines .lineA li:nth-child(11) {
+  background-color: #41bad8;
+  border: none;
+  border-radius: 3px;
+  line-height: 30px;
+}
+
+#seat .seatBox .lines .lineA li:nth-child(12) {
+  background-color: #41bad8;
+  border: none;
+  border-radius: 3px;
+  line-height: 30px;
+}
+
+#seat .seatBox .lines .lineB li {
+  border-color: #ff9100;
+}
+
+#seat .seatBox .lines .lineC li {
+  border-color: #ff9100;
+}
+
+#seat .seatBox .lines .lineD li {
+  border-color: #10bf00;
+}
+
+#seat .seatBox .lines .lineE li {
+  border-color: #10bf00;
+}
+
+#seat .seatBox .lines .lineF li {
+  border-color: #10bf00;
+}
+
+#seat .seatBox .lines .lineG li {
+  border-color: #e23f3f;
+}
+
+#seat .seatBox .lines .lineG li:nth-child(1) {
+  margin-left: 83px;
+}
+
+#seat .seatBox .lines .lineH li {
+  border-color: #e23f3f;
+}
+
+#seat .seatBox .lines .lineH li:nth-child(1) {
+  margin-left: 83px;
+}
+
+#seat .seatBox .lines .lineI li {
+  border-color: #e23f3f;
+}
+
+#seat .seatBox .lines .lineI li:nth-child(1) {
+  margin-left: 83px;
+}
+
+#seat .seatBox .lines .lineJ li {
+  border-color: #e23f3f;
+}
+
+#seat .seatBox .lines .lineJ li:nth-child(1) {
+  margin-left: 83px;
+}
+
+#seat .seatBox .lines .lineK li {
+  border-color: #e23f3f;
+}
+
+#seat .seatBox .lines .lineK li:nth-child(1) {
+  margin-left: 83px;
+}
+
+#seat .seatBox .lines .lineK li:nth-child(13) {
+  margin-left: 40px;
+  background-color: #ff6189;
+  border: none;
+  line-height: 30px;
+  border-radius: 3px;
+}
+
+#seat .seatBox .lines .lineK li:nth-child(14) {
+  background-color: #ff6189;
+  border: none;
+  line-height: 30px;
+  border-radius: 3px;
+}
+
+#seat .seatBox .lines .lineL li {
+  border-color: #e23f3f;
+}
+
+#seat .seatBox .lines .lineL li:nth-child(1) {
+  margin-left: 83px;
+}
+
+#seat .seatBox .lines .lineL li:nth-child(13) {
+  margin-left: 40px;
+  background-color: #ff6189;
+  border: none;
+  line-height: 30px;
+  border-radius: 3px;
+}
+
+#seat .seatBox .lines .lineL li:nth-child(14) {
+  background-color: #ff6189;
+  border: none;
+  line-height: 30px;
+  border-radius: 3px;
+}
+
+#seat .seatBox .lines .lineM li {
+  background-color: #ff6189;
+  border: none;
+  line-height: 30px;
+  border-radius: 3px;
+}
+
+#seat .seatBox .lines .lineM li.click {
+  line-height: 30px;
+}
+
+#seat .seatBox .lines .lineM li:nth-child(1) {
+  margin-left: 83px;
+}
+
+#seat .seatBox .lines .lineM li:nth-child(13) {
+  margin-left: 40px;
+  background-color: #ff6189;
+  border: none;
+  line-height: 30px;
+  border-radius: 3px;
+}
+
+#seat .seatBox .lines .lineM li:nth-child(14) {
+  background-color: #ff6189;
+  border: none;
+  line-height: 30px;
+  border-radius: 3px;
+}

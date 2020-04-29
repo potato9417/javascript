@@ -2,13 +2,19 @@
 const header = document.querySelector("#header")
 const mainVisual = document.querySelector("#mainVisual")
 const headerDepth01 = document.querySelectorAll("#gnb .depth01");
-const headerDepth02 = document.querySelector("#gnb .depth02");
+const headerDepth02 = document.querySelectorAll("#gnb .depth02");
 
 
 for(i=0;i<headerDepth01.length;i++){
     const headerDepth01Arr = headerDepth01[i];
     headerDepth01Arr.addEventListener("mouseenter",function(){
         header.classList.add("on");
+        for(j=0;j<headerDepth02.length;j++){
+            const headerDepth02Arr = headerDepth02[j];
+            headerDepth02Arr.addEventListener("mouseenter",function(){
+                header.classList.add("on");
+            })
+        }
     });
     headerDepth01Arr.addEventListener("mouseleave",function(){
         header.classList.remove("on");
@@ -16,12 +22,8 @@ for(i=0;i<headerDepth01.length;i++){
 }
 
 
-headerDepth02.addEventListener("mouseenter",function(){
-    header.classList.add("on");
-});
-headerDepth02.addEventListener("mouseleave",function(){
-    header.classList.remove("on");
-});
+
+
 
 
 // $("#gnb .depth01").on("mouseenter",function(){
