@@ -1,4 +1,6 @@
-const seats = document.querySelectorAll("#seat .lines ul li");
+const seats = document.querySelectorAll("#seat .lines ul li"),
+    selectPrice = document.querySelector("#check .checkBox .selectPrice")
+    
 
 let price = 0,
     clickNum = 0;
@@ -16,5 +18,7 @@ for(let i=0;i<seats.length;i++){
         }
         price=clickNum*10000;
         console.log(price);
+        console.log(selectPrice);
+        selectPrice.innerHTML(price);
     })
 }
