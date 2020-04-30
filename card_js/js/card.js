@@ -38,7 +38,6 @@ win.addEventListener("click",function(){
     }
     startBG.classList.remove("start");
     win.classList.remove("win");
-
 })
 
 // 게임에서 이겼을떄 나타나는 이벤트효과
@@ -55,6 +54,7 @@ retry.addEventListener("click",function(){
         card[i].classList.remove("click")
     }
     console.log("hi")
+    startBG.classList.remove("start");
     
 })
 
@@ -64,33 +64,42 @@ function cardGame(){
         card[i].index=i;
         card[i].addEventListener("click",function(){
             // console.log(card[i].index,"click");
-            card[i].classList.add("click");
-            cardArray.push(card[i]);
-            resultArray.push(card[i].className);
-            console.log(cardArray[0],cardArray[1]);
-            // console.log(cardArray,cardArray.length);
-            if(resultArray.length===2){
-                if(resultArray[0]===resultArray[1]){
-                    finishArray.push(resultArray[0],resultArray[1]);
-                    console.log(finishArray);
-                    if(finishArray.length===16){
-                        gameWin();
-                        game.classList.remove("click");
-                        console.log("finish");
-                        finishArray=[];
+            if(resultArray.length<2){
+                card[i].classList.add("click");
+                cardArray.push(card[i]);
+                resultArray.push(card[i].className);
+                console.log(cardArray[0],cardArray[1]);
+                // console.log(cardArray,cardArray.length);
+                if(resultArray.length===2){
+                    if(resultArray[0]===resultArray[1]){
+                        finishArray.push(resultArray[0],resultArray[1]);
+                        console.log(finishArray);
+                        if(finishArray.length===16){
+                            gameWin();
+                            game.classList.remove("click");
+                            console.log("finish");
+                            finishArray=[];
+                        }
+                        cardArray=[];
+                        resultArray=[];
+                    }
+                    else{
+                        setTimeout(function(){
+                            cardArray[0].classList.remove("click");
+                            cardArray[1].classList.remove("click");
+                            console.log("no")
+                            cardArray=[];
+                            resultArray=[];
+                        },2000)
+                        
                         
                     }
                 }
-                else{
-                    cardArray[0].classList.remove("click");
-                    cardArray[1].classList.remove("click");
-                    console.log("no")
-                    
-                }
-                cardArray=[];
-                resultArray=[]
             }
+            
+            
         })
+        
     }
 }
 
