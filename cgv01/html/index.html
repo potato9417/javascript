@@ -16,6 +16,21 @@
             <div class="screen"><p>SCREEN</p></div>
             <div id="lines"></div>
         </div>
+        <div class="checkList">
+            <form>
+                <P>성별</P>
+                <label for="" ><input type="radio" name="gender" value="male" id="male" onclick="clickMale()">남자</label>
+                <label for=""><input type="radio" name="gender" value="female" id="female" onclick="clickFemale()">여자</label>
+                <P>구분</P>
+                <label for=""><input type="radio" name="separate"" value="adolescent" id="adolescent" onclick="clickAdolescent()">청소년</label>
+                <label for=""><input type="radio" name="separate" value="adult" id="adult" onclick="clickAdult()">성인</label>
+                <label for=""><input type="radio" name="separate" value="national" id="national" onclick="clickNational()">국가유공자</label>
+                <label for=""><input type="radio" name="separate" value="disabled" id="disabled" onclick="clickDisabled()">장애인</label>
+                <div class="submitBox">
+                    <p class="submit">Submit</p>
+                </div>
+            </form>
+        </div>
     </div>
     <div id="check">
         <h2>예매확인</h2>

@@ -7,13 +7,7 @@ const xAxis = 16,
     btn = document.querySelector("#check .btns button"),
     male = document.getElementById("male"),
     female = document.getElementById("female"),
-    adolescent = document.getElementById("adolescent"),
-    adult = document.getElementById("adult"),
-    national = document.getElementById("national"),
-    disabled = document.getElementById("disabled"),
-    genderDom = document.getElementsByName("gender"),
-    separateDom = document.getElementsByName("separate"),
-    submit = document.querySelector("#seat .checkList .submitBox .submit");
+    separate = document.getElementsByName("separate");
 
 // console.log(male);
     
@@ -24,9 +18,7 @@ let seatArr = [],
     seatsArr=[],
     seats=[],
     gender=[],
-    separate=[],
-    showGender,
-    showSeparate;
+    showGender;
 
 
 /*
@@ -46,27 +38,37 @@ click event를 인식했듯이, 왠만한 모든 인터렉션은 해당하는 �
 
 // console.log(female.value);
 
+function clickMale(){
+    gender=[];
+    if(male.checked == true){
+        console.log("yes")
+        gender.push(male.value);
+        showGender=gender[0]
+        console.log(showGender);
+    }
+}
+function clickFemale(){
+    gender=[];
+    if(female.checked == true){
+        console.log("no")
+        gender.push(female.value);
+        showGender=gender[0]
+        console.log(showGender);
+        
+    }
+}
 
-// 영화예매 기본함수
 function seatSetting(){
     for(let y = 0; y < yAxis; y++) {
         for (let x = 0; x < xAxis; x ++) {
             let seatLine = ["A","B","C","D","E","F","G","H","I","J","K","L","M"];
-            // if(male.checked==true || female.checked==true){
-            //     if(adolescent.checked==true || adult.checked==true || national.checked==true || disabled.checked==true){
-            //         seatArr.push({xSeat:x,ySeat:seatLine[Math.floor(y%13)],gen:showGender,sep:showSeparate});
-            //     }
-            // }
-            // else{
-            //     seatArr.push({xSeat:x,ySeat:seatLine[Math.floor(y%13)]}); // 이쁘게 잘짰어요 이부분
-            // }
-            seatArr.push({xSeat:x,ySeat:seatLine[Math.floor(y%13)]});
-            // seatArr.push({xSeat:x,ySeat:seatLine[Math.floor(y%13)],gen:showGender,sep:showSeparate});
-
+            seatArr.push({xSeat:x,ySeat:seatLine[Math.floor(y%13)]}); // 이쁘게 잘짰어요 이부분
+            
             // 배열반복을 끝냈을 때 실행하도록 만든 if문
+            
             if(seatArr.length===xAxis*yAxis){
                 // 금액,좌석표시
-                // console.log(seatArr)
+                console.log(seatArr)
                 for(let i in seatArr){
                     // p태그를 append하는 방법(https://stackoverflow.com/questions/44288505/passing-in-array-data-into-div-elements)
                     const p = document.createElement("p");
@@ -90,11 +92,6 @@ function seatSetting(){
                             seats[i].addEventListener("click",function(){
                                 seats[i].classList.toggle("click");
                                 if(seats[i].classList.contains("click")){
-                                    let arrBox =[];
-                                    arrBox.push(seatArr[i]);
-                                    console.log(arrBox);
-                                    seatArr.splice(i,1,{xSeat:x,ySeat:seatLine[Math.floor(y%13)],gen:showGender,sep:showSeparate})
-                                    console.log(seatArr);
                                     clickNum++;
                                     seats[i].index=i;
                                     showSeats[i].classList.add("show");
@@ -117,70 +114,15 @@ function seatSetting(){
         }
     }
     btn.addEventListener("click",function(){
-        alert(`예매인원 총 ${clickNum}명, 결제금액 총 ${price}원`);
+        alert(`예매인원 총 ${clickNum}, 결제금액 총 ${price}원`);
     })
 }
 
 
-// checkbox 클릭 이벤트
-function clickMale(){
-    gender=[];
-    if(male.checked == true){
-        console.log("yes")
-        gender.push(male.value);
-        showGender=gender[0]
-        console.log(showGender);
-    }
-}
-function clickFemale(){
-    gender=[];
-    if(female.checked == true){
-        console.log("no")
-        gender.push(female.value);
-        showGender=gender[0]
-        console.log(showGender);
-    }
-}
-function clickAdolescent(){
-    separate=[];
-    if(adolescent.checked == true){
-        console.log("yes")
-        separate.push(adolescent.value);
-        showSeparate=separate[0]
-        console.log(showSeparate);
-    }
-}
-function clickAdult(){
-    separate=[];
-    if(adult.checked == true){
-        console.log("no")
-        separate.push(adult.value);
-        showSeparate=separate[0]
-        console.log(showSeparate);
-    }
-}
-function clickNational(){
-    separate=[];
-    if(national.checked == true){
-        console.log("yes")
-        separate.push(national.value);
-        showSeparate=separate[0]
-        console.log(showSeparate);
-    }
-}
-function clickDisabled(){
-    separate=[];
-    if(disabled.checked == true){
-        console.log("no")
-        separate.push(disabled.value);
-        showSeparate=separate[0]
-        console.log(showSeparate);
-    }
-}
 
-
-submit.addEventListener("click",function(){
-    console.log("click")
-    seatSetting()
-})
+male.addEventListener("click",seatSetting())
+function reservation(){
+    seatSetting();
+}
+reservation();
 
