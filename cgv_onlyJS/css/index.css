@@ -88,7 +88,7 @@ a {
 #seat .checkList {
   position: absolute;
   z-index: 1;
-  top: 330px;
+  top: 120px;
   right: 22%;
   padding: 10px;
   text-align: left;
@@ -96,21 +96,27 @@ a {
   font-size: 400;
 }
 
+#seat .checkList h3 {
+  font-size: 2.5rem;
+  margin: 50px;
+}
+
 #seat .checkList p {
   font-size: 1.5rem;
   margin: 10px 0;
 }
 
-#seat .checkList .submitBox {
+#seat .checkList .resetList {
   text-align: center;
 }
 
-#seat .checkList .submitBox .submit {
+#seat .checkList .resetList .reset {
+  margin-top: 40px;
+  width: 100%;
   cursor: pointer;
-  margin-top: 20px;
   border: none;
   background-color: #fff;
-  padding: 4px 16px;
+  padding: 5px 16px;
 }
 
 #check {
@@ -184,3 +190,4 @@ a {
 #check .btns button:hover {
   background-color: #e23f3f;
 }
+/*# sourceMappingURL=index.css.map */

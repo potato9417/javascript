@@ -13,7 +13,8 @@ const xAxis = 16,
     disabled = document.getElementById("disabled"),
     genderDom = document.getElementsByName("gender"),
     separateDom = document.getElementsByName("separate"),
-    submit = document.querySelector("#seat .checkList .submitBox .submit");
+    submit = document.querySelector("#seat .checkList .submitBox .submit"),
+    checkMale = document.getElementById("checkMale");
 
 // console.log(male);
     
@@ -26,7 +27,8 @@ let seatArr = [],
     gender=[],
     separate=[],
     showGender,
-    showSeparate;
+    showSeparate,
+    arrBox=[];
 
 
 /*
@@ -38,13 +40,13 @@ click event를 인식했듯이, 왠만한 모든 인터렉션은 해당하는 �
 네넹 근데 저 만든거 봐주세여
 왕잘함
 슬랙에서 마저 얘기할꼐요~
-
 */
 
 // https://html.form.guide/html-form/html-checkbox-events.html input에 event효과주는방법
 // html input에 onclick="fx" 입력 js 클릭햇을경우 발생할 이벤트생성
 
 // console.log(female.value);
+
 
 
 // 영화예매 기본함수
@@ -60,7 +62,8 @@ function seatSetting(){
             // else{
             //     seatArr.push({xSeat:x,ySeat:seatLine[Math.floor(y%13)]}); // 이쁘게 잘짰어요 이부분
             // }
-            seatArr.push({xSeat:x,ySeat:seatLine[Math.floor(y%13)]});
+            
+            seatArr.push({id:"",xSeat:x,ySeat:seatLine[Math.floor(y%13)]});
             // seatArr.push({xSeat:x,ySeat:seatLine[Math.floor(y%13)],gen:showGender,sep:showSeparate});
 
             // 배열반복을 끝냈을 때 실행하도록 만든 if문
@@ -89,26 +92,42 @@ function seatSetting(){
                             // ㅋㅋ 여기서 이벤트 리스터 달아보셨네요 이거랑 사실상 똑같이 라디오도 해주면됩니다~
                             seats[i].addEventListener("click",function(){
                                 seats[i].classList.toggle("click");
+                                seatArr[i].id = i;
+                                
                                 if(seats[i].classList.contains("click")){
-                                    let arrBox =[];
+                                    // 좌석을 분류해줌
                                     arrBox.push(seatArr[i]);
-                                    console.log(arrBox);
-                                    seatArr.splice(i,1,{xSeat:x,ySeat:seatLine[Math.floor(y%13)],gen:showGender,sep:showSeparate})
-                                    console.log(seatArr);
+                                    seatArr.splice(i,1,{gen:showGender,sep:showSeparate})
+                                    // 선택좌석 카운트
                                     clickNum++;
                                     seats[i].index=i;
                                     showSeats[i].classList.add("show");
                                 }
                                 else {
+                                    // console.log("제거!")
+                                    let inx = seats[i].index;
+                                    let findArr = arrBox.find(function(item){
+                                        return item.id === inx;
+                                    })
+                                    console.log(findArr,"find");
+                                    // arrBox.splice(findArr.id,1)
+                                    seatArr.splice(inx,1,findArr);
                                     clickNum--;
                                     showSeats[i].classList.remove("show");
                                 }
+
+                                // console.log(i,seats[i].index,seatArr[i])
+                                console.log(arrBox); // 클릭한 좌석의 {x,y}의 배열
+                                console.log(seatArr); // 현재 좌석의 배열보여줌
                                 // console.log(price);
                                 // console.log(selectPrice);
                                 price = 10000*clickNum;
                                 console.log(selectNum);
                                 selectNum.innerHTML=clickNum;
                                 selectPrice.innerHTML=price;
+
+
+                            
                             })
                         }
                     }
@@ -122,7 +141,7 @@ function seatSetting(){
 }
 
 
-// checkbox 클릭 이벤트
+// radio 클릭 이벤트(항목선택)
 function clickMale(){
     gender=[];
     if(male.checked == true){
@@ -178,9 +197,20 @@ function clickDisabled(){
     }
 }
 
+// checkbox 클릭 이벤트(전체선택)
+function clickCheckMale(){
+    console.log(seatArr);
+    let maleArr = seatArr.filter(function(el){
+        return new RegExp("male").test(el.gender);
+    })
+        
+    console.log(maleArr)
+    // users.filter(it => new RegExp('oli', "i").test(it.name));
+}
 
-submit.addEventListener("click",function(){
-    console.log("click")
-    seatSetting()
-})
+
+
+seatSetting()
+
+
 
