@@ -78,9 +78,10 @@ function searchItemEvent(){
         if(splitArr.lastIndexOf(splitStringInputArr)){
             console.log("hi")
             e.classList.add("hidden")
-            return
         };
-        // 입력한 글자와 이름이 모두 같을 경우
+
+        
+        // // 입력한 글자와 이름이 모두 같을 경우
         // if(itemName[0].innerHTML.toUpperCase()===inputItem.value.toUpperCase()){
         //     console.log("hi")
         //     e.classList.remove("hidden")
