@@ -61,9 +61,10 @@ function clickCategoryEvent(){
 }
 
 // input에 글자가 입력될때마다 함수 실행하도록
-function searchItemEvent(){
+function searchItemEvent(event){
     // console.log(inputItem.value);
-    
+    console.log("콘솔찍는다",event.keyCode);
+
     itemList.forEach(function(e){
         // console.log(e.outerText);
         // console.log(e);
@@ -85,7 +86,7 @@ function searchItemEvent(){
         // const regex = /[inputLetter]/g;
         // console.log(itemLetter.search(regex));
         
-        
+        console.log(splitInputArr);
         console.log(itemLetter,"==",inputLetter)
         // console.log(window)
 
@@ -110,10 +111,16 @@ function searchItemEvent(){
         
     })
     // if(inputItem.value===
-    num++
+    if(event.keyCode===8){
+        num--
+    }
+    else{
+        num++
+    }
+    
+    console.log(num)
 }
 
-console.log(window);
 
 
 clickCategoryEvent()
