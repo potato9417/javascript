@@ -6,8 +6,7 @@ const  categoryAll = document.getElementById("all"),
     showItemName = document.querySelectorAll("#list li .textBox .name"),
     showItemprice = document.querySelectorAll("#list li .textBox .price"),
     itemList = document.querySelectorAll("#list ul li"),
-    inputItem = document.getElementById("inputItem"),
-    categoryName = document.querySelectorAll("#category ul li");
+    inputItem = document.getElementById("inputItem");
 
 let num = 0,
     itemLetterArr=[],
@@ -83,25 +82,19 @@ function searchItemEvent(){
         let itemLetter = splitArr[num];
         let inputLetter = splitInputArr[num];
 
-        // console.log(categoryName)
-        console.log(splitStringInputArr,"==",splitStringArr)
-
-        // if()
-
-
-        // // 정규식.. 웨않뒈?
-        // const regex = /[^\w\s]/g;
-        // console.log(regex)
-        // console.log(itemLetter.search(regex),inputLetter);
+        // 정규식.. 웨않뒈?
+        const regex = /[^\w\s]/g;
+        console.log(regex)
+        console.log(itemLetter.search(regex),inputLetter);
 
 
-        // // 정규식 이용해서..
-        // if(regex===inputLetter) {
-        //     e.classList.add("hidden");
-        // }
+        // 정규식 이용해서..
+        if(regex===inputLetter) {
+            e.classList.add("hidden");
+        }
         
         
-        
+        // console.log(itemLetter,"==",inputLetter)
         // console.log(window)
 
         // // 입력한 글자의 위치의 글자와 입력한 글자가 같을떄.. cake을 입력할떄 e를 입력할떄  sweet의 e가 인식되벌임.. 싯...ㅍ..ㅏ..
