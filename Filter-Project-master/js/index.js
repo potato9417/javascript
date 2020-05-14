@@ -62,10 +62,15 @@ function clickCategoryEvent(){
 }
 
 // input에 글자가 입력될때마다 함수 실행하도록
-function searchItemEvent(){
+function searchItemEvent(event){
     // console.log(inputItem.value);
+<<<<<<< HEAD
     console.log(window);
     
+=======
+    console.log("콘솔찍는다",event.keyCode);
+
+>>>>>>> 25fd875f9baf31498439ec2b35f91bbaabdef6da
     itemList.forEach(function(e){
         // console.log(e.outerText);
         // console.log(e);
@@ -101,7 +106,12 @@ function searchItemEvent(){
         // }
         
         
+<<<<<<< HEAD
         
+=======
+        console.log(splitInputArr);
+        console.log(itemLetter,"==",inputLetter)
+>>>>>>> 25fd875f9baf31498439ec2b35f91bbaabdef6da
         // console.log(window)
 
         // // 입력한 글자의 위치의 글자와 입력한 글자가 같을떄.. cake을 입력할떄 e를 입력할떄  sweet의 e가 인식되벌임.. 싯...ㅍ..ㅏ..
@@ -126,10 +136,20 @@ function searchItemEvent(){
         
     })
     // if(inputItem.value===
-    num++
+    if(event.keyCode===8){
+        num--
+    }
+    else{
+        num++
+    }
+    
+    console.log(num)
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 25fd875f9baf31498439ec2b35f91bbaabdef6da
 
 
 clickCategoryEvent()
