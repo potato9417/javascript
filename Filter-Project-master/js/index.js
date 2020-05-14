@@ -6,8 +6,7 @@ const  categoryAll = document.getElementById("all"),
     showItemName = document.querySelectorAll("#list li .textBox .name"),
     showItemprice = document.querySelectorAll("#list li .textBox .price"),
     itemList = document.querySelectorAll("#list ul li"),
-    inputItem = document.getElementById("inputItem"),
-    categoryName = document.querySelectorAll("#category ul li");
+    inputItem = document.getElementById("inputItem");
 
 let num = 0,
     itemLetterArr=[],
@@ -62,15 +61,10 @@ function clickCategoryEvent(){
 }
 
 // input에 글자가 입력될때마다 함수 실행하도록
-function searchItemEvent(event){
+function searchItemEvent(window){
     // console.log(inputItem.value);
-<<<<<<< HEAD
     console.log(window);
     
-=======
-    console.log("콘솔찍는다",event.keyCode);
-
->>>>>>> 25fd875f9baf31498439ec2b35f91bbaabdef6da
     itemList.forEach(function(e){
         // console.log(e.outerText);
         // console.log(e);
@@ -88,12 +82,6 @@ function searchItemEvent(event){
         let itemLetter = splitArr[num];
         let inputLetter = splitInputArr[num];
 
-        // console.log(categoryName)
-        console.log(splitStringInputArr,"==",splitStringArr)
-
-        // if()
-
-
         // // 정규식.. 웨않뒈?
         // const regex = /[^\w\s]/g;
         // console.log(regex)
@@ -106,18 +94,13 @@ function searchItemEvent(event){
         // }
         
         
-<<<<<<< HEAD
-        
-=======
-        console.log(splitInputArr);
-        console.log(itemLetter,"==",inputLetter)
->>>>>>> 25fd875f9baf31498439ec2b35f91bbaabdef6da
+        // console.log(itemLetter,"==",inputLetter)
         // console.log(window)
 
-        // // 입력한 글자의 위치의 글자와 입력한 글자가 같을떄.. cake을 입력할떄 e를 입력할떄  sweet의 e가 인식되벌임.. 싯...ㅍ..ㅏ..
-        // if(itemLetter==inputLetter){
-        //     e.classList.remove("hidden");
-        // }
+        // 입력한 글자의 위치의 글자와 입력한 글자가 같을떄.. cake을 입력할떄 e를 입력할떄  sweet의 e가 인식되벌임.. 싯...ㅍ..ㅏ..
+        if(itemLetter==inputLetter){
+            e.classList.remove("hidden");
+        }
         
         
 
@@ -133,23 +116,23 @@ function searchItemEvent(event){
         //     console.log("hi")
         //     e.classList.remove("hidden")
         // };
+        console.log(num,"==",itemLetter,"==",inputLetter);
+        if(window.keyCode==8){
+            e.classList.remove("hidden");
+            inputItem.value=""
+        }
         
     })
     // if(inputItem.value===
-    if(event.keyCode===8){
-        num--
-    }
-    else{
-        num++
+    num++
+    if(window.keyCode==8){
+        num=0;
     }
     
-    console.log(num)
+    
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 25fd875f9baf31498439ec2b35f91bbaabdef6da
 
 
 clickCategoryEvent()

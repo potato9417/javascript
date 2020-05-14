@@ -6,7 +6,8 @@ const  categoryAll = document.getElementById("all"),
     showItemName = document.querySelectorAll("#list li .textBox .name"),
     showItemprice = document.querySelectorAll("#list li .textBox .price"),
     itemList = document.querySelectorAll("#list ul li"),
-    inputItem = document.getElementById("inputItem");
+    inputItem = document.getElementById("inputItem"),
+    categoryName = document.querySelectorAll("#category ul li");
 
 let num = 0,
     itemLetterArr=[],
@@ -61,65 +62,103 @@ function clickCategoryEvent(){
 }
 
 // input에 글자가 입력될때마다 함수 실행하도록
-function searchItemEvent(){
+function searchItemEvent(window){
     // console.log(inputItem.value);
     console.log(window);
-    
-    itemList.forEach(function(e){
-        // console.log(e.outerText);
-        // console.log(e);
-        e.classList.add("hidden");
-        let itemName = e.getElementsByClassName("name");
-        // console.log(itemName[0].innerHTML.toUpperCase().split(""));
-        let splitArr = itemName[0].innerHTML.toUpperCase().split("");
+    num++;
+    if(window.keyCode==8){
+        num--;
+    }
+    categoryName.forEach(function(e){
+        // console.log(e.innerText.split(""));
+        
+        let titleName = e.innerText.split("");
+        console.log(titleName[num] ,"한글자");
+
+
+        // let itemName = e.getElementsByClassName("name");    
         let splitInputArr = inputItem.value.toUpperCase().split("");
-
-        // 배열을 문자로 바꿔둠
-        let splitStringArr = splitArr.toString();
         let splitStringInputArr = splitInputArr.toString();
-
-        // 지금 입력한 단어
-        let itemLetter = splitArr[num];
-        let inputLetter = splitInputArr[num];
-
-        // 정규식.. 웨않뒈?
-        const regex = /[^\w\s]/g;
-        console.log(regex)
-        console.log(itemLetter.search(regex),inputLetter);
-
-
-        // 정규식 이용해서..
-        if(regex===inputLetter) {
-            e.classList.add("hidden");
+        console.log(splitStringInputArr,"클릭한글자")
+        if(titleName[num]==splitStringInputArr){
+            console.log("hi");
         }
-        
-        
-        // console.log(itemLetter,"==",inputLetter)
-        // console.log(window)
 
-        // // 입력한 글자의 위치의 글자와 입력한 글자가 같을떄.. cake을 입력할떄 e를 입력할떄  sweet의 e가 인식되벌임.. 싯...ㅍ..ㅏ..
-        // if(itemLetter==inputLetter){
-        //     e.classList.remove("hidden");
-        // }
-        
-        
-
-        // // 입력한 글자와 이름 앞글자가 같을 경우 두번쨰글자부터 인식못함..
-        // if(splitArr.lastIndexOf(splitStringInputArr)){
-        //     console.log("입력인식")
-        //     e.classList.add("hidden")
-        // };
-
-        
-        // // 입력한 글자와 이름이 모두 같을 경우
-        // if(itemName[0].innerHTML.toUpperCase()===inputItem.value.toUpperCase()){
-        //     console.log("hi")
-        //     e.classList.remove("hidden")
-        // };
-        
     })
+
+
+
+
+
+    // itemList.forEach(function(e){
+    //     // console.log(e.outerText);
+    //     // console.log(e);
+    //     e.classList.add("hidden");
+    //     let itemName = e.getElementsByClassName("name");
+    //     // console.log(itemName[0].innerHTML.toUpperCase().split(""));
+    //     let splitArr = itemName[0].innerHTML.toUpperCase().split("");
+    //     let splitInputArr = inputItem.value.toUpperCase().split("");
+
+    //     // 배열을 문자로 바꿔둠
+    //     let splitStringArr = splitArr.toString();
+    //     let splitStringInputArr = splitInputArr.toString();
+
+    //     // 지금 입력한 단어
+    //     let itemLetter = splitArr[num];
+    //     let inputLetter = splitInputArr[num];
+
+    //     // console.log(categoryName)
+    //     console.log(splitInputArr,"==",splitArr);
+
+        
+
+    //     // // 정규식.. 웨않뒈?
+    //     // const regex = /[^\w\s]/g;
+    //     // console.log(regex)
+    //     // console.log(itemLetter.search(regex),inputLetter);
+
+
+    //     // // 정규식 이용해서..
+    //     // if(regex===inputLetter) {
+    //     //     e.classList.add("hidden");
+    //     // }
+        
+
+    //     // // 백스페이스바..
+    //     // if(window.keyCode==8){
+    //     //     num--
+    //     //     itemLetter = splitArr[num];
+    //     //     inputLetter = splitInputArr[num];
+    //     //     return
+    //     // }
+        
+    //     // console.log(e,"evet")
+
+    //     // 입력한 글자의 위치의 글자와 입력한 글자가 같을떄.. cake을 입력할떄 e를 입력할떄  sweet의 e가 인식되벌임.. 싯...ㅍ..ㅏ..
+        
+    //     // if(itemLetter==inputLetter){
+    //     //     console.log(itemLetter,"==",inputLetter)
+    //     //     e.classList.remove("hidden");
+    //     // }
+        
+        
+
+    //     // // 입력한 글자와 이름 앞글자가 같을 경우 두번쨰글자부터 인식못함..
+    //     // if(splitArr.lastIndexOf(splitStringInputArr)){
+    //     //     console.log("입력인식")
+    //     //     e.classList.add("hidden")
+    //     // };
+
+        
+    //     // // 입력한 글자와 이름이 모두 같을 경우
+    //     // if(itemName[0].innerHTML.toUpperCase()===inputItem.value.toUpperCase()){
+    //     //     console.log("hi")
+    //     //     e.classList.remove("hidden")
+    //     // };
+        
+    // })
     // if(inputItem.value===
-    num++
+    // num++
 }
 
 
