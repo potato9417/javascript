@@ -63,73 +63,24 @@ function clickCategoryEvent(){
 // input에 글자가 입력될때마다 함수 실행하도록
 function searchItemEvent(window){
     // console.log(inputItem.value);
-    console.log(window);
-    
+    // console.log(window);
+    let inputItemArr=[];
+    inputItemArr.push(inputItem.value.split(""));
+    console.log(inputItemArr[0],"입력한 글자");
     itemList.forEach(function(e){
-        // console.log(e.outerText);
         // console.log(e);
-        e.classList.add("hidden");
-        let itemName = e.getElementsByClassName("name");
-        // console.log(itemName[0].innerHTML.toUpperCase().split(""));
-        let splitArr = itemName[0].innerHTML.toUpperCase().split("");
-        let splitInputArr = inputItem.value.toUpperCase().split("");
+        let nameList = e.getElementsByClassName("name");
+        let name = nameList[0].innerText.split("");
+        console.log(name,"이름");
+        // let nameArr = [];
+        // nameArr.push(name);
+        // console.log( nameArr)
 
-        // 배열을 문자로 바꿔둠
-        let splitStringArr = splitArr.toString();
-        let splitStringInputArr = splitInputArr.toString();
-
-        // 지금 입력한 단어
-        let itemLetter = splitArr[num];
-        let inputLetter = splitInputArr[num];
-
-        // // 정규식.. 웨않뒈?
-        // const regex = /[^\w\s]/g;
-        // console.log(regex)
-        // console.log(itemLetter.search(regex),inputLetter);
-
-
-        // // 정규식 이용해서..
-        // if(regex===inputLetter) {
-        //     e.classList.add("hidden");
-        // }
-        
-        
-        // console.log(itemLetter,"==",inputLetter)
-        // console.log(window)
-
-        // 입력한 글자의 위치의 글자와 입력한 글자가 같을떄.. cake을 입력할떄 e를 입력할떄  sweet의 e가 인식되벌임.. 싯...ㅍ..ㅏ..
-        if(itemLetter==inputLetter){
-            e.classList.remove("hidden");
+        if(inputItemArr==name){
+            console.log()
         }
-        
-        
-
-        // // 입력한 글자와 이름 앞글자가 같을 경우 두번쨰글자부터 인식못함..
-        // if(splitArr.lastIndexOf(splitStringInputArr)){
-        //     console.log("입력인식")
-        //     e.classList.add("hidden")
-        // };
-
-        
-        // // 입력한 글자와 이름이 모두 같을 경우
-        // if(itemName[0].innerHTML.toUpperCase()===inputItem.value.toUpperCase()){
-        //     console.log("hi")
-        //     e.classList.remove("hidden")
-        // };
-        console.log(num,"==",itemLetter,"==",inputLetter);
-        if(window.keyCode==8){
-            e.classList.remove("hidden");
-            inputItem.value=""
-        }
-        
     })
-    // if(inputItem.value===
-    num++
-    if(window.keyCode==8){
-        num=0;
-    }
-    
-    
+
 }
 
 
