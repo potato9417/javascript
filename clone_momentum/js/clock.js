@@ -1,0 +1,1 @@
+const clockContainer = document.querySelector(".js-clock")
