@@ -1,0 +1,102 @@
+body {
+    font-size: 16px;
+    font-family: "Lato", "Noto Sans KR", sans-serif;
+    line-height: 1.5;
+    background-color: #5f5d5d;
+}
+#header {
+    background-color: #fff;
+    margin: 20px 90px 0;
+    height: 90px;
+    position: relative;
+    z-index: 999;
+}
+#header:after {
+    content: "";
+    background-color: rgba(0,0,0,0.8);
+    display: block;
+    height: 323px;
+    width: 100%;
+    top: 90px;
+    position: absolute;
+    z-index: -1;
+}
+a {
+    color: #222;
+    text-decoration: none;
+}
+#logo a {
+    position: absolute;
+    display: block;
+    left: 16%;
+    padding: 22px 150px 21px 10px;
+}
+#gnb .list {
+    margin-left: 550px;
+
+}
+#gnb .list > li {
+    display: inline-block;
+    width: 200px;
+    vertical-align: top;
+    text-align: center; 
+}
+#gnb .depth01 {
+    display: block;
+    padding: 32px 30px;
+    font-size: 18px;
+    font-weight: 700;
+}
+#gnb .depth01:hover {
+    color: #1c9ad6;
+}
+#gnb .depth02 {
+    display: block;
+    text-align: left;  
+    margin: 20px 0 30px;
+}
+#gnb .depth02 a:hover {
+    color: #f4791f;
+}
+#gnb .depth02 a {
+    margin-left: 30px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 2.5;
+}
+#gnb .depth02:before {
+    content: "";
+    position: absolute;
+    border-left: 1px solid rgb(75, 75, 75);
+    height: 323px;
+    top: 90px;
+}
+#gnb .list li:nth-child(1) .depth02:before {
+    border-left: none;
+}
+
+/* mainVisual */
+
+#mainVisual .list li .textBox {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+}
+#mainVisual .visual01 .textBox {
+    background-image: url(../images/main_visual01.jpg);
+    background-repeat: no-repeat;
+}
+#mainVisual .visual02 .textBox {
+    background-image: url(../images/main_visual02.jpg);
+    background-repeat: no-repeat;
+    
+}
+#mainVisual .visual03 .textBox {
+    background-image: url(../images/main_visual03.jpg);
+    background-repeat: no-repeat;
+}
+#mainVisual .visual04 .textBox {
+    background-image: url(../images/main_visual04.jpg);
+    background-repeat: no-repeat;
+}
