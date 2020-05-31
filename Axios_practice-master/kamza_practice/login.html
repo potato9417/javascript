@@ -11,15 +11,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 </head>
 <body>
-    <h1 id="title">로그인</h1>
+    <div id="title">
+        <h1>로그인</h1>
+    </div>
     <div id="container">
-        <div id="login">
-            <p>아이디 : <input id="email" type="text" placeholder="이메일 양식으로 입력" value="potato9417@gmail.com"></p>
-            <p>비밀번호 : <input id="pw" type="password" placeholder="비밀번호 입력" value="Test!123"></p>
-        </div>
-        <div id="btns">
-            <button id="loginButton">로그인</button>
-            <button id="signUpButton">회원가입</button>
+        <div id="inner">
+            <div id="login">
+                <p>아이디<input id="email" type="text" placeholder="이메일 양식으로 입력" value="potato9417@gmail.com"></p>
+                <p>비밀번호<input id="pw" type="password" placeholder="비밀번호 입력" value="Test!123"></p>
+            </div>
+            <p class="error none">오류</p>
+            <div id="btns">
+                <button id="loginButton">로그인</button>
+                <button id="signUpButton">회원가입</button>
+            </div>
         </div>
     </div>
    
@@ -48,6 +53,8 @@
             .catch(function (error) {
                 console.log(error)
                 // alert(error.response.data.message)
+                $("#inner .error").text("아이디 혹은 비밀번호가 잘못되었습니다. ")
+                $("#inner .error").removeClass("none");
             });
     
         })
