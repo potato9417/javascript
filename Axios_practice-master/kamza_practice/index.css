@@ -1,0 +1,27 @@
+*,*:before,*:after{
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+}
+body{
+    margin: 0;
+    font-size: 1.6rem;
+    font-family: "Balsamiq Sans", "Jua", sans-serif;
+    color: #333;
+    background-color: #99b898;
+}
+
+#title{
+    padding: 30px 0;
+    background-color: #fff;
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+}
+#container {
+    margin-top: 5px;
+    height: 100vh;
+    background-color: #fff;
+    padding: 20px 0;
+}
