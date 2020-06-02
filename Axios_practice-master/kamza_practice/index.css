@@ -113,7 +113,7 @@ body{
 #thisWeekTitle {
     color: #fff;
     font-size: 5.5rem;
-    margin: 200px 0 100px;
+    margin: 140px 0 70px;
     text-align: center;
 }
 #mainContainer {
@@ -125,20 +125,22 @@ body{
     width: 40%;
     float: left;
     text-align: center;
+    position: relative;
 }
 #thisWeekImg {
     width: 70%;
 }
 #repliesDiv {
     width: 50%;
-    height: 80%;
+    height: 100%;
     float: left;
-    padding: 50px 70px;
+    padding: 20px 50px;
     background-color: #fff;
+    overflow: scroll;
 }
 #repliesDiv h2 {
     font-size: 4rem;
-    margin-bottom: 70px;
+    margin-bottom: 20px;
     margin-top: 0;
 }
 #repliesDiv .replyContainer {
@@ -149,19 +151,39 @@ body{
     display: inline-block;
     margin: 0;
     color: #333;
-    font-size: 2rem;
+    font-size: 1.4rem;
 }
 #repliesDiv .replyTxt {
     display: inline-block;
     margin: 0;
     color: #666;
-    font-size: 2rem;
+    font-size: 1..6rem;
 }
 #repliesDiv .title {
     margin-bottom: 15px;
     color: #333;
     font-size: 2.8rem;
     font-weight: 700;
+}
+#replyBtn {
+    position: absolute;
+    bottom: -25%;
+    left: 46%;
+    transform: translateX(-50%);
+    width: 30%;
+    padding: 20px 0;
+    font-family: "Balsamiq Sans", "Jua", sans-serif;
+    font-size: 2rem;
+    outline: none;
+    transition: 0.5s ease;
+    background-color: #99b898;
+    color: #fff;
+    border: 1px solid #fff;
+}
+#replyBtn:hover {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #99b898;
 }
 #back {
     position: relative;
@@ -248,6 +270,69 @@ button{
     top: 260px;
     display: none;
 }
+
+.reply{
+    text-align: center;
+}
+.reply #topicTitle{
+    margin-top: 50px;
+    font-size: 5.5rem;
+}
+.reply .select {
+
+}
+.reply .choice {
+    font-size: 2.5rem;
+    display: inline-block;
+    margin: 0;
+    margin-right: 50px;
+}
+.reply #side {
+    display: inline-block;
+    width: 100px;
+    border: 1px solid #99b898;
+    background-color: #99b898;
+    outline: none;
+    font-family: "Balsamiq Sans", "Jua", sans-serif;
+    padding: 3px 10px;
+    margin-bottom: 50px;
+    color: #fff;
+    font-size: 2rem;
+}
+.reply .textArea {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+
+}
+.reply .textArea  #content {
+    width: 500px;
+    height: 350px;
+    border-color: #99b898;
+    outline: none;
+}
+.reply .textArea  #postBtn {
+    position: absolute;
+    right: -170px;
+    bottom: 0;
+    padding: 5px 20px;
+    background-color: #99b898;
+    font-family: "Balsamiq Sans", "Jua", sans-serif;
+    font-size: 2rem;
+    border: 1px solid #99b898;
+    outline: none;
+    color: #fff;
+    transition: 0.5s ease;
+}
+.reply .textArea  #postBtn:hover {
+    background-color: #fff;
+    border: 1px solid #99b898;
+    color: #000;
+}
+
+
+
 .blue {
     color: #3da4ab !important;
 }
