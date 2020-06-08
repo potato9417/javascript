@@ -278,9 +278,6 @@ button{
     margin-top: 50px;
     font-size: 5.5rem;
 }
-.reply .select {
-
-}
 .reply .choice {
     font-size: 2.5rem;
     display: inline-block;
@@ -330,7 +327,6 @@ button{
     border: 1px solid #99b898;
     color: #000;
 }
-
 
 
 .blue {
