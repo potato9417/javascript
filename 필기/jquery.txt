@@ -1,0 +1,19 @@
+https://api.jquery.com/category/traversing/filtering/
+
+필터링부분이 가장 많이쓰임
+
+
+
+//jQuery(".box");
+// $(".box").addClass("red");       // .box보다 위에있기떄문에 인식을 못하고 document로 감싸야한다.
+
+$(document).ready(function(){
+    // $(".box").eq(1).addClass("red");    // .eq() 제이쿼리에서의 nth:child 0부터 존재함
+    // $(".box").addClass("red");    // 클래스명으로 찾을때
+    // $("*").addClass("red");    // 전체 적용
+    // $("[title='box']").addClass("red");    // 속성 값으로 찾을수 있따. 주로 input태그에 많이 사용
+    // $("a:contains('href')").addClass("red");    // 원하는 글자가 들어있는 것을 찾ㅇ르떄 
+    // $("section").find("ul").addClass("red");    // section안에 있는 모든 ul을 찾아서 red클래스를 붙여라
+    $("section").children("ul").children("li").children("a").addClass("red");   
+            // section밑에 있는 ul에 그밑에 있는 li에 그밑에 a에 red클래스를 붙여라
+});

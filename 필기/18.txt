@@ -1,0 +1,100 @@
+http://www.dinpattern.com/ :패턴사이트
+
+https://jquery.com/ :제이쿼리
+Download the compressed, production jQuery 3.4.1 다른이름으로 링크저장
+
+
+jquery = javascript libarary들 중 하나 (ex gsap swiper jquery)
+
+javascript  javascript(ver.ie) 인터넷익스플로어의 자바를 따로써야했다
+
+dom (Document Object Model) 태그라고 생각하면됨 
+
+
+
+
+
+
+
+
+
+
+화면크기에 상관없이 항상 정사각형 만드는방법
+html
+                                  <div class="inner">
+                                    <div class="icon">
+                                        <img src="../images/main_s4_icon1.png" alt="">
+                                    </div>
+                                    <div class="txtBox">
+                                        <p class="main">제품 생산</p>
+                                        <p class="sub">
+                                            5개 분야 총 298여<br>
+                                            제품 생산
+                                        </p>
+                                        <p class="">
+                                        <strong>298</strong>
+                                    </div>
+정사각형을 만들어야하는 곳에 inner로 묶는다
+
+css
+#vision .fList li {
+    width: 25%;
+    position: relative;
+}
+#vision .fList li:before {
+    content: "";
+    display: block;
+    padding-top: 100%;   (패딩은 relative의 넓이에 영향을 받는다 50%하면 직사각형)
+}
+#vision .fList li .inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+
+
+
+position: static;
+    /* 포지션을 초기화시켜줌(기본포지션으로) */
+
+
+white-space: pre;
+    /* 띄어쓰기를 두칸이상으로 할수있게 해주고 줄바꿈도 가능하게 해줌 */
+
+\A는 특수문자로 <br>
+
+
+<div class="tab" data-tab-contents="tabList">
+    <ul>
+        <li></li>
+    </ul>
+</div>
+<div class="tabList"></div> 
+
+
+var tab = $(".tabList > li");
+tab.on("click",function(e){
+    e.preventDefault(); 태그효과를 없애라
+    $(this).siblings().removeClass("on"); 나를 제외한 나머지에 클라스를 없애라
+    $(this).addClass("on"); 나의 클라스에 온을 붙여라
+})
+
+
+var tab = $(".tabList > li");
+tab.on("click",function(e){
+    e.preventDefault();
+    var targetContents = $(this).parent().data("tab-contents"); 
+    $("targetContents").children("li").eq($(this).index()).addClass("on");
+    $("targetContents").children("li").eq($(this).index()).siblings().removeClass("on");
+    $(this).siblings().removeClass("on");
+    $(this).addClass("on");
+})
+
+
+siblings(): 나를 제외한 나머지 이웃
+children(): css에서 >와같다
+eq(): css에서 nth-child()와 같다
+

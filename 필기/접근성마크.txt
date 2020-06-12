@@ -1,0 +1,30 @@
+접근성마크 획득방법
+
+https://www.wah.or.kr:444/		웹접근성연구소
+
+html
+
+<div id="skip">
+    <a href="#mainContents">본문바로가기</a>
+    <!-- 접근성 마크 획득하기 위한 요소 -->
+</div>
+
+
+css
+
+/* skip */
+#skip a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 15px 0;
+    background-color: #f00;
+    color: #fff;
+    position: fixed;
+    left: -9999px;
+    top: 0;
+}
+#skip a:focus {
+    left: 0;
+}
+/* tap키누르면 focus가 움직임 */

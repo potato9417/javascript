@@ -1,0 +1,14 @@
+front end framework
+front end library
+
+
+
+let app = new Vue({
+    el:"#app",  //뷰가 제어할 엘리먼트를 지정해준다(html에서 나타나게할곳)
+    data:{
+        message:"hello Vue"
+    }
+});    // 생성자 함수
+
+
+원하는 html 위치에 {{message}}입력하면 data의 메세지가 입력이된다

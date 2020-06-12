@@ -1,0 +1,209 @@
+button, input[type="button"] {
+    background: none;
+    border: none;
+    padding: 0;
+    outline: none;
+}
+img {
+    vertical-align: top;
+}
+/* 버튼틀 없애줌 */
+
+
+
+
+
+
+    height: 80px;
+    line-height: 80px;
+    /* height와 line-height를 같이하면 가운데로간다 */
+
+
+
+
+
+h2 + p {
+    
+}
+/* h2태그 바로밑에 p태그 */
+
+
+사이트중앙에 무조건콘텐츠가와야하는경우
+html
+<section id="business">
+	<div class="inner">
+		<div class="container">
+			<div>
+			      <ul>
+				<li>
+				<li>
+			      <ul>
+			<div>
+		<div class="container">
+	<div class="inner">
+<section id="business">
+
+css
+#business {
+    height: 100vh;
+    width: 100%;
+    display: table;
+}
+#business .inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#business {
+    background-color: #f00;
+} (공간확인용)
+#business li {
+    float: left;
+    width: 300px;
+}
+
+
+
+화면 가운데로 보내는방법(가로정렬)
+1. auto
+    <style>
+        .main {
+            width: 1500px;
+            padding-top: 100px;
+            padding-bottom: 100px;
+            border: 1px solid #f00;
+        }
+        .sub {
+            width: 1200px;
+            margin: 0 auto;
+            /* auto : 부모넓이(부모넓이가 자식의 넓이보다 클때)의 자동으로 반반씩 위치해서 가운데 정렬하겠다. */
+            height: 300px;
+            border: 1px solid #000;
+        }
+    </style>
+
+2.inline-block ( 사이즈가 다양한 것을 가운데 정렬할때)
+    <style>
+        .main {
+            width: 100%;
+            padding-top: 100px;
+            padding-bottom: 100px;
+            border: 1px solid #f00;
+            text-align: center;
+            font-size: 0;
+        }
+        .sub {
+            font-size: 16px;
+            display: inline-block;
+            width: 100px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+        /* 단점 : inline-block은 글자취급하여 블럭사이에 공간이있음  
+        부모한테 fontsize:0 을 주고 자식한테 다시 fontsize를 제공*/
+    </style>
+
+3.position (큰레이아웃잡을땐 사용하지않음 부모가 자식의 높이 인식을 못함)
+    <style>
+        .main {
+            width: 100%;
+            padding-top: 100px;
+            padding-bottom: 100px;
+            border: 1px solid #f00;
+            text-align: center;
+            font-size: 0;
+            position: relative;
+        }
+        .sub {
+            font-size: 16px;
+            position: absolute;
+            width: 100px;
+            height: 300px;
+            border: 1px solid #000;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        /* 자식이 absolute면 부모가 높이 인식을 못함 */
+    </style>
+
+4.flex기법
+
+세로정렬
+1.padding
+    <style>
+        .main {
+            width: 1500px;
+            padding: 0 100px;
+            border: 1px solid #f00;
+        }
+        .sub {
+            width: 1200px;
+            margin: 0 auto;
+            height: 300px;
+            border: 1px solid #000;
+        }
+    </style>
+2.table (부모높이가 자식의 높이보다 크고 자식높이가 일정하지않을떄) 반응형웹할때 많이 사용
+    <style>
+        .main {
+            width: 100%;
+            height: 100vh;
+            border: 1px solid #f00;
+            display: table;
+        }
+        .inner {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .sub {            
+            width: 1200px;
+            margin: 0 auto;
+            height: 300px;
+            border: 1px solid #000;
+        }
+        /* table기법은 sub에 div해서 한번더 묶어줘야한다 
+           table을 사용하면 부모의 넓이가 사라져서 부모의 넓이를 정해줘야한다*/
+    </style>
+
+html
+</head>
+<body>
+    <div class="main">
+        <div class="inner">
+            <div class="sub"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+배경뒤에 배경색 반만 넣기
+
+#technology {
+    position: relative;
+    z-index: 0;
+}
+#technology:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 50%;
+    background-color: rgb(211, 209, 209);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+

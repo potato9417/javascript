@@ -1,0 +1,6 @@
+alert("로그인 하세요."); : 경고창
+ctl+shift+p
+ctl+shift+r 태그해제
+강력새로고침 ctl+shift+r (캐쉬삭제해서 새로고침) 새로고침버튼꾹누르기
+타이틀만들기
+<link rel="shortcut icon" href="파일위치" type="image/x-icon">

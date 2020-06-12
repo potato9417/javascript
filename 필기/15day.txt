@@ -1,0 +1,96 @@
+var countNum = 0
+var count = document.querySelector(".count");
+setInterval(function() {
+    if(countNum<20) {
+        countNum = countNum+1;
+        count.innerHTML=countNum;
+    }
+    // console.log(countNum);
+},150);
+
+
+var countNum = 0
+var count = document.querySelector(".count");
+var countIdx = setInterval(function(){
+    if(countNum<20) {
+        countNum = countNum+1;
+        count.innerHTML=countNum;
+    }
+    else{
+        clearInterval(countIdx);
+    }
+    console.log(countNum);
+},150);
+
+
+
+
+var mainVisual = document.querySelector("#mainVisual");
+window.addEventListener("scroll",function(){
+    // console.log(scrollY);
+    var st = this.scrollY;
+    mainVisual.style.top = -st*0.2+"px";
+    mainVisual.style.opacity = (1000-st)/1000;
+    if(st > h) {
+        header.classList.add("on");
+    }
+    else {
+        header.classList.remove("on");
+    }
+    console.log("TCL: st", st)
+    if(st > countPosY) { 
+        console.log("여기까지!");
+        if(!count.classList.contains("on")){
+            count.classList.add("on");
+            var countIdx = setInterval(function(){
+                if(countNum < 20) {
+                    countNum = countNum+1;
+                    count.innerHTML=countNum;
+                }
+                else{
+                    clearInterval(countIdx);
+                }
+                console.log(countNum);
+            },150);
+        }
+    }
+});
+
+
+html에서 특수문자
+
+&amp;   : &
+
+
+색쉽게 쓰는법
+:root {
+    --main-color: rgb(133, 4, 253);
+    --font-color: #333;
+    --hover-color: #f00;
+}
+저장해두고
+color: var(--main-color); 입력하면됨
+
+
+
+postcss 설치 태그를 순서대로 정렬시켜줌
+설정 postcss sorting configuration에서 settings 편집에서 추가
+    "postcssSorting.config": {
+        "order": [
+          "custom-properties",
+          "dollar-variables",
+          "declarations",
+          "at-rules",
+          "rules"
+        ],
+        "properties-order": ["font", "text-align", "line-height", "display", "width", "height", "position", "top", "right", "bottom", "left", "z-index", "margin", "padding", "background", 
+        ]
+    }
+
+
+
+
+
+
+
+

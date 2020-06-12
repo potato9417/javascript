@@ -1,0 +1,196 @@
+Vue VSCode Snippets 설치 = html처럼 쓸수있게 도와줌
+
+js, webpack, html 한폴더 안에 넣어야함
+
+webpack 사용법
+webpack.config.js파일 만듬(json형태)
+
+
+		설치해야하는것
+npm i vue webpack webpack-cli -D : webpack사용
+npm i vue-loader -D : 
+npm i vue-template-compiler -D   .vue를 .js처럼 읽을수 있게 만들어줌
+
+
+		vue파일 기본 틀
+
+
+<template>
+    (html과 같음)
+</template>
+
+<script>
+    export default {
+	data(){
+	      return{}
+	},
+	methods:{}
+    }
+</script>
+
+<style>
+</style>
+
+
+
+		package.json
+
+
+
+"scripts": {
+    "build": "webpack"
+  },
+
+
+
+		webpack.config.js
+	
+
+
+const path = require("path");
+// 절대 경로 잡아주기위함
+
+module.esports={
+    entry:{
+        app:path.join(__dirname,"baseball.js"),
+    },  // baseball.js 파일을 시작으로 한다
+    modules:{
+        reuls:[{
+            test:/\.vue$/,
+            // /\.vue$/ 정규표현식
+            loaders:"vue-loader",
+            // .js는 webpack에서 읽을수있지만 .vue는 webpack에서 읽을수 없어서 설치해야함(npm i vue-loader -D)
+        }]
+    },
+    plugins:[],
+    output:{
+        filename:"app.js",
+        path:path.join(__dirname,"dist"),
+    }   // app.js 파일을 만드는데 ./dist폴더에 생성하겟다
+}
+// 개발은 baseball.js에서 하고 배포될떄는 app.js로 변경되서 배포
+
+
+
+
+		baseball.js
+
+
+// vue나 외부프로그램 가져올떄 사용
+import Vue from "vue";
+import baseball from "./baseball.vue";
+// import $ from "jquery";
+
+new Vue().$mount("#app");
+
+
+
+js = 모듈
+webpack = 모듈번들
+
+
+	folder폴더생성
+	idex.html 
+	dist폴더생성
+	dist폴더안에 app.js파일 생성
+	터미널에서 cd folder
+	npm init => package.json생성
+	npm i vue
+	npm i webpack webpack-cli -D
+	webpack.config.js 파일 생성
+
+
+const path = require("path"); // 절대경로(node가 제공하므로 설치를 따로 안해도됨) node는 외부파일가져올떄 require사용 // vue는 외부파일을 import사용
+
+module.exports={
+    entry:{
+        app:path.join(__dirname,"baseball.js") // (절대경로)
+    }, // 이곳에서 코딩을 하겠다 
+    module:{},
+    plugins:[],
+    output:{
+        filename:"app.js", // 파일명
+        path:path.join(__dirname,"dist"), // 폴더명
+    } // 결과값은 이곳에서 보여진다
+}
+
+
+	baseball.js, Baseball.vue(vue는 대문자로시작) 파일 생성
+
+	baseball.vue파일에 입력
+
+<template>
+</template>
+<script>
+    export default {
+        data(){
+            return {
+                // 데이터 초기화하는곳
+            }
+        },
+        methods: {
+        }
+    }
+</script>
+<style scoped>
+
+</style>
+
+	baseball.js에 작성
+
+import Vue from "vue";
+import Baseball from "./Baseball.vue";
+
+new Vue(Baseball).$mount("#app");
+
+
+	pakage.json 수정
+
+"scripts": {
+    "bulid":"webpack"
+  },
+
+	npm i vue-template-compiler -D   vue를 읽을수 있게 해줌
+	npm i vue-loader -D
+
+	webpack.config.js에 추가
+
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
+
+module:{
+    rules:[{
+        test:/\.vue$/,
+        loaders:"vue-loader"
+    }]
+},
+plugins:[
+    new VueLoaderPlugin()
+],
+
+	webpack.config.js에 추가
+
+module:{
+    rules:[
+        {
+            test:/\.vue$/,
+            use:"vue-loader"
+        },
+        {
+            test:/\.css$/,
+            use:["vue-style-loader","css-loader"]
+        }
+    ]
+},
+
+
+
+
+
+
+
+
+
+
+
+
+

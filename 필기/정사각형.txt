@@ -1,0 +1,8 @@
+정사각형 만들기
+container>inner>square
+
+container:before {
+dis:block
+paddingtop:100%}
+
+하면 정사각형 만들어지고

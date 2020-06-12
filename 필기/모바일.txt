@@ -1,0 +1,61 @@
+<모바일로 변환>
+모바일로 화면 만들기위해서는 header.html에서 변경
+pc버전
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+모바일버전
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scaleable=no">
+뒤에 스케일사이즈를 꼭 입력해줘야한다.
+minimum-scale, maximum-scale, user-scaleable 확대축소기능을 막아준다
+
+
+
+
+<스크롤 내려갈때 헤더변화>
+$(window).on("scroll",function(){
+    var st = $(window).scrollTop();
+    if(st>0){
+        $("#header").addClass("scroll");
+    }
+    else{
+        $("#header").removeClass("scroll");
+    }
+});
+
+제이쿼리에서 스크롤 높이값 $(window).scrollTop()
+
+
+
+
+<br태그 공백처리하는법>
+#mainVisual .textBox br {
+    content: "";
+    display: none;
+}
+
+
+
+url열때 가짜 인덱스폴더 만드는법
+기본페이지 폴더에  index.html파일을 만들고 head부분에 
+meta:redirect 입력 후 url에 html/ 폴더로 연결해주는것
+
+<meta http-equiv="refresh" content="0; url=html/">
+
+를 입력하면
+
+http://khj117.dothome.co.kr/kyungdong_mobile/html/  입력해야하는것을
+http://khj117.dothome.co.kr/kyungdong_mobile/   만 입력해도 자동으로 
+http://khj117.dothome.co.kr/kyungdong_mobile/html/  으로 연결해줌
+
+
+
+모바일이랑 웹페이지랑 제이쿼리가 다르게 실행될때
+html에 body태그에 class=isMobile을 해주고
+
+$("#header .btnAll").on("click",function(){
+    if(!$("body").hasClass("isMobile")){
+        $("#header #gnbAll").slideToggle();
+        $(this).toggleClass("on");
+        return false;
+    }
+})
+

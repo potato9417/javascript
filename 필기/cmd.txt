@@ -1,0 +1,17 @@
+cmd
+
+cls: 클리어
+cd: 폴더 이동
+	cd C:\AutoSet10  /  cd 파일명
+cd .. :이전폴더로 이동
+mkdir: 폴더 생성
+rmkdir: 폴더 삭제
+
+npm init: pakage.json 설치(설명서같은거)
+
+npm install vue: vue설치
+npm uninstall vue: vue삭제
+
+npm install webpack webpack-cli -D: 맵팩설치(-D는 개발버전(배포할떄 보여지지는 않는부분))
+
+npm run bulid: .vue파일을 빌드하는것

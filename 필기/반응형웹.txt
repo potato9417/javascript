@@ -1,0 +1,41 @@
+반응형웹
+
+https://material.io/resources/devices/ 	디바이스 크기
+
+http://hgoebl.github.io/mobile-detect.js/ > github
+
+1. pc / mobile 따로 만들어서 어떻게 접근했는지에따라 pc나 mobile 을 열어줌( mobile-detect)
+
+
+<script>
+    let md = new MobileDetect(window.navigator.userAgent);
+    // console.log(md);
+    // console.log(md.mobile());
+    if(md.mobile()!==null){		// 모바일이 아닐때
+        location.href="../../hitop_mobile_teacher/html"     // location.href js에서 링크걸떄
+    }
+</script>
+
+if(md.mobile()!==null){} ~가아니면
+if(md.mobile()===null){} ~이면
+
+
+2. 새로 css를 만듬(미디어쿼리)
+
+
+@media all and (max-width:1200px){
+    .container {
+        width: 100%;
+        background-color: #f00;
+    }
+    #quickMenu li {
+        width: 33.33%;
+    }
+    #quickMenu li img {
+        width: 100%;
+    }
+}
+
+
+<반응형에서 필수>
+*, *:after, *:before {box-sizing: border-box;}

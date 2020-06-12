@@ -1,0 +1,78 @@
+inline을 가로정렬하는방법
+1.넓이가 유동적일떄 display: inline-block
+
+
+
+float
+이미지옆에 글자쓰면 한줄만 붙고 밑으로 내려가는걸 막아줌
+	(inline-block을 하면 사이여백생김 float는 사이여백없음)
+하지만 float를 하면 position: absolute준거처럼 없는애 취급함
+(자식이 float를 가지면 부모가 자식을 인식하지않아 
+부모가 높이를 가지지않게된다)
+방법
+1.자식이 float되면 높이인식을 못하는데 
+  부모한테 overflow:hidden을 하면 높이를 다시 인식
+2.밑의 글에 clear:both;를 주면됨(높이 인식이 안되있는 상태)
+3.float중인 자식의 부모의 끝에  div를 새로 만들어 clear:both를 주면됨(높이인식됨)
+	<div class="clearFix"></div>
+4.float중인 부모의 class에 clearFix를주고 css입력함. (주로 많이씀 common에 넣어두면 편함)
+	.clearFix::after {
+	    content: "";
+	    display: block;
+	    clear: both;
+	}
+
+
+z-index는 position과 함꼐
+
+
+
+이미지(inline-block)가 가지고있는 약간의 여백을 없애줌
+	img {
+	    vertical-align: top;
+	}
+
+
+
+box-sizing: border-box;
+넓이에 border값을 포함시킴 border의 굵기가 넓이에 영향을 주지않음
+
+
+
+text-overflow: ellipsis;
+    /* 긴문장뒤에 ... 만들어주는 명령어 */
+white-space: nowrap;
+    /* 한줄로 만들어주는 명령어 */
+
+타이틀을 한줄로 만든 뒤에 ...만드는 순서 
+white-space: nowrap;
+text-overflow: ellipsis;
+width: 100%;
+overflow: hidden;
+
+문장에서 뒤에 ...만드는순서
+    height: 6em;       (4줄의 높이)
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+
+
+
+사진크기동일하게 잘라내는방법
+#news li .imgBox {
+    position: relative;
+    overflow: hidden;
+}
+#news li .imgBox:before {
+    content: "";
+    display: block;
+    padding-top: 60%;
+    /* padding의 %값은 넓이에 반영이된다 */
+    background-color: #ff0000;
+}
+#news li .imgBox img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}

@@ -1,0 +1,773 @@
+프로그래밍 = 주어진 데이터를 활용하여 컴퓨터가 알아들을 수 있도록 하는 것 (숫자나 문자를 가공해줌)
+데이터 = 숫자, 문자, 객체, 배열 등등이 존재함
+프로그래밍언어 = c / c++ / java / python / javascript 등
+
+&& 그리고(and)
+|| 또는(or)
+
+매개변수로 함수가 들어갈수도있따.
+
+변수/함수/값(데이터)/조건문/반복문/객체/배열
+
+객체; 데이터를 조금더 효율적으로 쓸수이게 해주는것
+var bosuk = {
+            kor: 90,
+            eng: 90,
+            math: 90,
+        }
+{}안에 들어있는것이 객체
+
+
+배열; 숫자 (데이터에 번호를 부여해서 효율을줌)
+var class503 = ["보석", "하니", "현정"];
+console.log(class503[0]);
+
+
+
+변수 var let const (let, const는 ecma6에서 추가됨)
+        var num = 10;
+        let num2 = 10;
+        const num3 = 20;
+        console.log(num+10);
+        console.log(num);
+        num = num+10;
+        console.log("num===",num);
+var는 함수단위의 값을 제공
+let은 블록단위의 값을 제공
+
+// 변수의 스코프(scope) : 변수가 적용되는 범위
+// var는 function scope 를 가진다. 모든범위에 적용되나 function안에서 변수가 생성됬을떄는 function안에서만
+// let은 block scope 를 가진다. {}안에서만 적용된다
+
+
+ex)
+{let num4 = 100;}
+console.log(num4);
+	값을 정의할수 없다.
+{
+     let num4 = 100;
+     console.log(num4);
+} 
+	값을 정의할수 있따.
+console.log(num4); 하면 정의를 할수없다/
+const는 변하지않는 변수르 넣어야한다.
+
+ex) 
+var num = 10  num = 10+1 가능
+const num1 = 10 num1 = 10+1 불가능
+
+java에서 = (대입연산자) ==,=== (우리가 실제로 아는 =)
+
+
+var name = "강희진"; 문자데이터
+var age = 27; 숫자 데이터
+var korean = true; boolean 데이터는 값이 true, false 밖에 없다
+
+
+
+함수 
+console.log(num);		 객체.함수(변수);
+
+함수선언
+function double(num) {
+    num*2
+}
+// function 함수이름(변수) {
+// }
+// 함수를 연결해주는 변수는 매개변수라서 var num:int 을 따로 붙이지않는다.
+
+
+
+return을 사용하여 출력하고싶을떄 (return을 사용하면 함수를 실행시켜 값을 돌려받을수있따.)
+function double(num) {
+    return num*2
+}
+console.log(double(10));
+
+출력하고싶을떄
+function double(num) {
+    console.log(num*2);
+}
+double(10);
+
+
+
+
+int 정수
+
+예제1 국어영어수학값을 입력받아서 평균을 돌려주는 함수를 만드시오. 
+이름은 average라고 정의하며 매개변수는 kor, eng, math로 정하시오.
+
+function average(kor, eng, math) {
+    return (kor+eng+math)/3;
+}
+console.log(average(20, 20, 20));
+
+function average(kor, eng, math) {
+    let total = kor+eng+math; 변수로 또 묶어서 사용가능
+    return total/3;
+}
+console.log(average(20, 20, 20));
+
+예제2 함수이름은 fat 이라고 하고 몸무게(weight)와 키(height)를 받아서 정상수치를 받는 함수를 만드시오.
+function BMI(weight, height) {
+    return weight/(height*height);
+}
+console.log(BMI(55, 1.6));
+
+
+function isBiman(num) { 
+    if(num > 30) {
+        return "고도비만";
+    }
+    else if(num <= 30 && num > 25) {
+        return "경도비만";
+    }
+    else if(num <= 20) {
+        return "저체중";
+    }
+    else {
+        return "정상체중"
+    }
+}
+console.log(isBiman(Biman(55,1.6)));
+
+&&은 스크립트상에서 그리고 라는뜼
+
+
+
+
+
+
+함수 입력하는 방법
+
+function BMI(weight, height) {
+    return weight/(height*height);
+}
+
+	=> arrow function
+
+BMI = (weight, height) => {
+    return weight/(height*height);
+}
+console.log(BMI(55, 1.6));
+
+
+var BMI02 = function(weight, height) {
+    return weight/(height*height);
+}
+
+input에서 넘어오는 값은 문자로 넘어오게됨
+console.log(typeof kor.value);
+typeof를 치면 문자인지 숫자인지 확인할수 있음
+string은 문자
+
+숫자를 문자로 바꾸거나 문자를 숫자로 바꿔주는것을 데이터의 형변환이라고한다
+// string(10) = "10" 숫자 10을 문자 10으로 변경
+// Number("10") = 10 문자 10을 숫자 10으로 변경
+
+
+
+리팩토링; 
+
+function makeGugudan() {
+    if(num01Value*num02Value === Number(answer.value)) {
+        result.innerHTML = "정답";
+        num01Value = Math.ceil(Math.random()*9);
+        num02Value = Math.ceil(Math.random()*9);
+        num01.innerHTML = num01Value;
+        num02.innerHTML = num02Value;
+
+        // 자동으로 answer에 입력할수있게
+    }
+    else {
+        result.innerHTML = "땡";
+    }
+    answer.value = "";
+    answer.focus();
+}
+btn.addEventListener("click", function(){
+    makeGugudan();
+});
+answer.addEventListener("keyup",function(e){
+    if(e.keyCode === 13) {
+        makeGugudan();
+    }
+});
+
+
+
+
+
+// i++은 1씩 증가해라     1--는 1씩 감소해라
+// var i = 0; var a = ++i  일때 i,a 모두 1
+// var i = 0; var a = i++  일때 i는 0 a는 1
+
+
+
+
+for 반복문 (while도 같은 반복문)
+반복문안의 조건을 잘못입력하면 무한루프돌아서 오류
+
+
+
+for(let i=0; i<10; i++) {
+    console.log("3 x",i,"=",3*i); //구구단 3단
+}
+
+
+
+이중 for문 
+for(let j=2; j<10; j++) {
+    for(let i=1; i<10; i++) {
+        console.log(j, "x", i, "=", j*i);
+    }
+}      //구구단
+
+
+
+while반복문
+let i = 0;
+
+while(i<10) {
+    console.log(i);
+    i++;
+}
+
+
+string함수 
+
+특정개체안에서만 정의 되는 함수 ;  매서드라고 부름
+
+let myName = "강희진 장동건 장성규 장만옥 장동건"; //공백도 글자취급함
+
+console.log(myName.length);  
+    //  .length 글자수를 알려주는 매소드
+
+console.log(myName.charAt(1));  
+    //  .charAt 요청하는 숫자위치의 글자를 알려주는 매소드 '0'이 맨앞글자
+
+console.log(myName.indexOf("장동건"));   
+    //  .indexOf 요청하는 글자의 위치를 '앞'에서부터 찾아주는 매소드 존재하지않는 글자는 -1을 출력
+
+console.log(myName.indexOf("장동건",10)); 
+    //  .indexOf 요청하는 글자의 위치를 '10'에서부터 찾아주는 매소드 
+
+console.log(myName.lastIndexOf("규"));  
+    //  .indexOf 요청하는 글자의 위치를 '뒤'에서부터 찾아주는 매소드
+
+console.log(myName.search("장동건"));
+    //  .search 요청하는 글자의 위치를 무조건 '앞'에서부터 찾아주는 매소드
+
+
+
+
+
+
+
+배열 array
+
+
+
+// array(배열)
+let a = [10,20,30,40];
+let b = a;
+a.push(50);
+b.push(60);    // .push 밀어넣는다는뜻으로 배열을 추가
+console.log(a, "===", b); // ->  (6)?[10, 20, 30, 40, 50, 60] "===" (6)?[10, 20, 30, 40, 50, 60]
+
+
+
+
+// 변수
+let c = 10;
+let d = c;
+c = 30; 
+console.log(c, "===", d);  // ->  30 "===" 10
+
+// 변수-단독주택 배열-아파트
+
+
+
+
+//배열
+let arr = ["하나", "둘", "셋", "넷"]
+console.log(arr[0]); // ->   하나
+arr.push("다섯");    // .push 뒤로 밀어 넣을떄
+arr.pop();    // .pop 맨뒤에있는 것을 자를떄
+arr.unshift("영");    // .unshift 앞으로 밀어 넣을떄
+arr.shift();    // .shift 맨앞에있는 것을 자를떄
+arr.splice(1,2);    // .splice 1번쨰위치에서부터 2개까지 자를떄
+let arr2 = arr.splice(1,1);    // .splice 특정배열에서 원하는만큼 잘라서 가져올수있따.
+console.log(arr2);
+console.log(arr, "===", arr.length);
+
+
+
+
+
+
+
+
+
+
+let arr =  [
+    {id:0, name: "하나", height: 110},
+    {id:1, name: "둘", height: 120},
+    {id:2, name: "셋", height: 130},
+    {id:3, name: "넷", height: 140},
+    {id:4, name: "다섯", height: 150},
+    // {key: value, key: value}
+];
+
+//배열 반복문
+arr.forEach(function(item) {     //  .forEach 배열에서 요청하는 key의 value를 뽑아낼떄
+    console.log(item.id);
+})
+// for(let i=0; i<arr.length; i++) {
+//     console.log(arr[i].id);
+// }
+
+
+
+
+
+
+
+
+
+// 배열안에 정의되어있는 객체
+Array = {
+    length:function() {
+
+    },
+    sort:function() {
+
+    },          // 순서대로 정렬
+    push:function() {
+
+    },
+    pop:function() {
+        
+    },
+}
+
+
+let arr = [1,3,2,10,7,9,20,30];
+let names = ["orange", "banana", "melon", "peach", "apple"];
+console.log(arr.sort(function(a,b){ return a-b }));
+    // 숫자배열를 작은 수부터 정렬하려면 function(a,b){return a-b}를 꼭 입력해야함
+console.log(arr.sort(function(a,b){ return b-a }));
+    // 숫자배열를 큰 수부터 정렬하려면 function(a,b){return b-a}를 꼭 입력해야함  
+console.log(names.sort());
+    // 문자배열은 그냥 .sort()사용 가능
+
+
+ round 반올림 ceil 올림 floor 내림
+
+
+
+
+
+
+
+
+// 로또만들기
+
+let lotto = [];  // 배열을 만들고
+for(let i=1; i<=45; i++) {   //내용이 많으면 따로 for반복문으로 만듬
+    // console.log(i);
+    lotto.push(i);    //push로 배열을 집어 넣는다.
+};
+console.log(lotto);
+// 숫자를 랜덤으로 가져오는 방법 (랜덤숫자가 겹치게됨)
+console.log(lotto[Math.floor(Math.random()*45)]);
+console.log(lotto[Math.floor(Math.random()*45)]);
+console.log(lotto[Math.floor(Math.random()*45)]);
+console.log(lotto[Math.floor(Math.random()*45)]);
+console.log(lotto[Math.floor(Math.random()*45)]);
+console.log(lotto[Math.floor(Math.random()*45)]);
+
+// 가져온 숫자를 뺴서(잘라내는) 랜덤으로 가져오는방법 (랜덤숫자가 겹치지않게)
+console.log(lotto.splice(Math.floor(Math.random()*45),1));
+console.log(lotto.splice(Math.floor(Math.random()*44),1));
+console.log(lotto.splice(Math.floor(Math.random()*43),1));
+console.log(lotto.splice(Math.floor(Math.random()*42),1));
+console.log(lotto.splice(Math.floor(Math.random()*41),1));
+console.log(lotto.splice(Math.floor(Math.random()*40),1));
+console.log(lotto);
+
+// 반복문으로 만들기
+for (i=0; i<6; i++) {
+    console.log(lotto.splice(Math.floor(Math.random()*lotto.length),1));
+};
+
+// 로또 배열에서 랜덤하게 추출된 값을 새로운 배열에 넣고 순서대로(.sort) 정렬
+console.log(lotto[5]);
+let myLotto = [];
+for (i=0; i<6; i++) {
+    let random = Math.floor(Math.random()*lotto.length);
+    myLotto.push(lotto[random]);
+    lotto.splice(random,1);
+
+    // myLotto.push(lotto[Math.floor(Math.random()*lotto.length)]);
+    // lotto.splice(Math.floor(Math.random()*lotto.length),1);
+    // 이방법으로 하면 각자의 랜덤숫자를 고르기때문에 중복될수 있어서 random으로 묶어서 동일한 랜덤 숫자로 만들어준다
+};
+console.log(myLotto);    // 랜덤숫자
+console.log(myLotto.sort(function(a,b){return a-b}));   // 랜덤숫자중에서 순서대로 정렬
+
+
+
+
+
+
+
+
+
+// 가위바위보 만들기  
+let list = document.querySelectorAll("#computer li");
+// list = [li,li,li]; list는 li들의 배열
+
+
+// 랜덤으로 가위바위보가 나오게 하는 함수
+function makeComchoice() {
+    list[0].style.display = "none";
+    list[1].style.display = "none";
+    list[2].style.display = "none";
+    list[Math.floor(Math.random()*3)].style.display = "block";
+    // console.log(list);
+}
+makeComchoice();
+let clearID = setInterval(makeComchoice,100);    // setInterval(자동으로 실행시킬 함수,시간); 계쏙해서 실행시킬떄
+
+
+let humanList = document.querySelectorAll("#human li");
+humanList[0].addEventListener("click",function(){
+    clearInterval(clearID);    // clearInterval(); setInterval을 멈추는것
+});
+humanList[1].addEventListener("click",function(){
+    clearInterval(clearID);    // clearInterval(); setInterval을 멈추는것
+});
+humanList[2].addEventListener("click",function(){
+    clearInterval(clearID);    // clearInterval(); setInterval을 멈추는것
+});
+
+
+
+
+
+
+
+
+
+// 가위바위보 만들기        
+let list = document.querySelectorAll("#computer li");
+let random = 0;
+// list = [li,li,li]; list는 li들의 배열
+
+
+// 랜덤으로 가위바위보가 나오게 하는 함수
+function makeComchoice() {
+    random = Math.floor(Math.random()*list.length);
+    for(let i=0; i<list.length; i++) {
+        if(i===random) {
+            list[i].style.display = "block"; 
+        }
+        else {
+            list[i].style.display = "none"; 
+        }
+        // .style.margin=""; 자바 스크립트에서 css가능 
+        // .style["margin-top"]=""; $$ .style["marginTop"]="";   -가 있는경우일경우
+    }
+
+    // list[i].style.display = "none"; 
+    // list[Math.floor(Math.random()*3)].style.display = "block";
+
+    // console.log(list);
+}
+makeComchoice();
+let clearID = setInterval(makeComchoice,10);    // setInterval(자동으로 실행시킬 함수,시간); 계쏙해서 실행시킬떄
+
+
+let humanList = document.querySelectorAll("#human li");
+for(let i=0;i<3;i++) {
+    humanList[i].addEventListener("click",function(){
+        clearInterval(clearID);    // clearInterval(); setInterval을 멈추는것
+        console.log(random,"===", i);
+        if(random===i) {
+            console.log("비겼어요");
+        }
+        else if (random===0 && i===2 || random==1 && i===0 || random===2 && i===1) {
+            console.log("이겼네요..");
+        }
+        else {
+            console.log("졌어용ㅎ");
+        }
+    });
+}
+
+
+
+
+// && 그리고 ||또는
+
+
+
+
+
+
+// 날짜 표기
+let now = new Date();       //화면 연 순간의 시간을 알려줌
+let year = now.getFullYear();
+let month = now.getMonth();
+let date = now.getDate();
+let day = now.getDay();
+console.log("TCL:now", now);
+console.log("TCL:year", year);
+console.log("TCL:month", month);
+console.log("TCL:date", date);
+console.log("TCL:day", day);
+
+
+
+
+// 배열을 통해서 날짜 표기 확인
+let monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+let dayArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+let now = new Date();       //화면 연 순간의 시간을 알려줌
+let year = now.getFullYear();
+let month = monthArray[now.getMonth()];
+let date = now.getDate();
+let day = dayArray[now.getDay()];
+let current = document.querySelector("#current");
+let hour = now.getHours();
+let min = now.getMinutes();
+let sec = now.getSeconds();
+
+console.log("TCL:month", month);
+console.log("TCL:day", day);
+current.innerHTML = `${year}/${month}/${date}/${day}`;
+
+
+
+
+// 자동으로 시간이 흐리게 만들기
+let monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+let dayArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+let current = document.querySelector("#current");
+let makeTime = function(){
+    let now = new Date();       //화면 연 순간의 시간을 알려줌
+    let year = now.getFullYear();
+    let month = monthArray[now.getMonth()];
+    let date = now.getDate();
+    let day = dayArray[now.getDay()];
+    let hour = now.getHours();
+    let min = now.getMinutes();
+    let sec = now.getSeconds();
+    current.innerHTML = `${year}/${month}/${date}/${day}/${hour}/${min}/${sec}`;
+}
+setInterval(makeTime,1000);
+
+
+//자연스러운 시계만들기
+let makeTime = function(){
+    let now = new Date();       //화면 연 순간의 시간을 알려줌
+    let year = now.getFullYear();
+    let month = monthArray[now.getMonth()];
+    let date = now.getDate();
+    let day = dayArray[now.getDay()];
+    let hour = now.getHours();
+    let min = now.getMinutes();
+    let sec = now.getSeconds();
+    let milli = now.getMilliseconds();
+    let hDeg = hour*30 + min*0.5;
+    let mDeg = min*6 + sec*0.1;
+    let sDeg = sec*6 + milli*0.006;
+    hItem.style.transform = `translate(-50%, -100%) rotate(${hDeg}deg)`;
+    mItem.style.transform = `translate(-50%, -100%) rotate(${mDeg}deg)`;
+    sItem.style.transform = `translate(-50%, -100%) rotate(${sDeg}deg)`;
+    current.innerHTML = `${year}/${month}/${date}/${day}<br>${addZero(hour)}/${addZero(min)}/${addZero(sec)}`;
+}
+
+
+
+
+
+// 디데이만들기
+let now = new Date();
+let dday = new Date(2020,1,13,23,59,59);         // 2020년 2월 13일 23시 59분 59초
+let remainedTime = dday.getTime() - now.getTime();       // .getTime() 지금까지 흐른시간(초단위)
+let rSec = Math.ceil(remainedTime/1000);
+let rMin = Math.ceil(remainedTime/1000/60);
+let rHour = Math.ceil(remainedTime/1000/60/60);
+let rDate = Math.ceil(remainedTime/1000/60/60/24);
+console.log("TCL:remainedTime", remainedTime);
+console.log("TCL:remainedTime", rDate, rHour, rMin, rSec);
+
+
+
+// 디데이처럼 단위별로 만들기
+let now = new Date();
+let dday = new Date(2020,1,13,23,59,59);         // 2020년 2월 13일 23시 59분 59초
+let remainedTime = dday.getTime() - now.getTime();       // .getTime() 지금까지 흐른시간(초단위)
+let rSec = Math.ceil(remainedTime/1000)%60;         // 나머지 구하는방법 %
+let rMin = Math.ceil(remainedTime/1000/60)%60;
+let rHour = Math.ceil(remainedTime/1000/60/60)%24;
+let rDate = Math.ceil(remainedTime/1000/60/60/24);
+console.log("TCL:remainedTime", remainedTime);
+console.log("TCL:remainedTime", rDate, rHour, rMin, rSec);
+
+
+
+
+// 디데이 함수만들어서 적용하기
+let endDay = new Date(2020,1,13,23,59,59);         // 2020년 2월 13일 23시 59분 59초
+let dday = document.querySelector("#dday .txt");
+let addZero = function(num) {
+    if(num<10) {
+        return "0"+num;
+    }
+    else {
+        return num;
+    }
+}
+
+let makeDday = function() {
+    let now = new Date();
+    let remainedTime = endDay.getTime() - now.getTime();       // .getTime() 지금까지 흐른시간(초단위)
+    let rSec = addZero(Math.ceil(remainedTime/1000)%60);         // 나머지 구하는방법 %
+    let rMin = addZero(Math.ceil(remainedTime/1000/60)%60);
+    let rHour =addZero(Math.ceil(remainedTime/1000/60/60)%24);
+    let rDate = Math.ceil(remainedTime/1000/60/60/24);
+
+    dday.innerHTML = `${rDate}<span class="unit">일</span>${rHour}<span class="unit">시간</span>${rMin}<span class="unit">분</span>${rSec}`
+}
+makeDday()
+setInterval(makeDday,1000);
+
+
+
+
+문자를 숫자로 바꾸는법
+Number();
+
+
+
+
+//greensock 기본사용
+gsap.to(".box",{
+    duration:2,
+    x:500,
+    rotation:180,
+    ease:"power2.out",
+    stagger: {
+        amount:1,
+    }       //개별적으로 움직이게 만들어주는 방법
+});
+// gsap.to("#box01",{
+//     duration:2,x:500,rotation:180,ease:"power2.out"
+// });
+// gsap.to("#box02",{
+//     duration:2,x:500,rotation:180,ease:"power2.out"
+// });
+// gsap.to("#box03",{
+//     duration:2,x:500,rotation:180,ease:"power2.out"
+// });
+
+
+// 타임라인으로 개별적으로 모션을 만들어서 움직이게 만드는법
+// 하나움직이고 다 끝나면 그다음게 움직임
+let tl = gsap.timeline();
+tl.to("box01",{
+    duration:2,x:500,rotation:180,ease:"power2.out"
+    });        // 2초동안 가는것
+    .to("box02",{
+    duration:2,x:500,rotation:180,ease:"power2.out"
+    },"+=1");      // "+=1" 1초기다렸다가 2초동안 가는것
+    .to("box03",{
+    duration:2,x:500,rotation:180,ease:"power2.out"
+    },"+=1");        // "+=1" 1초기다렸따가 2초동안 가는것 / "-=1" 1초전에 출발
+    // ""안에있는 숫자는 duration의 영향을 받는데 숫자만 있을경우 절대시간으로 처음부터 몇초후에 시작하는지 정함
+
+
+
+
+
+dkg-holdings에서  gsap
+
+Splitting();
+
+let mainTL = gsap.timeline();
+// .to() .from()
+mainTL.from("#mainVisual .txtBox .sub .char",{
+    duration:1.5,
+    // x:100,
+    opacity:0,
+    x:function() {
+        return Math.random()>0.5? 100:-100;     
+        // Math.random(0~1사이의 숫자)의 숫자가 0.5보다 크다면 x는 100이고 그렇지 않으면 x는 -100으로
+    },
+    ease: "back.out",   // 움직임이 있을 경우 ease를 써주는게 좋다
+    // 위에까지만 쓰면 한번에 움직이게함
+    stagger:{
+        amount:1,       // 전체를 묶어서 쓰고 싶은경우
+        from: "random",   // start end center random
+        // repeat:2
+        // each:0.1       // 개별적으로 쓰고 싶은 경우
+    }
+    // 글자 하나씩 움직일수 있게 해줌
+})
+.from("#mainVisual .txtBox .main .char",{
+    duration:1.5,
+    // x:100,
+    opacity:0,
+    // ease:"back.out",
+    // 위에까지만 쓰면 한번에 움직이게함
+    stagger:{
+        amount:1,
+        from: "random",
+        repeat:2
+    }
+    // 글자 하나씩 움직일수 있게 해줌
+})
+
+
+masonry 핀터레스트레이아웃
+https://masonry.desandro.com/
+
+
+https://isotope.metafizzy.co/		필터기능도 제공
+
+
+https://fancyapps.com/fancybox/3/  		클릭하면 사진커니느효과
+
+
+https://scrollmagic.io/		스크롤 효과
+<script src="../js/scrollmagic/ScrollMagic.min.js"></script>
+<script src="../js/scrollmagic/plugins/animation.gsap.min.js"></script>
+<script src="../js/scrollmagic/plugins/debug.addIndicators.min.js"></script>
+파일 3개 넣어줘야함!
+
+
+https://github.com/js-cookie/js-cookie		오늘하루 안보기할떄 쿠키변경
+
+Cookies.set('name', 'value', { expires: 7 })을 요청하는곳에 입력하면됨
+
+$("#popup .btnOneday").on("click",function(){
+    $("#popup").fadeOut();
+    Cookies.set("oneday", "one", { expires: 1 });
+    // 쿠키이름을 oneday로 하고 클릭햇을떄 one이라는 값을 나오게함
+    return false;
+});
+// console.log(Cookies.get("oneday"));
+let oneday = Cookies.get("oneday");
+if(oneday==="one") {
+    $("#popup").hide();
+}
+else {
+    $("#popup").show();
+}
+
+
+https://alvarotrigo.com/pagePiling/#page1    		풀페이지비슷한거

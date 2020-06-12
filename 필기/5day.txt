@@ -1,0 +1,115 @@
+CSS
+1.태그에 하나하나 입력하는 방법
+2.헤드태그에 입력하는 방법
+3.css폴더 만들어서 파일로 관리하는 방법(이방법 사용많이함)
+
+
+<head>에 <style>입력하여 작성하는것이 좋다
+class(공통요소, 종류) : 여러개지정가능  .class{}
+id : 한번만 사용가능   #id{}
+
+{}:오브젝트
+
+class
+
+id>class>tag 우선순위
+
+
+3방법
+css폴더에 css파일을 만들어 사용할 파일의 헤더에 링크로 연결한다.(자이콘처럼 사용)
+
+
+단색이나 일러스트는 png로 저장하는게 좋다
+포토샵 f8 인포
+ctl+i누르면 보색반전
+색채우기 alt+del+del
+포토샵픽셀변경 edit>preference>rules
+
+
+블럭의 넓이는 부모의 넓이는 따라간다(ex.<div>
+block의 높이는 따로 설정하지않으면 contents의 높이만큼 가진다. 
+
+사진추가 background-image:url("");
+익스플로어의 기본셋팅을 없애려면 reset.css파일을 새로 만들어 리셋 css를 입력하고 헤드태그에 입력
+(다른css보다 앞에 위치해야한다.)
+reset css는 구글링 ex) Eric Meyer’s “Reset CSS”
+
+백그라운드는 기본적으로 패턴효과있음
+background-repeat: no-repeat; 입력하면 반복하지않음
+/**/ css의 주석 ctl+/
+
+흰색  #fff  #ffffff rgba(255.255.255.0.1)
+color: #ffffff;
+/* color: rgba(255.255.255.1); 투명도가 있을경우 */
+
+셈세한작업은 사이트 검사에서 확인해본 후 파일 수정
+
+inline은 넓이를 가지지않고 
+inline-block은 inline이지만 넓이 높이설정이 가능하다.
+#css에서 display inline은 거의 사용하지않고 block이나 inline-block위주로 사용
+
+
+padding:상하 좌우;
+padding:상 좌우 하;
+padding:상 우 하 좌;
+(시계방향)
+
+inline일경우는 padding이 좌우만 적용됨
+block일경우는 padding이 상하만 적용됨
+inline-block일경우에 padding이 상하좌우 다 적용됨
+
+
+
+margin 바깥쪽여백
+margin은 상대적인것이라 어떤블럭이 중심인지에 따라 다름
+block끼리의 margin은 양쪽에 있을떄 상대적으로 큰숫자의 margin이 적용된다
+
+
+text-align: center; : 가운데 정렬
+
+vertical-align: top; : 블럭간 높이가 안맞을떄 높은쪽의 블럭에 맞추는명령어
+line-height: ; : 글자크기 간격
+
+wrap > box > container 이런식으로 class명칭 규칙 스스로 정하기
+
+ctl+shift+p emmet 수식평가 (계산기) ctl+shift+e로 간편등록
+
+
+font-family;: "NanumSquare","맑은 고딕","sans-serif";
+->나눔스퀘어써보고 안되면 맑은 고딕을 쓰고 그것도 안되면 sans-serif를 써라
+
+평균적인 폰트사이즈(font-weight)
+thin light regular bold extrabold
+100-300-400-700-900
+
+border-radius: 왼위 오위 오아 왼아;
+ex) border-radius: 100px;
+
+같은내용을 적용할때 ,찍어서 연결
+infobox dt, infobox dd {display~;}
+
+background-image: url(../images/icon.png);
+background-repeat: no-repeat;
+background-position: 0 60%;
+> 축약해서
+background: url(../images/icon.png) no-repeat 0 60%
+
+background-position: 85px(x축) 70%(y축);
+
+box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+text-shadow: 0 5px 5px rgba(0,0,0,0.15);
+x축 
+
+
+line-height: 1.5; 간격을 1.5로 해야 가독성이 좋아 주로 많이쓰임
+line-height=사이간격/폰트크기
+
+
+letter-spacing: -0.065em; 자간 줄일떄
+
+
+눈누폰트
+
+
+
+

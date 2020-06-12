@@ -1,0 +1,79 @@
+console.log("hello world"); 오류가뭔지 알고싶을떄?
+파스칼(스네이크)식표기법 카멜식표기법
+강력새로고침 ctl+shift+r (캐쉬삭제해서 새로고침) 새로고침버튼꾹누르기
+
+https://validator.w3.org/ : html오류확인
+https://fontawesome.com/ 
+https://xpressengine.github.io/XEIcon/index.html
+: 이미지를 글자로 대체
+http://www.mezzoblue.com/zengarden/alldesigns/ : css디자인
+https://xpressengine.github.io/XEIcon/started.html : xeicon사용방법
+
+prettier 설치(줄맞추기)
+
+
+타이틀만들기
+<link rel="shortcut icon" href="파일위치" type="image/x-icon">
+link favicon
+정사각형의 .png를 16*16픽셀로 바꿔서 export->save for web->preset(PNG-24)로 변경 저장
+
+ul (명확한순서가없을때) / ol (명확한순서가있을때ex.실시간검색어순위)
+
+<!-- (ctl+/) : 주석달기(코멘트달때) 사이트에서 보이지않고 html에만 본다
+<nav> : 메뉴창전체보기부분 nav안에는 무조건 h가 있어야한다
+
+ul안에 ul한번더 사용하는법
+<ul>
+    <li>
+        <a href=""></a><ul>
+            <li>
+                
+            </li>
+        </ul>
+    </li>
+</ul>
+
+ul>li>a 한번에 열수 있다
+<ul>
+    <li>
+        <a href=""></a>
+    </li>
+</ul>
+
+<div> 영역이 다른부분을 쪼개는 것 (제목이없는 영역)
+<section> 다른영역이지만 h를 써야함 (제목이 있는 영역)
+<span> 글자를 쪼갤떄
+
+이미지위에 텍스트를 올릴때 css를 사용하여 이미지를 배경화한다
+
+shift+enter 해야한다
+
+<p>한 단락 ex. ceo인사말
+
+
+
+화면이 바뀌면 <a>
+화면이 바뀌지않으면 <button>
+
+&lt; p &gt; : <p>로 표시
+
+로컬파일불러올떄 http:를 써주면 됨
+
+http : 일반 프로토콜
+https : 암호화된 프로토콜
+
+href
+
+<!-- header end --> : header 끝나고
+<!-- mainViual end --> :
+
+움직이는 사진의 경우 div로 한번더나눠준다
+
+<footer> 맨밑의 회사소개
+adress
+
+<strong> 좀더 강조하는 span
+
+span은 단어느낌 p는 좀더 긴느낌
+
+class설치

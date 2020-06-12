@@ -1,0 +1,53 @@
+https://developer.mozilla.org/ko/docs/Web/API/Element/classList
+
+html tag
+형태에 따라서 
+block(영역을 가진다) 
+	div li ul dl dt dd h1~6 > width, height 지정 가능 , 밑으로내려감
+inline(글자같은) 
+	a span strong img      > width, height 지정 불가능 padding margin으로 , 옆으로
+inline-block()
+
+
+
+
+position  static(기본)/relative/absolute/fixed
+absolute(레이아웃에서 빠져나와 자유롭게 좌표를 지정해서 이동시킬수있다, 없는것처럼 인식, 넓이 높이 인식할수없다.
+        /* 부모가 포지션을 가지면 기준점을 부모로 잡는다
+        부모가 포지션을 가지지않으면 기준점을 잡지못하고 position이 있는 부모로 기준점을 가진다.
+        position이 없으면 body를 기준점으로 가진다.
+        */)
+fixed(기준점 무조건 화면, 스크롤내려가도 그대로 고정 레이아웃에서 빠져나와 자유롭게 좌표지정 가능)
+위의 두개는 넓이,높이 지정해주지않으면 따로 없다
+relative(부모좌표필요없이 스스로 이동가능
+
+z-index: 2;  밑에있는태그를 위로 올리는것(position설정을 해야한다.) 숫자가 크면클수록 위로 올라감
+
+notosans폰트는 demilight쓰면 안됨( 웹에서적용이안됨)
+
+.btnAll.open btnAll 과 open이 함께 있을떄 ( 교집합)
+<button class="btnAll ol open">
+
+
+
+태그 앞과 뒤에 뭘 달고싶을때
+1.태그를 달아서 css로 적용
+                    <a href="" class="depth01">Company
+                        <!-- <span class="line"></span> -->
+                        <!-- 밑에 라인 긋기위한 span 태그 -->
+                    </a>
+
+2.CSS로 가상태그만들어서 적용
+	.depth01:after {
+	    /* .depth01 뒤에 :before :after 를 붙이면 tag를 만들지않아도 가상의 태그를 만들어 사용할수있다
+	        :after :before 은 속성으로 content:""가 꼭 들어가야한다. 내용이없으면 내용자리 비워두면됨  */
+	    content: "";
+	}
+
+
+
+
+
+
+    word-break: keep-all;
+    /* 혼자떨어지는 단어없이 줄바꿈 */

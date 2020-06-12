@@ -1,0 +1,17 @@
+console.log(window);
+window.addEventListener("scroll",function(){
+    console.log(scrollY);
+});
+
+console.log(window);
+window.addEventListener("scroll",()=>{
+    var st = this.scrollY;
+    this.console.log(st);
+});
+°°Àº°Í
+
+function()    =     ()=>
+
+
+
+white-space: nowrap;

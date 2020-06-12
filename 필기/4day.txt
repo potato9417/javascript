@@ -1,0 +1,80 @@
+git 설치
+git은 cli기반
+github
+소스트리
+
+
+소스트리사용법
+1.저장소설정(깃허브에있는 주소)
+2.새저장소만들기
+3.클론저장소
+4.커밋 후 푸시
+
+
+php(중.소규모서버) asp(잘안씀) jsp(은행같은 큰규모서버)
+
+A.M.P
+
+https://sourceforge.net/projects/project-autoset/files/AutoSet10.7.2.10_180921/AutoSet10.7.2.10_x64.exe/download
+서버열때 오토셋사용
+작업은 c:/autoset10/publick_html
+인터넷주소
+127.0.0.1/html/  (위치입력)
+
+오토셋을 사용하면 라이브서버 사용불가
+<??> php문법으로 변경
+<? include("파일위치"); ?> 가져오기
+
+hitop/include일경우
+include폴더는 hitop폴더에 귀속되어있어서  ../를쓰지않고 hitop폴더에 있따고 생각하면됨
+header파일은 index파일에 귀속되어있어서 index파일의 위치에서 생각해야함..!
+
+1. header, footer 부분 복사하는법
+
+파일/html폴더/index.html
+파일include폴더/header.html & footer.html 생성
+index.html에 있는 헤더부분을 잘라내서 header.html에 붙여넣기
+index.html의 잘려진부분에 <? include("../include/header.html"); ?>  입력
+그후에 붙일부분마다 <? include("../include/header.html"); ?>  입력하여 붙여넣기
+
+2. header의 로고를 눌러 index.html로 가기위해서
+<a href="./"><img src="../images/logo_01.png" alt="하이탑로고"></a>
+./입력하면됨
+
+3. 폴더를 만들어서 나눌꺼면 다나누고 제각각폴더만들면 경로가 깨져서 header를 여러개 만들어줘야함
+
+
+블럭태그(h,p) 인라인태그(span)
+h,p태그는 안에 다른 블럭태그 넣을수없다.
+블럭태그안에 인라인태그 가능 
+<p><span><span><p>가능
+<span><p><p><spans>불가능
+
+덩어리 링크가 많으면 nav
+
+i.xi-angle-down-min 쓰면 자동으로 <i class="xi-angle-down-min"></i>로 됨
+
+
+섹션안에 아티클
+
+A(단어) B(설명) 와같이 정의내리는곳에는 dt, dd써야한다 dl로 감싸야한다.
+<dl>
+     <dt>A</dt>
+     <dd>B</dd>
+</dl>
+
+
+탭만드는법ul li구조
+    <ul>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+

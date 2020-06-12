@@ -1,0 +1,211 @@
+https://www.w3schools.com/cssref/default.asp
+
+*{} 모든태그
+*{
+    margin: 0;
+    padding: 0;
+}
+.poster *{} : 포스터안에있는 모든 태그
+
+input[type="text"] {} : input안의 타입은 text만 변경
+
+border: 1px solid #000000; 테두리
+
+
+
+
+
+input[type="text"] {
+    border: 1px solid #000000;
+    width: 200px;
+    height: 40px;
+    color: #000000;
+}
+/* input안의 type의 text속성만 테두리효과 */
+
+p.txt {
+    color: #f00 !important;
+}
+#birth {
+    color: #00f;
+}
+/* tag안의 스타일>id>class>tag 순으로 우선순위 !important : 우선 순위 상관없이 무조건*/
+/* !important > inline style > * > . > tag */
+/* 
+p .txt 
+	<p>
+	   <class="txt">
+	</p> 
+
+p.txt
+	<p class="txt">
+*/
+/* 모든명령어가 상속되진않음 (글자색은 상속되지만 배경색은 상속되지않음) */
+
+
+제목에는 고딕체 본문에 명조체 이런식으로 많이씀
+한글은 한글폰트 영문은 영문폰트 쓰는게 좋다
+mono타입 : 글꼴의 넓이를 통일 (주로 코딩용폰트)
+
+
+
+
+@keyframes
+/* -webkit- 사파리크롬 -moz- 파이어폭스모질라 -o- 오페라 -ms- 마이크로소프트 인터넷익스플로러 */
+/* 최근에 안써도됨 (예외ms) */
+
+
+
+
+.btn {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #000;
+    text-align: center;
+    text-decoration: none;
+}
+.btn:hover {
+    background-color: #000;
+    color: #fff;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+} 
+/* :hover 마우스 올렸을떄 변화 */
+/* transition: s; 변화되는 시간 */
+
+
+
+<!-- reset.css > font > .css -->
+
+
+
+body {
+    font-family: "Gelasio", "Noto Sans KR", serif
+}
+/* font에 띄어쓰기있을 경우 ""입력 */
+/* font 영문폰트를 우선순위를 두고 입력하면된다. */
+
+
+
+웹폰트 변환
+https://github.com/moonspam/NanumSquare : 나눔스퀘어 웹폰트
+http://koreawebdesign.com/font-to-webfont-convert/ : 설명
+https://onlinefontconverter.com/
+
+
+
+
+
+font크기
+px 절대단위
+em 바로위의부모의 크기의 배수(부모크기에따라 달라짐)
+	.song {
+	    font-size: 20px;
+	}
+	.song span {
+ 	   font-size: 1.5em;
+	}
+rem (루트em) html(최상위부모)의 크기의 배수(html크기에 따라 달라짐) <모바일, 반응형웹쓸때 사용 최근에 많이 사용>
+vw(화면가로크기) 화면크기에 숫자퍼센트만큼 맞게 조절됨 <모바일, 반응형웹쓸때 사용 최근에 많이 사용>
+vh(화면세로크기) 화면크기에 숫자퍼센트만큼 맞게 조절됨 <모바일, 반응형웹쓸때 사용 최근에 많이 사용>
+	width: 100vw;
+	hieght: 100vh; 
+화면꽉채울수있다
+
+
+대문자 M을 기준으로 넓이조절
+
+font-weight : 글꼴의 넓이지정
+font-variant: small-caps; : 소문자를 대문자로 바꿔주는데 크기는 소문자크기
+text-transform: uppercase; 글자를 전부 대문자로 바꿔준다
+text-transform: lowercase; 전부 소문자로
+text-transform: capitalize; 앞글자만 대문자로
+text-align: justify; : 양끝맞춤
+text-decoration: underline; : 밑줄(글자사이간격을 띄울수없다.)
+
+
+
+
+
+
+.song {
+    font-size: 10px;
+    padding: 3em;
+}
+.song span {
+    font-size: 2em;
+}
+.song strong {
+    font-size: 2em;
+}
+song크기 10 span크기 20 strong 40
+
+
+
+html기본글자크기 16px
+
+
+
+
+
+#333 or #222 를 주로 사용 검은색(#000)은 너무 진하게 보여서 선호하지않음
+color: inherit 부모로 부터 색상을 그대로 상속
+overflow: hidden; : 개인정보보호약관처럼 긴 글을 한정적으로 보이게 해줌
+
+
+
+
+
+    padding: 0px 50px;
+    height: 90px;
+    line-height: 90px; 
+이렇게해야 font크기 키워도 높이변화없음
+
+vertical-align: top; 위쪽을 기준으로 정렬
+
+
+#gnb .list .depth02 li {
+    display: block;
+} 
+
+#gnb .list > li {} : list의 한번만 내려가서 있는 li를 분석함
+
+#gnb .depth01 {
+
+transition: all 0.25s; : 모든속성이 한번에 0.25초의 시간이 걸린다 속성변경가능, 여러속성 한번에사용가능
+
+
+
+
+
+
+
+
+css(hitop.ver)
+1. html이나 body의 큰틀에 기본으로 사용될 font, size, color, line-height, background-image 등 
+
+2. 밑줄이나 기본적으로 들어있는 데코레이션을 끔(a태그안에들어있는 밑줄을 없애기위해 a태그에 입력)
+	a {
+	  text-decoration: none;
+  	  color: inherit;            (폰트색상을 유전시킴)
+	  }
+
+3.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

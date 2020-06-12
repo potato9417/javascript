@@ -1,0 +1,126 @@
+https://caniuse.com/ : 태그를 사용할수있는지 여부를 알려줌
+크롬웹스토어>
+
+
+alt+레이어눈표시 :클릭한곳말고 나머지 눈사라짐
+merged(머지) : 합쳐
+transparent : 투명
+window>action
+배경사진은 채도나 명도가 높지않게
+<span>
+<p> 
+<section id="">
+class는 반복되서사용가능
+id는 하나만 사용
+
+
+<input type="text">입력
+
+<p>아이디<input type="text" id="userID"></p>
+
+label을 넣으면 접근성이 좋아진다
+label 속성과 id을 같게해야한다
+<p><label for="userID">아이디</label><input type="text" id="userID"></p>
+<label>html<input type="checkbox"></label>
+전체묶을떄는 label뒤에 for속성을 지워야한다
+<label><input type="radio" name="gender">여자</label>
+한가지만 선택할떄는 name 속성을 정해줘야하며 같은이름의 속성으로 해야한다
+<select name="" id=""></select>
+select 태그안에는 option만들어갈수있따
+input 안에 placeholder를 쓰면 글자가고정되어있다
+
+<input type="id"> : 
+<input type="password">
+<input type="checkbox"> : 다중선택창
+<input type="radio"> : 단일선택창
+<select name="" id=""></select> 
+<textarea name="" id="" cols="30" rows="10"></textarea> : 여러줄입력할수있는폼(div)
+<input type="file"> : 파일불러오기
+<input type="number"> : 숫자만입력가능
+
+
+    <table border="1" width="800">
+        <caption>시간표</caption>
+        <colgroup>
+            <col width="25%">
+            <col width="25%">
+            <col width="25%">
+            <col width="25%">
+        </colgroup>
+        <thead>
+            <tr>
+                <th></th>
+                <th scope="col">월</th>
+                <th scope="col">화</th>
+                <th scope="col">수</th>
+                <th scope="col">목</th>
+                <th scope="col">금</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td rowspan="2">국어</td>
+                <td colspan="3">영어</td>
+                <td>사회</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>영어</td>
+                <td>수학</td>
+                <td>과학</td>
+                <td>사회</td>
+            </tr>
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+
+    <table border="1" width="500">
+        <caption>회사연혁</caption>
+        <tbody>
+            <tr>
+                <th>기업명</th>
+                <td>(주)유한양행</td>
+                <th>설립</th>
+                <td>1926.06.20</td>
+            </tr>
+            <tr>
+                <th>대표이사</th>
+                <td>사장 이정희</td>
+                <th>상장일</th>
+                <td>1962.11.01</td>
+            </tr>
+            <tr>
+                <th>주소</th>
+                <td colspan="3">서울특별시 동작구 노량진로 74</td>
+            </tr>
+            <tr>
+                <th>전화번호</th>
+                <td colspan="3">02-828-0181</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+table에는 caption을 무조건 써야한다
+thead랑 tfoot이 없는 경우가 많다
+tr 표줄
+thead랑 tbody 의 tr태그안의 th개수가같아야한다
+th scope="row" 세로으로 영향 (행)
+th scope="col" 가로으로 영향 (열)
+        <colgroup>
+            <col width="100%">
+        </colgroup>
+여백관리 넓이
+caption 밑에
+    <colgroup>
+        <col width="%">th수에따라
+    </colgroup>
+여백관리 높이
+        <tr>
+            <td height="20"></td>
+            <td></td>
+            <td></td>
+        </tr>
+한곳에만 입력하면됨
+

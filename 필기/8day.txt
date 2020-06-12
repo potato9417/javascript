@@ -1,0 +1,27 @@
+슬라이드효과(js)
+slick js
+	https://kenwheeler.github.io/slick/
+bxslider js(잘안씀)
+	https://bxslider.com/
+swiper js(모바일도 잘됨 많이씀)
+	https://swiperjs.com/
+	https://swiperjs.com/get-started/ 
+
+1다운
+2package/css/swiper.css  package/js/swiper.min.js 파일가져오기
+3.<head>에 link scrip
+4. https://swiperjs.com/get-started/ 들어가서 2번까지 한것이라 3번(Add Swiper HTML Layout)을 진행
+5. 5번(Initialize Swiper) 
+	new Swiper("#mainVisual", {});
+6.스크립트에 
+	<script async src="../js/main.js"></script>
+	    <!-- defet async(html을 읽은 뒤 js실행시키는 ) -->
+7.옵션설정 https://swiperjs.com/api/
+	new Swiper("#mainVisual", {옵션입력});
+ex)
+speed: 속도효과
+effect: 돌아가는효과
+loop: 반복효과
+autoplay: 자동
+border :나를기준으로 안으로 선 생김
+outline 나를 기준으로 밖으로 선 생김

@@ -1,0 +1,64 @@
+http://rwdb.kr/interestedeffects/ hover 이펙트 사이트
+
+svg 적용방법(움짤같은것 일러스트로 만듬)
+
+svg태그를 검사에서 긁어올떄 
+	style적용된거 지워야함
+일러스트에서 만들떄
+	artboard tool 사용하여 저장한 후 save as 후 저장 
+	이미지로 사용하려면 img태그에 파일추가
+	움짤로 사용하려면 svg코드 복사해서 붙여넣기
+
+        <a href="" class="btnScroll">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            width="100px" height="100px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+            <style type="text/css">
+                .st0{fill: none;stroke: #fff;}
+            </style>
+            <rect x="0.5" y="0.5" class="st0" width="98" height="98"/>
+            </svg>
+        </a>
+
+
+
+#about li svg {
+    stroke-dasharray: 500;(수치는 상황에 따라서 변경)
+    stroke-dashoffset: 500;
+    animation: svgAni 3s linear 1s forwards;
+}
+@keyframes svgAni {
+    0% {
+        stroke-dashoffset: 500;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+stroke-dasharray 이거나 stroke-dashoffset 둘중하나 변경시키면됨
+
+
+
+#recruit .infoBox .recruit {
+    background-color: #f7f7f7;
+}
+#recruit .infoBox .recruit h3 {
+    font-size: 55px;
+    font-weight: 200;
+    margin: 100px 0 0 100px;
+}
+#recruit .infoBox .recruit .man {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+
+
+
+
+statement(문장으로 표현해줌)
+조건문
+반복문
+
+

@@ -1,0 +1,173 @@
+폴더를 복사해야할때
+	package.json만 복사한뒤
+	npm i 클릭하면 자동으로 설치해줌
+
+만들어야하는 파일/폴더
+	index.html
+	test.js
+	Test.js
+	webpack.config.js
+	(dist폴더>app.js파일)자동으로 생성됨
+
+package.json입력
+	"build": "webpack"
+	"build": "webpack --watch"
+		// npm run build를 실행할때 마다 누르지 않게 ctl+c로 자동 실행하게해줌
+
+설치해야하는 module
+	npm i vue
+	npm i gsap
+	npm i lodash
+	npm i webpack webpack-cli -D
+	npm i vue-template-compiler -D
+	npm i vue-loader -D
+	npm i vue-style-loader -D
+	npm i css-loader -D
+	npm i node-sass -D
+	npm i sass-loader -D
+
+module설치후 webpack수정
+	module:{
+	     rules:[
+	          {test:/\.vue$/, use:"vue-loader},		
+		// vue를 읽기위한
+	          {test:/\.css$/, use:["vue-style-loader","css-loader"]},		
+		// css를 읽기위한
+	          {test:/\.(sa|sc|c)ss$/, use:["vue-style-loader","css-loader","sass-loader"]}		
+		// scss를 읽기위한
+	     ]
+	}
+
+index.html의 script
+	<script src="output한 폴더/output한 파일" defer></script>
+
+test.js에서 외부파일불러오기 밑 vue사용
+	import Vue from "vue";
+	import Test from "./Test.vue";
+	new Vue(Test).$mount ("#app");
+
+webpack.config.js 기본틀
+	const path=require("path");  절대값사용을 위한 상수
+	const VueLoaderPlugin = require("vue-loader/lib/plugin");
+
+	module.exports={
+	     entry:{
+	          코딩을 하려는 위치(절대값사용)   path.join(__dirname,"test.js")
+	     },
+	     module:{
+	          rules:[
+	               {
+	                    test:사용하려는모듈이름(/\.vue/),
+	                    use:사용하려는 plugin("vue-loader")
+	               }
+	          ]
+	     },
+	     plugins:[
+	          다운받은 플러그인(const로 상수지정해서사용)
+	     ],
+	     output:{
+	          filename:"결과값이 나올 파일이름",
+	          path:결과값이 나올 폴더이름(절대값사용)
+	     },
+	}
+
+Test.vue 기본틀
+	<template>
+	</template>
+	<script>
+	     export default{
+	          date(){
+	               return{}
+	          },
+	          methods:{}
+	     }
+	</script>
+	<style>
+	</style>
+
+외부파일 가져오는방법 (Test.vue)
+	@import url("파일경로");
+
+
+vue cli 생성방법 (webpack 환경설정하는걸 편하게 사용할수 있게 해줌)
+	vue.cmd create (생성할폴더명)
+	cd (생성한 폴더명)
+	npm run serve
+
+vue cli 이용방법
+	src폴더의 App.vue파일이 output
+	src>components폴더안의 파일이 entry
+
+vue cli의 App.vue파일 입력
+	<template>
+	     <div id="app">
+	          <entry파일명></entry파일명>
+	     </div>
+	</template>
+	<script>
+	     import entry파일명 from "entry파일 위치값"
+	
+	     export default {
+	          name: "App",
+	          components: {
+	               entry파일명          
+	          }
+	</script>
+
+서로 다른파일에서 속성받아오는법
+
+	props 부모파일한테서 값을 받아 오는 것 (v-bind :)
+	emit 자식파일에서 이벤트를 발생시켜주느거 (v-on @)
+
+     부모파일(props)
+	<template>
+	    <div id="memo">
+	        <ul>
+	            <MemoItem v-for="(memo,i) in memos" :key="i" :contents="memo.contents" :numbers="i" @remove-item="remove(i)"></MemoItem>
+	        </ul>
+	    </div>
+	</template>
+
+     자식파일(emit)
+	<template>
+	        <li>
+	            <span class="number">{{numbers+1}}.</span>
+	            {{contents}}
+	            <button class="xi-trash" @click="removeEvent()"></button>
+	        </li>
+	        <!-- props 부모파일한테서 값을 받아 오는 것 -->
+	</template>
+	
+	<script>
+	    export default {
+	        props: {
+	            contents: String,
+    	            numbers: Number
+	        },
+	        methods: {
+	            removeEvent(){
+	                console.log("클릭");
+	                this.$emit("remove-item");
+	            }
+	        }
+	    }
+	</script>
+
+     형제파일(eventBus)
+
+	emit 형제파일에서 이벤트를 이동시켜주는 역활
+
+
+
+
+
+router 라우터는 주소를 파일로 맵핑해주는것
+	
+
+
+
+
+
+
+
+

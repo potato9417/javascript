@@ -1,0 +1,55 @@
+live sass compiler, sass 설치
+설정 확장 sasscompiler에서 settings.json파일열어서
+밑에
+
+"liveSassCompile.settings.formats":[
+        // This is Default.
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "~/../css"
+            // ~현재폴더에서../한단계올라가서css폴더에 저장하겠다
+        },
+        // More Complex
+        {
+            "format": "compressed",
+            "extensionName": ".min.css",
+            "savePath": "~/../css/"
+        }
+    ]
+
+추가
+
+
+
+// 많이 쓸것 같은 값을 변수에 넣어서 사용( 변수앞에는 무조건$ )
+$base_color: #333;
+$main_color: #0c5a49;
+$max_width: 1720px;
+$auto_width: 1280px;
+
+// 많이 쓸것 같은 것을 함수처럼 만들어서 사용( @mixin )
+@mixin verticalCenter($h) {
+    height: $h;
+    line-height: $h;
+}   // 새로 중앙정렬
+@mixin center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}   // 무조건 정가운데 정렬
+
+사용할때는 include
+@include verticalCenter($h);
+
+
+
+color: lighten($base_color, 30%); 요청색상에서 밝게
+color: darken($base_color, 30%); 요청색상에서 어둡게
+color: saturate($base_color, 30%); 요청색상에서 채도변경
+color: adjust-hue($base_color, 30%); 요청색상에서 색상변경
+
+
+공통으로 사용하는 변수($)나 믹싱(@mixin)은 _vars.scss 파일에 모아두고
+사용하려는 파일에 @import "_vars"; 를 입력한다.

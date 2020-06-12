@@ -1,0 +1,3 @@
+fullpage사용법  
+fullpage.js  다운
+https://github.com/alvarotrigo/fullPage.js/tree/master/lang/korean#fullpagejs
